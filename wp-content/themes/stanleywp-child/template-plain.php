@@ -2,10 +2,10 @@
 /**
  * @package WordPress
  * @subpackage StanleyWP
- * Template Name: FAQ
+ * Template Name: Plain
  */
 ?>
-<?php get_header('faq'); ?>
+<?php get_header('plain'); ?>
 
 <div class="container faq">
 	<div class="border">
@@ -39,4 +39,4 @@
 </div>
 
 
-<?php get_footer('faq'); ?>
+<?php get_footer('plain'); ?>
