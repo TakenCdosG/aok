@@ -1,0 +1,462 @@
+/*
+ Theme Name: StanleyWP Child
+ Theme URI: http://gentsthemes.com
+ Description: Responsive WordPress theme with all the Twitter Bootstrap elements and features.
+ Author: Brad Williams & Carlos Alvarez & Carlos Alvarez
+ Template: stanleywp
+ Author URI: http://gentsthemes.com
+ Version: 3.0.3
+ Copyright (C) 2011-2014 Gents Themes
+ License: GNU General Public License, version 3 (GPLv3)
+ License URI: license.txt
+*/
+html{
+    height: 100%;
+    background-color: #ffffff;
+}
+body{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e2e2e2+0,ffffff+100 */
+    background: #e2e2e2; /* Old browsers */
+    background: -moz-linear-gradient(top,  #e2e2e2 0%, #ffffff 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #e2e2e2 0%,#ffffff 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #e2e2e2 0%,#ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+    height: 100%;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.small{
+    font-size: 0.85em;
+}
+.small a{
+    text-decoration: underline;
+    color: #333;
+}
+:focus{
+    outline-color:transparent;
+
+}
+.content a{
+    color:#598325 !important;
+}
+.border{
+    background-color: #fff;
+    padding:8px;
+}
+.navbar{
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    border-radius: 0;
+    border: 0;
+    margin-bottom: 8px;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#dcdede+18,fbfbfb+100 */
+    background: #dcdede; /* Old browsers */
+    background: -moz-linear-gradient(top,  #dcdede 18%, #fbfbfb 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #dcdede 18%,#fbfbfb 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #dcdede 18%,#fbfbfb 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dcdede', endColorstr='#fbfbfb',GradientType=0 ); /* IE6-9 */
+
+}
+.navbar a{
+    color:#598325 !important;
+    text-transform: uppercase;
+    background-color: transparent !important;
+}
+
+.nav-search{
+    margin-top:20px;
+    float: right;
+    text-align: right;
+}
+.nav-search select{
+    width:100%;
+}
+.nav-logo{
+    background-image: url('./images/logo.png');
+    width: 185px;
+    height: 43px;
+    float: right;
+    margin: 10px 0 20px 0;
+    clear: both;
+}
+.logo *{
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.logo a img{
+    width:230px;
+    height: auto;
+    margin:20px 0 5px 0;
+}
+.logo a{
+    text-decoration: none;
+
+}
+.logo h1{
+    color:#5c8727;
+    font-weight: bold;
+}
+.logo h2{
+    margin-top:0;
+    margin-bottom: 30px;
+}
+.slider{
+    width:100%;
+    height:416px;
+    background-color: #f0f0f0;
+    background-size: cover;
+}
+.content{
+    font-size: 17px;
+}
+.home-first-col{
+    width:24%; 
+    float:left;
+}
+.home-first-col .img{
+    height:414px; 
+    width:100%; 
+    margin-bottom:8px; 
+    background-position: center;
+    background-size: cover;
+}
+.home-first-col .caption{
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    height:175px; 
+    width:100%; 
+    color:#5c8727;
+    padding:15px;
+    font-size: 19px;
+    font-weight: bold;
+    line-height: 1.2;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f9f9f9+1,cdd9bf+82 */
+    background: #f9f9f9; /* Old browsers */
+    background: -moz-linear-gradient(top,  #f9f9f9 1%, #cdd9bf 82%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #f9f9f9 1%,#cdd9bf 82%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #f9f9f9 1%,#cdd9bf 82%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f9f9', endColorstr='#cdd9bf',GradientType=0 ); /* IE6-9 */
+}
+.caption a{
+    color:#ffffff;
+    background-color: #5d8827;
+    border-radius: 4px;
+    font-size: 13px;
+    padding:4px 6px;
+    margin-top: 20px;
+}
+.home-second-col{
+    width:76%; 
+    float:left; 
+    padding-left:8px;
+}
+.home-second-col .content {
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    min-height:300px; 
+    width:100%; 
+    margin-bottom:8px; 
+    padding:55px;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f9f9f9+1,dcdede+82 */
+    background: #f9f9f9; /* Old browsers */
+    background: -moz-linear-gradient(top,  #f9f9f9 1%, #dcdede 82%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #f9f9f9 1%,#dcdede 82%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #f9f9f9 1%,#dcdede 82%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f9f9', endColorstr='#dcdede',GradientType=0 ); /* IE6-9 */
+
+}
+.home-second-col .searchbox-container{
+    width:65%; 
+    float:left;
+}
+.home-second-col .searchbox-container .searchbox{
+    background-color:#5d8827; 
+    height:289px;
+    padding:25px;
+}
+.searchbox *{
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.searchbox h1{
+    font-size: 34px;
+}
+.searchbox h2{
+    font-size: 26px;
+}
+.searchbox h1, .searchbox h2{
+    margin-top:0;
+    color:#ffffff;
+    font-weight: bold;
+}
+.searchbox .field{
+    width:192px;
+    height: 36px;
+    clear: both;
+    display: block;
+    margin-top: 20px;
+    font-size: 20px;
+    color:#3d3d3d;
+    padding: 6px;
+}
+.searchbox .submit{
+    color: #ffffff;
+    background-color: #000;
+    font-weight: bold;
+    border:0;
+    display: block;
+    clear: both;
+    margin-top: 20px;
+    padding: 5px 10px;
+    float:left;
+}
+.home-second-col .image-container{
+    width:35%; 
+    float:left; 
+    padding-left:8px;
+}
+.home-second-col .image-container .img{
+    width:100%;
+    height:289px;
+    background-position: center;
+    background-size: cover;
+}
+#footer{
+    margin:25px 0 50px 0;
+}
+
+.general .content{
+    padding: 15px;
+}
+.general .content h3{
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    color: #5d8827;
+    margin-bottom: 20px;
+}
+.sidebar{
+    margin-top: 85px;
+}
+.sidebar .searchbox-container .searchbox{
+    background-color:#5d8827; 
+    height:289px;
+    padding:25px;
+    height: auto;
+}
+.sidebar .searchbox-container .searchbox .field{
+    max-width:100%;
+}
+.count-results{
+    padding:20px 10px;
+    font-weight: bold;
+    color:#5d8827;
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.result-item{
+    border:1px solid #c2c2c2;
+    margin-bottom: 30px;
+}
+.result-item a{
+    text-decoration: none;
+    color:#000;
+    font-weight: bold;
+}
+.result-item .result-title{
+    padding:10px;
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+#results{
+    -webkit-transition: all 0.4s ease-out;
+    -moz-transition: all 0.4s ease-out;
+    -ms-transition: all 0.4s ease-out;
+    -o-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+}
+.field{
+    float: left;
+    margin-bottom: 10px;
+}
+.one.field{
+    width: 100%;
+}
+.half.field{
+    width:40%;
+}
+.half.field input{
+    width:100%;
+}
+.full.field{
+    width:100%;
+}
+.full.field input{
+    width: 83%;
+}
+input[type="checkbox"]{
+    margin: 0 5px 0 0;
+}
+.ajax{
+    background-color:#5d8827 !important;
+    border-radius: 0 !important;
+    border:none !important;
+    color:#fff !important;
+    text-transform: uppercase;
+    margin-top:10px;
+}
+.search h2{
+    color: #5c8727;
+    margin-left:20px;
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.profile{
+    padding:8px 15px;
+}
+.profile h5{
+    color:#5d8827;
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    font-weight: bold;
+}
+.profile.grey{
+    background-color: #f7f7f7;
+}
+.profile.list ul li{
+    float: left;
+    margin-right: 20px;
+}
+.basic-information{
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.basic-information p{
+    margin:0 0 8px 0;
+}
+.basic-information h3{
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    color: #5c8727;
+    font-weight: bold;
+    margin-left: 15px;
+}
+.about-childcare{
+    width: 100%;
+    float: left;
+    display: table !important;
+}
+.about-childcare .first{
+    float:left;
+    width: 38%;
+    display: table-cell;
+    height: 100%;
+
+}
+.about-childcare .second{
+    float:left;
+    margin-left: 0.5%;
+    display: table-cell;
+    width: 61.5%;
+    height: 100%;
+
+}
+.about-childcare .second ul{
+    list-style-position: inside;
+    list-style: disc;
+    padding-left:15px;
+}
+.about-childcare .profile{
+    height: 100%;
+}
+.back{
+    padding: 8px;
+    background-color: #000;
+    margin-bottom: 30px;
+}
+.back a{
+    color: #ffffff;
+    text-decoration: none;
+}
+.big-logo{
+    width:800px;
+    margin:0 auto 20px;
+    max-width:95%;
+}
+.faq .border{
+    margin-top: 30px;
+    padding:30px;
+}
+.faq .general{
+    margin-top:30px;
+}
+.su-spoiler-title{
+    color: #5c8727;
+    font-family: Georgia, Times, "Times New Roman", serif;
+    font-weight: 300 !important;
+    font-size: 1.3em !important;
+}
+.su-spoiler-content{
+    padding-top:0 !important;
+}
+/*MEDIA QUERIES*/
+@media (max-width: 1200px){
+   .home-second-col .content{
+    height: auto;
+   }
+   .home-first-col .caption{
+    font-size: 18px;
+   }
+   .home-first-col .caption a{
+    font-size: 12px;
+   }
+}
+@media (max-width: 992px){
+   .home-first-col .caption{
+    font-size: 14px;
+   }
+   .sidebar{
+        margin-top: 20px;
+    }
+    .profile.list ul li{
+        float: none !important;
+    }
+}
+@media (min-width: 768px) and (max-width: 992px){
+   .home-first-col .caption a{
+      visibility: hidden;
+      font-size: 12px;
+    }
+    .home-first-col .caption a:after {
+      content:'CLICK HERE'; 
+      visibility: visible;
+      display: inline-block;
+      background-color: #5d8827;
+      border-radius: 4px;
+      padding: 4px 6px;
+      position: relative;
+      top:-20px;
+    }
+}
+@media (min-width: 768px){
+   .navbar-nav{
+    text-align: center;
+    float: none !important;
+    }
+    .navbar-nav > li{
+        display: inline-block;
+        float: none !important;
+    }
+}
+@media (max-width: 768px){
+    .navbar-collapse{
+        background-color: #ffffff;
+    }
+    .home-first-col, .home-second-col{
+        width:100%;
+        padding:0;
+    }
+    .home-first-col .caption{
+    height: auto;
+    padding-bottom: 20px;
+    }
+}
+@media (max-width: 520px){
+    .searchbox h1{
+        font-size: 25px;
+    }
+    .searchbox .field {
+        width: 100%;
+    }
+}
+@media (max-width: 420px){
+    .searchbox h1{
+        font-size: 20px;
+    }
+}
