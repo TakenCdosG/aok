@@ -146,15 +146,6 @@ jQuery(document).ready(function($) {
       var cam = "nox"
     }
     
-     
-
-   /* $('input[type=checkbox]').each(function () {
-           if (this.checked) {
-              window[ $(this).attr("id")] = $("#"+$(this).attr("id")).val();
-
-           }
-    });
-    alert(cfork);*/
 
     $.ajax({
       type: 'POST',
@@ -165,7 +156,6 @@ jQuery(document).ready(function($) {
         $('#results').html(data);
         if($('.count_results').text() == ""){var count_results = 0}else{count_results = $('.count_results').text()}
         $('.count-results').html(count_results+" Results found");
-        //alert("mostrar");
       },
       error: function(data) {
         $('#results').html("error");
