@@ -385,6 +385,16 @@ input[type="checkbox"]{
 .su-spoiler-content{
     padding-top:0 !important;
 }
+.morecontent span {
+    display: none;
+}
+.morelink {
+    display: block;
+    margin:10px 0;
+}
+a.morelink {
+    color: #5d8827;
+}
 /*MEDIA QUERIES*/
 @media (max-width: 1200px){
    .home-second-col .content{
