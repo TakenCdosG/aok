@@ -172,15 +172,14 @@ if( $the_query->have_posts() ): ?>
               <div style="width:100%; height:250px; background-size:cover; background-position:center; background-image:url(<?php the_post_thumbnail_url('medium'); ?>);"></div>
               <div class="result-title">
                 <?php the_title(); 
-                  //do_action('gd_mylist_btn',$arg);
                 ?>
-
               </div> 
             </a>
             <?php
               $arg = array (
                   'echo' => true
               );
+              do_action('gd_mylist_btn',$arg);
             ?>
           </div>
       </div>

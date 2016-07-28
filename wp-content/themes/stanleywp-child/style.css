@@ -248,6 +248,21 @@ body{
 .result-item{
     border:1px solid #c2c2c2;
     margin-bottom: 30px;
+    position: relative;
+}
+.result-item .btn, .result-item .btn:active{
+    font-size: 11px;
+    box-shadow: none;
+    background-color: transparent;
+    border: none;
+    font-weight: 100;
+    padding:10px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+.result-item .text-danger{
+    color: #5d8827;
 }
 .result-item a{
     text-decoration: none;
