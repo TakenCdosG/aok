@@ -31,7 +31,7 @@ require_once( get_template_directory() .'/functions/comments-layout.php' );
 
 // Functions needed for admin
 require_once( get_template_directory() .'/functions/post-types/post-type-helpers.php' );
-require_once( get_template_directory() .'/functions/post-types/register-post-types.php' );
+//require_once( get_template_directory() .'/functions/post-types/register-post-types.php' );
 require_once( get_template_directory() .'/functions/post-types/register-taxonomies.php' );
 
 /************* METABOX ****************/
