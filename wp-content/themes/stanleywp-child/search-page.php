@@ -74,7 +74,7 @@ echo 'You need to be <a href="'.$redirect.'">logged in</a> to access this page';
             <div class="one field">
               <label for="cop">Current Openings: </label>
               <input id="copyes" type="checkbox" name="cop" value="yes" >YES</input> 
-              <input id="copno" type="checkbox" name="cop" value="no">NO</input>
+              <input style="margin-left:10px;" id="copno" type="checkbox" name="cop" value="no">NO</input>
             </div>
             <div class="one field">
               <label for="">Check the following that apply: </label>
