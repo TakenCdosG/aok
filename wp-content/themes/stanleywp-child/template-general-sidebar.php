@@ -42,7 +42,7 @@
 						<div class="searchbox">
 							<h2>Where are you looking for child care?</h2>
 							<form action="">
-								<input class="field" type="text" value="Enter Zip Code">
+								<input class="field" type="text" onfocus="if(this.value == 'Enter Zip Code') { this.value = ''; }" value="Enter Zip Code">
 								<input class="submit" type="submit" value="SEARCH">
 							</form>
 							<div class="clearfix"></div>
