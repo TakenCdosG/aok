@@ -141,10 +141,27 @@ $p_expiration_date = get_field('p_expiration_date', 'user_'.$ide);
           <div class="clearfix"></div>
         </div>
         <div class="profile">
-            <p class="small">For up to date licensing information, please visit the <a href="#">Connecticut Office of Early Childhood website.</a></p>
-          </div>
+          <p class="small">For up to date licensing information, please visit the <a href="#">Connecticut Office of Early Childhood website.</a></p>
+        </div>
       </div>
     </div>  
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="profile">
+          <h5>CURRENT OPENINGS</h5>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="profile grey list">
+          <ul>
+            <li><strong>Infant/Toddler</strong><br><?php echo 1; ?></li>
+            <li><strong>Pre-school</strong><br><?php echo 3; ?></li>
+            <li><strong>Before & After SchooL</strong><br><?php echo 1; ?></li>
+          </ul>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>   
     <div class="row">
       <div class="col-lg-12">
         <div class="profile">
@@ -159,6 +176,9 @@ $p_expiration_date = get_field('p_expiration_date', 'user_'.$ide);
             <li><strong>Expiration date</strong><br><?php echo $p_expiration_date_qsp; ?></li>
           </ul>
           <div class="clearfix"></div>
+        </div>
+        <div class="profile">
+          <p class="small"><a href="#">Click here</a> to learn more about accreditation information</p>
         </div>
       </div>
     </div>  

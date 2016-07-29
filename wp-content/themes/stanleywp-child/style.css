@@ -71,7 +71,7 @@ body{
 }
 .nav-logo{
     background-image: url('./images/logo.png');
-    width: 185px;
+    width: 153px;
     height: 43px;
     float: right;
     margin: 10px 0 20px 0;
@@ -410,6 +410,19 @@ input[type="checkbox"]{
 a.morelink {
     color: #5d8827;
 }
+.register_message{
+    margin-bottom: 20px; 
+}
+.register input{
+    width: 50%;
+    margin-bottom: 15px;
+}
+.register input[type="checkbox"], .register input[type="submit"] {
+    width: auto;
+}
+
+
+
 /*MEDIA QUERIES*/
 @media (max-width: 1200px){
    .home-second-col .content{

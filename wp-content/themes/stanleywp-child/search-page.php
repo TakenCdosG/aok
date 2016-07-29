@@ -3,16 +3,7 @@
  * Template Name: Search page
  */
 ?>
-<?php get_header(); ?>
-<?php
-if (!is_user_logged_in()) {
-
-$redirect = home_url() . '/wp-login.php?redirect_to=' . urlencode( $_SERVER['REQUEST_URI'] );
-echo 'You need to be <a href="'.$redirect.'">logged in</a> to access this page';
-
-
-} else {?>
-   
+<?php get_header(); ?> 
 <div class="container search">
   <div class="border">
     <div class="row">
@@ -25,6 +16,17 @@ echo 'You need to be <a href="'.$redirect.'">logged in</a> to access this page';
           <h2>Search</h2>
       </div>
     </div>
+    <?php
+    if (!is_user_logged_in()) {
+      $redirect = home_url() . '/wp-login.php?redirect_to=' . urlencode( $_SERVER['REQUEST_URI'] );
+      $register =  wp_registration_url().'&redirect_to=' . urlencode( $_SERVER['REQUEST_URI']); 
+
+      echo('Are you looking for child care? If so, <a href="'.$register.'">register here </a>
+        <br>
+        Already registered?  <a href="'.$redirect.'">Log in here</a>
+
+      ');
+    } else {?>
     <div class="row">
       <div class="col-lg-5">
         
@@ -54,19 +56,13 @@ echo 'You need to be <a href="'.$redirect.'">logged in</a> to access this page';
                 <option value="11">11</option>
               </select> 
             </div>
-            <div class="half field">
-              <label for="qsp">QSP Level: </label>
-              <select id="qsp" name="qsp" label="QSP Level" >
-                <option value="">- Select Level -</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-              </select>
+            <div class="one field">
+              <label for="zip">ZIP Code: </label>
+              <input  id="zip" name="zip" label="ZIP Code" ></input>
             </div>
-            <div class="half field" style="margin-left:3%;">
+            <div class="one field">
               <label for="lang">Language Spoken: </label>
-              <select id="lang" name="lang" label="Language Spoken" >
-                <option value="">- Select Language -</option>
+              <select id="lang" name="lang" label="Language Spoken" multiple="multiple">
                 <option value="English">English</option>
                 <option value="Spanish">Spanish</option>
               </select>
@@ -96,7 +92,7 @@ echo 'You need to be <a href="'.$redirect.'">logged in</a> to access this page';
     </div>
   </div>
 </div>
-
+<script src="<?php echo get_stylesheet_directory_uri(); ?>/includes/multiple-select.js"></script>
 <script type="text/javascript">
 jQuery(document).ready(function($) {
 
@@ -115,7 +111,7 @@ jQuery(document).ready(function($) {
     var lname = $("#lname").val();
     var ccname = $("#ccname").val();
     var age = $("#age").val();
-    var qsp = $("#qsp").val();
+    var zip = $("#zip").val();
     var lang = $("#lang").val();
 
     if($("#copyes").prop('checked')){
@@ -150,7 +146,7 @@ jQuery(document).ready(function($) {
     $.ajax({
       type: 'POST',
       url: '<?php echo site_url() ?>/search-results',
-      data: {'fname' : fname, 'lname' : lname, 'ccname' : ccname, 'age' : age, 'qsp' : qsp, 'lang' : lang, 'cop' : cop, 'opeve' : opeve, 'opweek' : opweek, 'cfork' : cfork, 'cam' : cam },
+      data: {'fname' : fname, 'lname' : lname, 'ccname' : ccname, 'age' : age, 'zip' : zip, 'lang' : lang, 'cop' : cop, 'opeve' : opeve, 'opweek' : opweek, 'cfork' : cfork, 'cam' : cam },
       dataType: 'html',
       success: function(data) {
         $('#results').html(data);
@@ -185,9 +181,20 @@ jQuery(document).ready(function($) {
   }
   setTimeout(explode, 50);
 
+  /*Multiple select*/
+  $(function() {
+      $('#lang').change(function() {
+          console.log($(this).val());
+      }).multipleSelect({
+          width: '100%'
+      });
+  });
 
 }); 
+
+
 </script>
+
 <?php
 }
 ?>

@@ -8,7 +8,7 @@ $fname = $_POST['fname'];
 $lname = $_POST['lname'];
 $ccname = $_POST['ccname'];
 $age = $_POST['age'];
-$qsp = $_POST['qsp'];
+$zip = $_POST['zip'];
 $lang = $_POST['lang'];
 $cop = $_POST['cop'];
 
@@ -24,69 +24,8 @@ $args0 = array(
   'post_status' => 'any',
   'posts_per_page' => 10,
 );
+
 $args1 = array(
-  'numberposts' => -1,
-  'post_type'   => 'child_care',
-  'meta_query'  => array(
-    'relation'    => 'AND',
-    array(
-      'key'   => 'fname',
-      'value'   => $fname,
-      'compare' => '='
-    ),
-    array(
-      'key'   => 'lname',
-      'value'   => $lname,
-      'compare' => '='
-    ),
-    array(
-      'key'   => 'cc-name',
-      'value'   => $ccname,
-      'compare' => '='
-    ),
-    array(
-      'key'   => 'age',
-      'value'   => $age,
-      'compare' => '='
-    ),
-    array(
-      'key'   => 'qsp',
-      'value'   => $qsp,
-      'compare' => '='
-    ),
-    array(
-      'key'   => 'lang',
-      'value'   => $lang,
-      'compare' => '='
-    ),
-    array(
-      'key'   => 'cop',
-      'value'   => $cop,
-      'compare' => '='
-    ),
-    array(
-      'key'   => 'opeve',
-      'value'   => $opeve,
-      'compare' => '='
-    ),
-    array(
-      'key'   => 'opweek',
-      'value'   => $opweek,
-      'compare' => '='
-    ),
-    array(
-      'key'   => 'cfork',
-      'value'   => $cfork,
-      'compare' => '='
-    ),
-    array(
-      'key'   => 'cam',
-      'value'   => $cam,
-      'compare' => '='
-    )
-  )
-);
-$args2 = array(
   'numberposts' => -1,
   'post_type'   => 'child_care',
   'meta_query'  => array(
@@ -112,13 +51,8 @@ $args2 = array(
       'compare' => '='
     ),
     array(
-      'key'   => 'qsp',
-      'value'   => $qsp,
-      'compare' => '='
-    ),
-    array(
-      'key'   => 'lang',
-      'value'   => $lang,
+      'key'   => 'zip',
+      'value'   => $zip,
       'compare' => '='
     ),
     array(
@@ -148,16 +82,21 @@ $args2 = array(
     )
   )
 );
+for($i = 0; $i < count($lang); $i ++ ){
+    $la = $lang[$i];
+    $array_la = array(
+      'key'   => 'lang',
+      'value'   => $la,
+      'compare' => 'LIKE'
+    );
+    $args1['meta_query'] = array_merge($args1['meta_query'], array($array_la));
+}
+
 if($argstart == 1){
   $args = $args0;
 }else{
-  if(empty($fname) or empty($lname) or empty($ccname) or empty($age) or empty($qsp) or empty($lang) or empty($cop) or empty($opeve) or empty($opweek) or empty($cfork) or empty($cam)){
-    $args = $args2;
-  }else{
-    $args = $args1;
-  }  
+  $args = $args1;
 }
-
 
 // query
 $the_query = new WP_Query( $args );
