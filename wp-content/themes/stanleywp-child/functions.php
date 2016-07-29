@@ -326,7 +326,7 @@ function complete_registration() {
             wp_set_auth_cookie($user); // start the cookie for the current registered user
         }
         $redirect_to = $_GET['redirect_to'];
-        echo '<div clas="register_message">Registration complete. Goto <a href="' . get_site_url() . $redirect_to .'">previous page</a>.</div>';   
+        echo '<div class="register_message">Registration complete. Goto <a href="' . get_site_url() . $redirect_to .'">previous page</a>.</div>';   
     }
 }
 
