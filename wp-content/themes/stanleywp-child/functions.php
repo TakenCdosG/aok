@@ -237,7 +237,6 @@ function custom_registration_function() {
 }
 
 function registration_form( $username, $password, $email, $role ) {
-
     echo '
     <div class="register">
         <form action="' . $_SERVER['REQUEST_URI'] . '" method="post">
@@ -322,7 +321,12 @@ function complete_registration() {
         'role'      =>  "$role",
         );
         $user = wp_insert_user( $userdata );
-        echo '<div clas="register_message">Registration complete. Goto <a href="' . get_site_url() . '/wp-login.php">login page</a>.</div>';   
+        if(!is_wp_error($user)){
+            wp_set_current_user($user); // set the current wp user
+            wp_set_auth_cookie($user); // start the cookie for the current registered user
+        }
+        $redirect_to = $_GET['redirect_to'];
+        echo '<div clas="register_message">Registration complete. Goto <a href="' . get_site_url() . $redirect_to .'">previous page</a>.</div>';   
     }
 }
 

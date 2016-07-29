@@ -19,13 +19,9 @@
     <?php
     if (!is_user_logged_in()) {
       $redirect = home_url() . '/wp-login.php?redirect_to=' . urlencode( $_SERVER['REQUEST_URI'] );
-      $register =  wp_registration_url().'&redirect_to=' . urlencode( $_SERVER['REQUEST_URI']); 
+      $register =  home_url() . '/register?redirect_to=' . urlencode( $_SERVER['REQUEST_URI'] );
 
-      echo('Are you looking for child care? If so, <a href="'.$register.'">register here </a>
-        <br>
-        Already registered?  <a href="'.$redirect.'">Log in here</a>
-
-      ');
+      echo('<div class="row"><div class="col-lg-12">Are you looking for child care? If so, <a href="'.$register.'">Register here </a> <br> Already registered?  <a href="'.$redirect.'">Log in here</a> </div></div>');
     } else {?>
     <div class="row">
       <div class="col-lg-5">
