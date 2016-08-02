@@ -47,9 +47,9 @@
               <label for="age">Ages Served: </label>
               <select id="age" name="age" label="Age" >
                 <option value="">- Select Age Group -</option>
-                <option value="1">1</option>
+                <option value="1">6 months - 6 years</option>
                 <option value="2">2</option>
-                <option value="11">11</option>
+                <option value="3">3</option>
               </select> 
             </div>
             <div class="one field">

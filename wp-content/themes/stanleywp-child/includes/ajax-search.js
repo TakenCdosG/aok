@@ -19,6 +19,7 @@ jQuery(document).ready(function($) {
     var age = $("#age").val();
     var zip = $("#zip").val();
     var lang = $("#lang").val();
+    var argstart = 2;
 
     if($("#copyes").prop('checked')){
       var cop = "yes"
@@ -52,7 +53,7 @@ jQuery(document).ready(function($) {
     $.ajax({
       type: 'POST',
       url: baseUrl+'/search-results',
-      data: {'fname' : fname, 'lname' : lname, 'ccname' : ccname, 'age' : age, 'zip' : zip, 'lang' : lang, 'cop' : cop, 'opeve' : opeve, 'opweek' : opweek, 'cfork' : cfork, 'cam' : cam },
+      data: {'argstart' : argstart, 'fname' : fname, 'lname' : lname, 'ccname' : ccname, 'age' : age, 'zip' : zip, 'lang' : lang, 'cop' : cop, 'opeve' : opeve, 'opweek' : opweek, 'cfork' : cfork, 'cam' : cam },
       dataType: 'html',
       success: function(data) {
         $('#results').html(data);

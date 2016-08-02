@@ -84,6 +84,9 @@ $args1 = array(
 );
 for($i = 0; $i < count($lang); $i ++ ){
     $la = $lang[$i];
+    if(empty($la)){
+      $la = "None";
+    }
     $array_la = array(
       'key'   => 'lang',
       'value'   => $la,
