@@ -45,11 +45,11 @@
       </div>
       <div class="col-lg-3 col-md-3 col-sm-3">
         <div class="nav-search">
-          <select>
-            <option value="volvo">Select Language</option>
-            <option value="saab">English</option>
-            <option value="opel">Spanish</option>
-          </select>
+          <?php
+            if(is_active_sidebar('header_sidebar')){
+                dynamic_sidebar('header_sidebar');
+            }
+          ?>
         </div>
         <a href="<?php echo site_url(); ?>"><div class="nav-logo"></div></a>
       </div>

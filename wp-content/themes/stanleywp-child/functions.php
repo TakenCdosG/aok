@@ -10,7 +10,7 @@ add_post_type_support( 'child_care', 'thumbnail' );
 /*Sidebars*/
 if ( function_exists('register_sidebar') )
 register_sidebar( array(
-'name' => 'right_sidebar',
+'name' => 'Right sidebar',
 'id' => 'right_sidebar',
 'description' => 'Right Sidebar',
 'before_widget' => '<aside id="%1$s" class="widget %2$s">',
@@ -18,6 +18,17 @@ register_sidebar( array(
 'before_title' => '<h3 class="widget-title">',
 'after_title' => '</h3>',
 ) );
+
+register_sidebar( array(
+'name' => 'Header sidebar',
+'id' => 'header_sidebar',
+'description' => 'Header Sidebar',
+'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+'after_widget' => '</aside>',
+'before_title' => '<h3 class="widget-title">',
+'after_title' => '</h3>',
+) );
+
 
 //Child Care Custom Post Type
 

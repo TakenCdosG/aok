@@ -46,10 +46,22 @@
             <div class="one field">
               <label for="age">Ages Served: </label>
               <select id="age" name="age" label="Age" >
-                <option value="">- Select Age Group -</option>
+                <?php
+                $field_key = "field_577d22859ee8c";
+                $field = get_field_object($field_key);
+
+                if( $field )
+                {
+                  foreach( $field['choices'] as $k => $v )
+                  {
+                      echo '<option value="' . $k . '">' . $v . '</option>';
+                  }  
+                }
+                ?>
+                <!--<option value="">- Select Age Group -</option>
                 <option value="1">6 months - 6 years</option>
                 <option value="2">2</option>
-                <option value="3">3</option>
+                <option value="3">3</option> -->
               </select> 
             </div>
             <div class="one field">
