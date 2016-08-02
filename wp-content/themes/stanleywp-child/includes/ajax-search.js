@@ -1,5 +1,19 @@
 jQuery(document).ready(function($) {
 
+  $.urlParam = function(name){
+      var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+      if (results==null){
+         return null;
+      }
+      else{
+         return results[1] || 0;
+      }
+  }
+
+  window.zipcode = $.urlParam('zip');
+
+  $("#zip").val(zipcode);
+
   window.baseUrl = document.location.origin;
 
   $('#copyes').on('change', function() {
@@ -67,11 +81,15 @@ jQuery(document).ready(function($) {
 
     return false;
   });
+
+    if(zipcode != null){
+      $(".ajax").trigger( "click" );
+    }
 }); 
 
 jQuery(document).ready(function($) {
   function explode(){
-    var argstart = 1;
+   var argstart = 1;
    $.ajax({
       type: 'POST',
       url: baseUrl+'/search-results',
@@ -86,7 +104,10 @@ jQuery(document).ready(function($) {
       }
     });     
   }
-  setTimeout(explode, 50);
+  if(zipcode == null){
+    setTimeout(explode, 50);
+  }
+  
 
   /*Multiple select*/
   $(function() {

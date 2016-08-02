@@ -54,7 +54,7 @@
             </div>
             <div class="one field">
               <label for="zip">ZIP Code: </label>
-              <input  id="zip" name="zip" label="ZIP Code" ></input>
+              <input type="text" id="zip" name="zip" label="ZIP Code" ></input>
             </div>
             <div class="one field">
               <label for="lang">Language Spoken: </label>

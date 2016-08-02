@@ -57,8 +57,8 @@
 					<div class="searchbox-container">
 						<div class="searchbox">
 							<h1>Where are you looking for child care?</h1>
-							<form action="">
-								<input class="field" type="text" onfocus="if(this.value == 'Enter Zip Code') { this.value = ''; }" value="Enter Zip Code" >
+							<form action="find-child-care/" method="GET">
+								<input name="zip" class="field" type="text" onfocus="if(this.value == 'Enter Zip Code') { this.value = ''; }" value="Enter Zip Code" >
 								<input class="submit" type="submit" value="SEARCH">
 							</form>
 						</div>
