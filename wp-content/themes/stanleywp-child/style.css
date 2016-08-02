@@ -452,7 +452,7 @@ a.morelink {
       font-size: 12px;
     }
     .home-first-col .caption a:after {
-      content:'CLICK HERE'; 
+      content:'CLICK'; 
       visibility: visible;
       display: inline-block;
       background-color: #5d8827;

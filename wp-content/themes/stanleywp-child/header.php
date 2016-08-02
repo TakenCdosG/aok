@@ -21,7 +21,7 @@
 <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/includes/multiple-select.css" />
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
-
+<?php global $current_lang; $current_lang = pll_current_language();?>
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="<?php get_template_directory_uri();?>/js/html5shiv.js"></script>
