@@ -13,7 +13,7 @@
     </div>
     <div class="row">
       <div class="col-lg-12">
-          <h2>Búsuqeda</h2>
+          <h2>Búsqeda</h2>
       </div>
     </div>
     <?php
