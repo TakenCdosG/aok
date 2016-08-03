@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Search page
+ * Template Name: Search page es_ES
  */
 ?>
 <?php get_header(); ?> 
@@ -13,7 +13,7 @@
     </div>
     <div class="row">
       <div class="col-lg-12">
-          <h2>Search</h2>
+          <h2>Búsuqeda</h2>
       </div>
     </div>
     <?php
@@ -21,7 +21,7 @@
       $redirect = home_url() . '/wp-login.php?redirect_to=' . urlencode( $_SERVER['REQUEST_URI'] );
       $register =  home_url() . '/register?redirect_to=' . urlencode( $_SERVER['REQUEST_URI'] );
 
-      echo('<div class="row"><div class="col-lg-12">Are you looking for child care? If so, <a href="'.$register.'">Register here </a> <br> Already registered?  <a href="'.$redirect.'">Log in here</a> </div></div>');
+      echo('<div class="row"><div class="col-lg-12">¿Estas buscando Cuidado Infantil? Si es así, <a href="'.$register.'">Regístrese aquí </a> <br> ¿Ya está Registrado?  <a href="'.$redirect.'">Ingrese aquí</a> </div></div>');
     } else {?>
     <div class="row">
       <div class="col-lg-5">
@@ -31,23 +31,23 @@
           <form action="<?php echo site_url(); ?>/search-results" method="POST">
             <input type="hidden" id="current_lang" name="current_lang" value="<?php echo $current_lang; ?>">
             <div class="half field">
-              <label for="fname">First Name: </label>
+              <label for="fname">Nombre: </label>
               <input id="fname" type="text" name="fname" label="First Name" ></input>
             </div>
              <div class="half field" style="margin-left:3%;">
-              <label for="lname">Last Name: </label>
+              <label for="lname">Apellido: </label>
               <input id="lname" type="text" name="lname" label="Last Name" ></input>
             </div>
             <div class="clearfix"></div>
             <div class="full field">
-              <label for="ccname">Child Care Name: </label>
+              <label for="ccname">Nombre de Cuidado Infantil: </label>
               <input id="ccname" type="text" name="ccname" label="Child Care Name" ></input>
             </div>
             <div class="clearfix"></div>
             <div class="one field">
-              <label for="age">Ages Served: </label>
+              <label for="age">Edades: </label>
               <select id="age" name="age" label="Age" >
-                <option value="">- Select Age Group -</option>
+                <option value="">- Selecciona el grupo de edades -</option>
                 <?php
                 $field_key = "field_577d22859ee8c";
                 $field = get_field_object($field_key);
@@ -63,30 +63,30 @@
               </select> 
             </div>
             <div class="one field">
-              <label for="zip">ZIP Code: </label>
+              <label for="zip">Codigo Postal: </label>
               <input type="text" id="zip" name="zip" label="ZIP Code" ></input>
             </div>
             <div class="one field">
-              <label for="lang">Language Spoken: </label>
+              <label for="lang">Idioma Hablado: </label>
               <select id="lang" name="lang" label="Language Spoken" multiple="multiple">
                 <option value="English">English</option>
                 <option value="Spanish">Spanish</option>
               </select>
             </div>
             <div class="one field">
-              <label for="cop">Current Openings: </label>
-              <input id="copyes" type="checkbox" name="cop" value="yes" >YES</input> 
+              <label for="cop">Vacantes: </label>
+              <input id="copyes" type="checkbox" name="cop" value="yes" >SI</input> 
               <input style="margin-left:10px;" id="copno" type="checkbox" name="cop" value="no">NO</input>
             </div>
             <div class="one field">
-              <label for="">Check the following that apply: </label>
-              <input id="opeve" type="checkbox" value="1">Open on evenings/overnight </input>
-              <input style="margin-left:10px;" id="opweek" type="checkbox" value="2">Open on weekends </input>
+              <label for="">Marque los que apliquen: </label>
+              <input id="opeve" type="checkbox" value="1">Abierto en tarde/noche </input>
+              <input style="margin-left:10px;" id="opweek" type="checkbox" value="2">Abierto fines de semana </input>
               <br>
-              <input id="cfork" type="checkbox" value="3">Accept Care4Kids </input>
-              <input style="margin-left:10px;" id="cam" type="checkbox" value="4">Certified to Administer Medication </input>
+              <input id="cfork" type="checkbox" value="3">Acepta Care4Kids </input>
+              <input style="margin-left:10px;" id="cam" type="checkbox" value="4">Certificado para Administrar Medicamentos </input>
               <p></p>
-              <input id="submit" class="ajax" type="submit" value="Search">
+              <input id="submit" class="ajax" type="submit" value="Buscar">
             </div>
           </form>
       </div>

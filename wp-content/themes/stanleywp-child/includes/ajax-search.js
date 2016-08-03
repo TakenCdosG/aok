@@ -1,5 +1,12 @@
 jQuery(document).ready(function($) {
 
+  window.current_lang = $("#current_lang").val();
+  if(current_lang == "en"){
+    var lang_string = " Results found";
+  }else if(current_lang == "es") {
+    var lang_string = " Resultados";
+  };
+
   $.urlParam = function(name){
       var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
       if (results==null){
@@ -25,7 +32,6 @@ jQuery(document).ready(function($) {
 
   $('.ajax').click(function(event) {
     event.preventDefault();
-    
 
     var fname = $("#fname").val();
     var lname = $("#lname").val();
@@ -61,8 +67,7 @@ jQuery(document).ready(function($) {
       var cam = "yes"
     }else{
       var cam = "nox"
-    }
-    
+    }    
 
     $.ajax({
       type: 'POST',
@@ -72,7 +77,7 @@ jQuery(document).ready(function($) {
       success: function(data) {
         $('#results').html(data);
         if($('.count_results').text() == ""){var count_results = 0}else{count_results = $('.count_results').text()}
-        $('.count-results').html(count_results+" Results found");
+        $('.count-results').html(count_results+lang_string);
       },
       error: function(data) {
         $('#results').html("error");
@@ -85,9 +90,7 @@ jQuery(document).ready(function($) {
     if(zipcode != null){
       $(".ajax").trigger( "click" );
     }
-}); 
 
-jQuery(document).ready(function($) {
   function explode(){
    var argstart = 1;
    $.ajax({
@@ -97,7 +100,7 @@ jQuery(document).ready(function($) {
       dataType: 'html',
       success: function(data) {
         $('#results').html(data);
-        $('.count-results').html($('.count_results').text()+" Results found");
+        $('.count-results').html($('.count_results').text()+lang_string);
       },
       error: function(data) {
         $('#results').html("error");

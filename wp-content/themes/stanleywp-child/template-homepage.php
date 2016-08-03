@@ -101,7 +101,13 @@
 									echo '<h1>¿Dónde estas buscando cuidado infantil?</h1>';
 								}
 							?>
-							<form action="find-child-care/" method="GET">
+							<?php
+								if($current_lang == 'en'){
+									echo '<form action="find-child-care/" method="GET">';
+								}elseif ($current_lang == 'es') {
+									echo '<form action="encontrar-cuidado-infantil/" method="GET">';
+								}
+							?>
 								<?php
 									if($current_lang == 'en'){
 										echo '
