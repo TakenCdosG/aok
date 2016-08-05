@@ -301,7 +301,8 @@ body{
 .half.field{
     width:40%;
 }
-.half.field input{
+.half.field input, .half.field select{
+    height: 26px;
     width:100%;
 }
 .full.field{
@@ -312,6 +313,9 @@ body{
 }
 input[type="checkbox"]{
     margin: 0 5px 0 0;
+}
+.ms-parent{
+    width:83% !important;
 }
 .ajax{
     background-color:#5d8827 !important;

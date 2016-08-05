@@ -44,7 +44,7 @@
               <input id="ccname" type="text" name="ccname" label="Child Care Name" ></input>
             </div>
             <div class="clearfix"></div>
-            <div class="one field">
+            <div class="half field">
               <label for="age">Ages Served: </label>
               <select id="age" name="age" label="Age" >
                 <option value="">- Select Age Group -</option>
