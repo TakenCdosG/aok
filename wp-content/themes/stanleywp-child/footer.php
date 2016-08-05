@@ -25,8 +25,8 @@
 <div class="container">
       <div class="row">
         <div class="col-lg-12" style="text-align:center">
-          <p style="font-size:13px;">Disclaimer: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras aliquet magna arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras aliquet magna arcu.</p>
           <p style="font-size:15px;">© 2016 All Our Kin | 414A Chapel Street, Suite 100  New Haven, CT  06511 | 203-772-2294 | info@allourkin.org | site by think creative group</p>
+          <p style="font-size:13px;">Disclaimer: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras aliquet magna arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras aliquet magna arcu.</p>
         </div>
         
         <div class="col-lg-4">

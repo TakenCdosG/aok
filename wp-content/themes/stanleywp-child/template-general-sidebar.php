@@ -10,15 +10,15 @@
 <div class="container">
 	<div class="border">
 		<div class="row">
-			<div class="col-lg-12">
+			<div class="col-lg-12 nav-head">
 				<?php require_once('includes/nav.php'); ?>
 				<img src="<?php echo get_field('header_image', $wp_query->post->ID) ?>" alt="">
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-lg-9 col-md-9">
-				<div class="general">	
-					<div class="content">
+			<div class="col-lg-9 col-md-9 wsidebar">
+				<div class="general wsidebar">	
+					<div class="content wsidebar">
 						<?php
 							if (have_posts()) :
 							   while (have_posts()) :

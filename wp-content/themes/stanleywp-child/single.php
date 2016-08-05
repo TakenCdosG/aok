@@ -18,7 +18,7 @@
 <div class="container">
 	<div class="border">
     <div class="row">
-      <div class="col-lg-12">
+      <div class="col-lg-12 nav-head">
         <?php require_once('includes/nav.php'); ?>
       </div>
     </div>
