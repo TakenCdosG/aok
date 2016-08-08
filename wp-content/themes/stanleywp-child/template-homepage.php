@@ -69,14 +69,11 @@
 					<div class="img" style="background-image:url('<?php echo get_field('homepage_left_image', $wp_query->post->ID) ?>')"></div>
 					<div class="caption">
 						<?php
+							echo '<p>'.get_field("homepage_caption_text", $wp_query->post->ID).'</p>';
 							if($current_lang == 'en'){
-								echo '
-								<p>Are you an employer looking to share the QSP with your employees or clients?</p>
-								<a href="">CLICK HERE FOR MORE INFO</a>';
+								echo '<a href="">CLICK HERE FOR MORE INFO</a>';
 							}elseif ($current_lang == 'es') {
-								echo '
-								<p>¿Eres un empleador buscando compartir el QSP con tus empleados o clientes?</p>
-								<a href="">CLICK PARA INFORMACIÓN</a>';
+								echo '<a href="">CLICK PARA INFORMACIÓN</a>';
 							}
 						?>
 					</div>
