@@ -211,7 +211,7 @@
 						?>						
 					</div>
 					<div class="searchbox-container">
-						<?php if (!is_user_logged_in()) { ?>
+						<?php if (is_user_logged_in()) { ?>
 						<div class="searchbox">
 							<?php
 								if($current_lang == 'en'){
