@@ -7,7 +7,7 @@
 <!--[if lt IE 7 ]> <html class="no-js ie6" <?php language_attributes(); ?>> <![endif]-->
 <!--[if IE 7 ]>    <html class="no-js ie7" <?php language_attributes(); ?>> <![endif]-->
 <!--[if IE 8 ]>    <html class="no-js ie8" <?php language_attributes(); ?>> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js" <?php language_attributes(); ?>> <!--<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js" <?php language_attributes(); ?>> <!--<![endif]-->  
 <head>
 
 <meta charset="<?php bloginfo('charset'); ?>" />
@@ -30,10 +30,8 @@
 
 <?php wp_head(); ?> 
 
-</head>
-
-<body <?php body_class(); ?>>
-                 
+</head>  
+<body <?php body_class(); ?>>       
 <header>
   <div class="container">
     <div class="row">

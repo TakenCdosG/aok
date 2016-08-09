@@ -252,18 +252,18 @@ function registration_form( $username, $password, $email, $role ) {
     <div class="register">
         <form action="' . $_SERVER['REQUEST_URI'] . '" method="post">
         <div>
-        <label for="username">Username <strong>*</strong></label>
+        <label for="username">Username</label>
         <input type="text" name="username" value="' . (isset($_POST['username']) ? $username : null) . '">
         </div>
         
         <div>
-        <label for="password">Password <strong>*</strong></label>
+        <label for="password">Password</label>
         <input type="password" name="password" value="' . (isset($_POST['password']) ? $password : null) . '">
         </div>
         
         <div>
-        <label for="email">Email <strong>*</strong></label>
-        <input type="text" name="email" value="' . (isset($_POST['email']) ? $email : null) . '">
+        <label for="email">Email</label>
+        <input type="text" name="email" value="' . (isset($_POST['email']) ? $email : null) . '" required>
         </div>
         
         <div>
@@ -337,7 +337,7 @@ function complete_registration() {
             wp_set_auth_cookie($user); // start the cookie for the current registered user
         }
         $redirect_to = $_GET['redirect_to'];
-        echo '<div class="register_message">Registration complete. Goto <a href="' . get_site_url() . $redirect_to .'">previous page</a>.</div>';   
+        echo '<div class="register_message">Registration complete.</div>';   
     }
 }
 

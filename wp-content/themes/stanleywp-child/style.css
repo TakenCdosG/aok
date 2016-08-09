@@ -31,6 +31,9 @@ body{
     text-decoration: underline;
     color: #333;
 }
+.no-padding{
+    padding: 0 !important;  
+}
 :focus{
     outline-color:transparent;
 
@@ -145,6 +148,7 @@ body{
     font-size: 13px;
     padding:4px 6px;
     margin-top: 20px;
+    position: relative;
 }
 .home-second-col{
     width:76%; 
@@ -177,8 +181,29 @@ body{
 .searchbox *{
     font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 }
+.searchbox .half{
+    width: 50%;
+    float: left;
+    height: 289px;
+    padding:25px;
+}
+.searchbox .half:last-child{
+    background-color: #517b20;
+}
 .searchbox h1{
     font-size: 34px;
+}
+.searchbox.no-padding h1{
+    font-size: 28px;
+    line-height: 1.5;
+}
+.searchbox.no-padding a{
+    color:#ffffff;
+    text-decoration: underline;
+}
+.searchbox.no-padding p{
+    color: #ffffff;
+    font-size: 24px;
 }
 .searchbox h2{
     font-size: 26px;
@@ -425,17 +450,111 @@ input[type="checkbox"]{
 a.morelink {
     color: #5d8827;
 }
+.register-switch{
+    position: absolute;
+    right: 38px;
+    top: 80px;
+}
+a#register-click{
+    color:#757575;
+}
+.register, #loginform{
+    border-top: 1px solid #f0f0f0;
+    padding-top: 15px;
+}
 .register_message{
-    margin-bottom: 20px; 
+    margin: 10px 0; 
 }
-.register input{
-    width: 50%;
-    margin-bottom: 15px;
+.register input, #loginform input{
+    width: 100%;
+    height: 45px;
+    padding: 0 10px;
+    border: 1px solid #999999;
 }
-.register input[type="checkbox"], .register input[type="submit"] {
+.register input[type="submit"], #loginform input[type="submit"]{
+    position: absolute;
+    bottom: 43px;
+    right: 38px;
+    padding:8px 10px;
+    font-size: 18px; 
+    height: auto;
     width: auto;
+    font-weight: bold;
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 }
-
+.register label, #loginform label{
+    color:#c0c0c0;
+    font-weight: 100;
+}
+.register input[type="checkbox"] {
+    width: auto;
+    height: 19px;
+}
+/*login popup*/
+.overlay{
+    background-color: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 40;
+    display: none;
+}
+a.selected {
+  background-color:#1F75CC;
+  color:white;
+  z-index:100;
+}
+.messagepop {
+  background-color:#FFFFFF;
+  border:1px solid #999999;
+  cursor:default;
+  display:none;
+  margin-top: 15px;
+  position:fixed;
+  text-align:left;
+  width:394px;
+  z-index:50;
+  padding: 15px 38px 46px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.messagepop a{
+    color:#c0c0c0;
+    text-decoration: none;
+}
+.messagepop h2{
+    margin:0 0 5px 0;
+    color: #5d8827;
+    font-weight: bold;
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.messagepop .close-r, .messagepop .close-l{
+    position: absolute;
+    bottom: -27px;
+    right: 15px;
+    font-size: 12px;
+    opacity: 0.5;
+}
+.messagepop label {
+  display: block;
+  margin-bottom: 3px;
+  margin-top: 12px;
+  padding-left: 15px;
+  text-indent: -15px;
+}
+.messagepop #wp-submit{
+    bottom: 20px !important;
+    background-color:#5d8827 !important;
+    border-radius: 0 !important;
+    border:none !important;
+    color:#fff !important;
+    text-transform: uppercase;
+    margin-top:10px;
+}
+/*end popup*/
 
 
 /*MEDIA QUERIES*/
@@ -452,12 +571,22 @@ a.morelink {
    .navbar-nav>li>a{
     font-size: 12px;
    }
+   .searchbox.no-padding h1{
+    font-size: 24px;
+   }
 }
 @media (max-width: 992px){
-   .home-first-col .caption{
-    font-size: 14px;
-   }
-   .sidebar{
+    .image-container{
+        display: none;
+    }
+    .home-second-col .searchbox-container {
+        width: 100%;
+        height: auto;
+    }
+    .home-first-col .caption{
+        font-size: 14px;
+    }
+    .sidebar{
         margin-top: 20px;
     }
     .profile.list ul li{
@@ -519,14 +648,15 @@ a.morelink {
       background-color: #5d8827;
       border-radius: 4px;
       padding: 4px 6px;
-      position: relative;
-      top:-20px;
+      position: absolute;
+      top:0;
+      left: 0;
     }
 }
 @media (min-width: 768px){
-   .navbar-nav{
-    text-align: center;
-    float: none !important;
+    .navbar-nav{
+        text-align: center;
+        float: none !important;
     }
     .navbar-nav > li{
         display: inline-block;
@@ -542,8 +672,16 @@ a.morelink {
         padding:0;
     }
     .home-first-col .caption{
-    height: auto;
-    padding-bottom: 20px;
+        height: auto;
+        padding-bottom: 20px;
+    }
+    .searchbox .half {
+        width: 100%;
+        float: none;
+        height: auto;   
+    }
+    .home-second-col .searchbox-container .searchbox{
+        height: auto;
     }
 }
 @media (max-width: 520px){
@@ -556,6 +694,9 @@ a.morelink {
 }
 @media (max-width: 420px){
     .searchbox h1{
+        font-size: 20px;
+    }
+    .searchbox.no-padding h1{
         font-size: 20px;
     }
 }
