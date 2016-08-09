@@ -3,8 +3,48 @@
  * Template Name: Search page
  */
 ?>
-<?php get_header(); ?> 
+<?php get_header(); ?>
+
+<script src="<?php echo get_stylesheet_directory_uri(); ?>/includes/searchpage-functions.js"></script>
+
 <div class="container search">
+  <div class="messagepop pop-r">
+      <div class="row border-bottom">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><h2>Register</h2></div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><a class="close-r" href="/">(close)</a></div>
+      </div>
+      
+      <?php echo do_shortcode('[cr_custom_registration]'); ?>
+      
+  </div>
+  <div class="messagepop pop-l">
+      <div class="row border-bottom">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><h2>Login</h2></div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><a class="close-l" href="/">(close)</a></div>
+      </div>
+      <?php 
+      $args = array(
+      'echo'           => true,
+      'remember'       => false,
+      'redirect'       => ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'],
+      'form_id'        => 'loginform',
+      'id_username'    => 'user_login',
+      'id_password'    => 'user_pass',
+      'id_remember'    => 'rememberme',
+      'id_submit'      => 'wp-submit',
+      'label_username' => __( 'Username' ),
+      'label_password' => __( 'Password' ),
+      'label_remember' => __( 'Remember Me' ),
+      'label_log_in'   => __( 'Log In' ),
+      'value_username' => '',
+      'value_remember' => false
+    );
+    echo "<div class='register-switch'><a id ='register-click' href='#'>Don't have an account, sign up!</a></div>"; 
+      wp_login_form( $args ); 
+      echo '<a href="'.wp_lostpassword_url( $redirect ).'">Forgot Password?</a>'; 
+      ?> 
+      
+  </div>
   <div class="border">
     <div class="row">
       <div class="col-lg-12 nav-head">
@@ -21,7 +61,8 @@
       $redirect = home_url() . '/wp-login.php?redirect_to=' . urlencode( $_SERVER['REQUEST_URI'] );
       $register =  home_url() . '/register?redirect_to=' . urlencode( $_SERVER['REQUEST_URI'] );
 
-      echo('<div class="row"><div class="col-lg-12">Are you looking for child care? If so, <a href="'.$register.'">Register here </a> <br> Already registered?  <a href="'.$redirect.'">Log in here</a> </div></div>');
+      echo('<div class="row log-reg"><div class="col-lg-12 reg">Are you looking for child care? If so, <a href="#">Register here </a> </div>
+        <div class="col-lg-12 log">Already registered?  <a href="#">Log in here</a> </div></div>');
     } else {?>
     <div class="row">
       <div class="col-lg-5">

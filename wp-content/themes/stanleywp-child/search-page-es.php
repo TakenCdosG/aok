@@ -3,7 +3,10 @@
  * Template Name: Search page es_ES
  */
 ?>
-<?php get_header(); ?> 
+<?php get_header(); ?>
+
+<script src="<?php echo get_stylesheet_directory_uri(); ?>/includes/searchpage-functions.js"></script>
+
 <div class="container search">
   <div class="border">
     <div class="row">
