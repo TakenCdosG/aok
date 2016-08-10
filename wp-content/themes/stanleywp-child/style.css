@@ -702,6 +702,7 @@ a.selected {
     }
     .home-first-col .caption{
         height: auto;
+        min-height: inherit;
         padding-bottom: 20px;
     }
     .searchbox .half {
