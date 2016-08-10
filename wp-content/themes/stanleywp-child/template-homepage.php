@@ -9,20 +9,19 @@
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/includes/home-functions.js"></script>
 <div class="container">
 	<div class="messagepop pop-r">
-	    <div class="row border-bottom">
-	    	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><h2>Register</h2></div>
-	    	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><a class="close-r" href="/">(close)</a></div>
-	    </div>
-	    
-	    <?php echo do_shortcode('[cr_custom_registration]'); ?>
+		<div class="row border-bottom">
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><h2>Register</h2></div>
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><a class="close-r" href="/">(close)</a></div>
+		</div>
+		<?php echo do_shortcode('[cr_custom_registration]'); ?>
 	</div>
 	<div class="messagepop pop-l">
-	    <div class="row border-bottom">
-	    	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><h2>Login</h2></div>
-	    	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><a class="close-l" href="/">(close)</a></div>
-	    </div>
-	    <?php
-	    $args = array(
+		<div class="row border-bottom">
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><h2>Login</h2></div>
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><a class="close-l" href="/">(close)</a></div>
+		</div>
+		<?php
+		$args = array(
 			'echo'           => true,
 			'remember'       => false,
 			'redirect'       => ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'],
@@ -39,9 +38,9 @@
 			'value_remember' => false
 		);
 		echo "<div class='register-switch'><a id ='register-click' href='#'>Don't have an account, sign up!</a></div>"; 
-	    wp_login_form( $args );
-	    echo '<a href="'.wp_lostpassword_url( $redirect ).'">Forgot Password?</a>';
-	    ?>
+		wp_login_form( $args );
+		echo '<a href="'.wp_lostpassword_url( $redirect ).'">Forgot Password?</a>';
+		?>
 	</div>
 	<div class="border">
 		<div class="row">
@@ -123,6 +122,4 @@
 		</div>
 	</div>
 </div>
-
-
 <?php get_footer(); ?>
