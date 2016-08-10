@@ -3,13 +3,17 @@
 
   function content_height(){
     if($(window).width() > 600){
-      var content_height = $(".home-second-col .content").height()+224;
+      var total = $(".caption").height() - 145; 
+      
+      var content_height = ($(".home-second-col .content").height() + 224)-total;
     $(".home-first-col .img").height( content_height );
     }else{
       $(".home-first-col .img").height( 414 );
     } 
   }
-
+  $(window).load(function() {
+    content_height();
+  });
   $(document).ready(function() {
     content_height();
     $( "form" ).submit(function( event ) {

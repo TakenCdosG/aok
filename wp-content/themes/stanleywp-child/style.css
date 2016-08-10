@@ -155,7 +155,8 @@ body{
 }
 .home-first-col .caption{
     font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
-    height:175px; 
+    height:auto;
+    min-height:175px;  
     width:100%; 
     color:#5c8727;
     padding:15px;
