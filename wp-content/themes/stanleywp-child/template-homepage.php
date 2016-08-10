@@ -7,7 +7,6 @@
 ?>
 <?php get_header(); ?>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/includes/home-functions.js"></script>
-
 <div class="container">
 	<div class="messagepop pop-r">
 	    <div class="row border-bottom">
@@ -16,14 +15,13 @@
 	    </div>
 	    
 	    <?php echo do_shortcode('[cr_custom_registration]'); ?>
-	    
 	</div>
 	<div class="messagepop pop-l">
 	    <div class="row border-bottom">
 	    	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><h2>Login</h2></div>
 	    	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><a class="close-l" href="/">(close)</a></div>
 	    </div>
-	    <?php 
+	    <?php
 	    $args = array(
 			'echo'           => true,
 			'remember'       => false,
@@ -41,10 +39,9 @@
 			'value_remember' => false
 		);
 		echo "<div class='register-switch'><a id ='register-click' href='#'>Don't have an account, sign up!</a></div>"; 
-	    wp_login_form( $args ); 
-	    echo '<a href="'.wp_lostpassword_url( $redirect ).'">Forgot Password?</a>'; 
-	    ?> 
-	    
+	    wp_login_form( $args );
+	    echo '<a href="'.wp_lostpassword_url( $redirect ).'">Forgot Password?</a>';
+	    ?>
 	</div>
 	<div class="border">
 		<div class="row">
@@ -76,7 +73,7 @@
 							         the_content();
 							   endwhile;
 							endif;
-						?>						
+						?>
 					</div>
 					<div class="searchbox-container">
 						<?php if (is_user_logged_in()) { ?>
@@ -116,15 +113,13 @@
 								<p><?php echo get_field("homepage_login_text", $wp_query->post->ID); ?></p>
 							</div>
 						</div>
-
-
 						<?php } ?>
 					</div>
 					<div class="image-container">
 						<div class="img" style="background-image:url('<?php echo get_field('homepage_right_image', $wp_query->post->ID) ?>')"></div>
 					</div>
 				</div>
-			</div>	
+			</div>
 		</div>
 	</div>
 </div>
