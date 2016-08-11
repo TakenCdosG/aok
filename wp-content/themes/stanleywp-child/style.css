@@ -85,8 +85,8 @@ body{
 	background-color: transparent !important;
 }
 .nav-head{
-	margin-top: -8px;
-	padding: 0 7px;
+	/*margin-top: -8px;
+	padding: 0 7px;*/
 	margin-bottom: 3px;
 }
 .nav-search{
