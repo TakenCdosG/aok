@@ -1,8 +1,6 @@
 <?php
 /**
  * Footer Template
- *
- *
  * @file           footer.php
  * @package        StanleyWP 
  * @author         Brad Williams & Carlos Alvarez 
@@ -15,27 +13,19 @@
 ?>
 </div><!-- end of wrapper-->
 <?php gents_wrapper_end(); // after wrapper hook ?>
-
-
 <?php gents_container_end(); // after container hook ?>
-
-
-  <!-- +++++ Footer Section +++++ -->
+<!-- +++++ Footer Section +++++ -->
 <footer id="footer">
-<div class="container">
-      <div class="row">
-        <div class="col-lg-12" style="text-align:center">
-          <?php dynamic_sidebar('footer-middle'); ?>
-        </div>
-      </div><!-- /row -->
-    </div><!-- /container -->
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12" style="text-align:center">
+				<?php dynamic_sidebar('footer-middle'); ?>
+			</div>
+		</div><!-- /row -->
+	</div><!-- /container -->
 </footer><!-- end #footer -->
-
-
-
-
 <?php wp_footer(); ?>
-  </div>
+</div>
 </div>
 </body>
 <div class="overlay"></div>

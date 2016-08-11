@@ -20,25 +20,25 @@
 				<div class="general wsidebar">	
 					<div class="content wsidebar">
 						<?php
-							if (have_posts()) :
-							   while (have_posts()) :
-							   	echo '<h3>'.get_the_title().'</h3>';
-							      the_post();
-							         the_content();
-							   endwhile;
-							endif;
-						?>						
+						if (have_posts()) :
+						while (have_posts()) :
+						echo '<h3>'.get_the_title().'</h3>';
+						the_post();
+						the_content();
+						endwhile;
+						endif;
+						?>
 					</div>
 				</div>
 			</div>
 			<div class="col-lg-3 col-md-3">
 				<div class="sidebar">
 					<?php
-			            if(is_active_sidebar('right_sidebar')){
-			                dynamic_sidebar('right_sidebar');
-			            }
-		            ?>
-		            <div class="searchbox-container">
+					if(is_active_sidebar('right_sidebar')){
+						dynamic_sidebar('right_sidebar');
+					}
+					?>
+					<div class="searchbox-container">
 						<div class="searchbox">
 							<h2>Where are you looking for child care?</h2>
 							<form action="find-child-care/" method="GET">
@@ -50,7 +50,7 @@
 					</div>
 				</div>
 			</div>
-		</div>	
+		</div>
 	</div>
 </div>
 
