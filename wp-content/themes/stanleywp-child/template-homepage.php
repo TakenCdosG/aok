@@ -103,13 +103,11 @@
 						<div class="searchbox no-padding">
 							<div class="half reg">
 								<h1><?php echo get_field("homepage_register_heading", $wp_query->post->ID); ?></h1>
-								<br>
-								<p><?php echo get_field("homepage_register_text", $wp_query->post->ID); ?></p>
+								<?php echo get_field("homepage_register_text", $wp_query->post->ID); ?>
 							</div>
 							<div class="half log">
 								<h1><?php echo get_field("homepage_login_heading", $wp_query->post->ID); ?></h1>
-								<br>
-								<p><?php echo get_field("homepage_login_text", $wp_query->post->ID); ?></p>
+								<?php echo get_field("homepage_login_text", $wp_query->post->ID); ?>
 							</div>
 						</div>
 						<?php } ?>
