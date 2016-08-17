@@ -517,7 +517,7 @@ a#register-click{
 	font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 }
 .register label, #loginform label{
-	color:#c0c0c0;
+	color:#757575;
 	font-weight: 100;
 }
 .register input[type="checkbox"] {
