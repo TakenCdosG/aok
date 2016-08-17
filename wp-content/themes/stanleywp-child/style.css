@@ -592,11 +592,8 @@ a.selected {
 
 ol, ul {
 	list-style-type: disc;
-	-webkit-margin-before: 1em;
-	-webkit-margin-after: 1em;
-	-webkit-margin-start: 0px;
-	-webkit-margin-end: 0px;
-	-webkit-padding-start: 40px;
+	margin: 1em 0;
+	padding-left: 40px;
 }
 
 
