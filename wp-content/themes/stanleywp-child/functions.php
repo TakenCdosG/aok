@@ -340,10 +340,17 @@ function my_mce_before_init_insert_formats( $init_array ) {
 // Attach callback to 'tiny_mce_before_init'
 add_filter( 'tiny_mce_before_init', 'my_mce_before_init_insert_formats' );
 
+//adding editor-style.css to the backend editor
+
+function my_mce_add_editor_styles() {
+	add_editor_style( '/includes/css/editor-style.css' );
+}
+add_action( 'admin_init', 'my_mce_add_editor_styles' );
+
 //adding editor-style.css to the whole site
 
 function my_mce_editor_style() {
-	wp_enqueue_style( 'style-name', get_stylesheet_directory_uri() .'/editor-style.css');
+	wp_enqueue_style( 'style-name', get_stylesheet_directory_uri() .'/includes/css/editor-style.css');
 }
 add_action( 'wp_enqueue_scripts', 'my_mce_editor_style' );
 
@@ -360,3 +367,12 @@ function adding_custom_resources() {
 
 }
 add_action( 'wp_enqueue_scripts', 'adding_custom_resources' );
+
+
+//redirect after logout
+
+add_action('wp_logout','go_home');
+function go_home(){
+	wp_redirect( home_url() );
+	exit();
+}
