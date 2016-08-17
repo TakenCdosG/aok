@@ -104,8 +104,5 @@
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/includes/multiple-select.js"></script>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/includes/ajax-search.js"></script>
 
-<?php
-}
-?>
-
+<?php } ?>
 <?php get_footer(); ?>
