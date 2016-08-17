@@ -1,10 +1,3 @@
-<div class="messagepop pop-r">
-		<div class="row border-bottom">
-			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><h2>Register</h2></div>
-			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><a class="close-r" href="/">(close)</a></div>
-		</div>
-		<?php echo do_shortcode('[cr_custom_registration]'); ?>
-</div>
 <div class="messagepop pop-l">
     <div class="row border-bottom">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><h2>Login</h2></div>

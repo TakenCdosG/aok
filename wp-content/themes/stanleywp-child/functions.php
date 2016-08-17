@@ -352,7 +352,7 @@ add_action( 'wp_enqueue_scripts', 'my_mce_editor_style' );
 
 function adding_custom_resources() {
 	
-	if(is_page_template( 'template-homepage.php' ) or is_page_template( 'search-page.php' ) ){
+	if(is_page_template( 'templates/template-homepage.php' ) or is_page_template( 'templates/template-search-page.php' ) ){
 		
 		wp_enqueue_script( 'style-name', get_stylesheet_directory_uri() .'/includes/pop-up-login.js');
 		
