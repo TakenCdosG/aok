@@ -347,3 +347,18 @@ function my_mce_editor_style() {
 	wp_enqueue_style( 'style-name', get_stylesheet_directory_uri() .'/editor-style.css');
 }
 add_action( 'wp_enqueue_scripts', 'my_mce_editor_style' );
+
+
+//adding pop-up-login.js
+
+function adding_custom_resources() {
+	
+	if(is_page_template( 'template-homepage.php' ) or is_page_template( 'search-page.php' ) ){
+		
+		wp_enqueue_script( 'style-name', get_stylesheet_directory_uri() .'/includes/pop-up-login.js');
+		
+	}
+
+}
+add_action( 'wp_enqueue_scripts', 'adding_custom_resources' );
+

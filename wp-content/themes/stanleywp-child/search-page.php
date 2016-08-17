@@ -5,7 +5,6 @@
 ?>
 <?php get_header(); ?>
 
-<script src="<?php echo get_stylesheet_directory_uri(); ?>/includes/searchpage-functions.js"></script>
 
 <div class="container search">
 	<?php get_template_part('includes/pop-up-login'); ?>

@@ -25,7 +25,7 @@
         'label_password' => __( 'Password' ),
         'label_remember' => __( 'Remember Me' ),
         'label_log_in'   => __( 'Login' ),
-        'value_username' => 'Insert your username',
+        'value_username' => '',
         'value_remember' => false
     );
     echo "<div class='register-switch'><a id ='register-click' href='#'>Don't have an account?, Sign up!</a></div>";
