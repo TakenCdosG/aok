@@ -1,5 +1,4 @@
 <?php
-
 /*custom*/
 // This theme uses post thumbnails
 require_once('includes/wp_bootstrap_navwalker.php');
@@ -361,4 +360,3 @@ function adding_custom_resources() {
 
 }
 add_action( 'wp_enqueue_scripts', 'adding_custom_resources' );
-

@@ -1,4 +1,3 @@
-
 <div class="messagepop pop-r">
 		<div class="row border-bottom">
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><h2>Register</h2></div>
