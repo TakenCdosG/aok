@@ -36,7 +36,7 @@ $p_expiration_date = get_field('p_expiration_date', 'user_'.$ide);
 	<div class="border">
 		<div class="row">
 			<div class="col-lg-12">
-				<?php require_once('includes/nav.php'); ?>
+				<?php get_template_part('includes/nav'); ?>
 			</div>
 		</div>
 		<div class="row">

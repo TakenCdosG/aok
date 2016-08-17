@@ -11,7 +11,7 @@
   <div class="border">
     <div class="row">
       <div class="col-lg-12 nav-head">
-        <?php require_once('includes/nav.php'); ?>
+        <?php get_template_part('includes/nav'); ?>
       </div>
     </div>
     <div class="row">

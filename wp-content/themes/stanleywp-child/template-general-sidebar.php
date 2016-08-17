@@ -11,7 +11,7 @@
 	<div class="border">
 		<div class="row">
 			<div class="col-lg-12 nav-head">
-				<?php require_once('includes/nav.php'); ?>
+				<?php get_template_part('includes/nav'); ?>
 				<img src="<?php echo get_field('header_image', $wp_query->post->ID) ?>" alt="">
 			</div>
 		</div>
