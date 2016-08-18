@@ -194,11 +194,16 @@ function my_function()
 function adding_custom_resources() {
 
 	if(is_page_template( 'templates/template-homepage.php' ) ){
-		wp_enqueue_script( 'homejs', get_stylesheet_directory_uri() .'/includes/js/home-functions.js');
+		wp_enqueue_script( 'home-js', get_stylesheet_directory_uri() .'/includes/js/home-functions.js');
 	}
 
-	if(is_page_template( 'templates/template-homepage.php' ) ){
-		wp_enqueue_script( 'authorjs', get_stylesheet_directory_uri() .'/includes/js/profile-read-more.js');
+	if(is_page_template( 'templates/template-search-page.php' ) ){
+		wp_enqueue_script( 'multiples-selec-js', get_stylesheet_directory_uri() .'/includes/js/multiple-select/multiple-select.js');
+		wp_enqueue_style( 'multiples-selec-css', get_stylesheet_directory_uri() .'/includes/js/multiple-select/multiple-select.css');
+	}
+
+	if(is_page_template( 'author.php' ) ){
+		wp_enqueue_script( 'author-js', get_stylesheet_directory_uri() .'/includes/js/profile-read-more.js');
 	}
 	
 	if(is_page_template( 'templates/template-homepage.php' ) or is_page_template( 'templates/template-search-page.php' ) ){
@@ -206,8 +211,8 @@ function adding_custom_resources() {
 	}
 
 	if(is_page( 'register' ) ){
-		wp_enqueue_script( 'fancyboxjs', get_stylesheet_directory_uri() .'/includes/js/libraries/fancybox/jquery.fancybox.js');
-		wp_enqueue_style( 'fancyboxcss', get_stylesheet_directory_uri() .'/includes/js/libraries/fancybox/jquery.fancybox.css');
+		wp_enqueue_script( 'fancybox-js', get_stylesheet_directory_uri() .'/includes/js/libraries/fancybox/jquery.fancybox.js');
+		wp_enqueue_style( 'fancybox-css', get_stylesheet_directory_uri() .'/includes/js/libraries/fancybox/jquery.fancybox.css');
 		wp_enqueue_script( 'fancybox-register', get_stylesheet_directory_uri() .'/includes/js/fancybox-register.js');
 	}
 }
