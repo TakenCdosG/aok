@@ -4,11 +4,12 @@
   /*Popup*/
   $(function() {
 
+    function explodeLogin(){
+      $('.log a').trigger("click");
+    }
       if($(".log-reg").length){
-        function explodelr(){
-          $('.log a').trigger("click");
-        }
-        setTimeout(explodelr, 320);
+
+        setTimeout(explodeLogin, 320);
       }
 
   });
