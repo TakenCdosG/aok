@@ -48,6 +48,9 @@ function registration_form( $username, $password, $first_name, $last_name, $emai
         </div>
         
         <input type="submit" class="ajax" name="submit" value="Register"/>
+        <div>
+        <p class="form-note">By registering, you represent that you have read, understood and agree to these terms.</p>
+        </div>
         </form>
     </div>
     ';

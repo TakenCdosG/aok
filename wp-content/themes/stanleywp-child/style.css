@@ -484,6 +484,15 @@ input[type="checkbox"]{
 a.morelink {
 	color: #5d8827;
 }
+.register div{
+	padding: 8px 0;
+}
+
+.register p.form-note{
+	padding: 10px 0;
+	font-size: 10px;
+}
+
 .register-switch{
 	position: absolute;
 	right: 38px;
