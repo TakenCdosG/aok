@@ -6,7 +6,6 @@
  */
 ?>
 <?php get_header(); ?>
-<script src="<?php echo get_stylesheet_directory_uri(); ?>/includes/home-functions.js"></script>
 <div class="container">
 	<?php get_template_part('includes/pop-up-login'); ?>
 	<div class="border">

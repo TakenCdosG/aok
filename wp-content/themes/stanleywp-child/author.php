@@ -31,7 +31,6 @@ $p_training_and_experience = get_field('p_training_and_experience', 'user_'.$ide
 $p_date_issued = get_field('p_date_issued', 'user_'.$ide);
 $p_expiration_date = get_field('p_expiration_date', 'user_'.$ide);
 ?>
-<script src="<?php echo get_stylesheet_directory_uri(); ?>/includes/profile-read-more.js"></script>
 <div class="container">
 	<div class="border">
 		<div class="row">
