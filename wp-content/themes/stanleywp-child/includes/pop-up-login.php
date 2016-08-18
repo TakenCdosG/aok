@@ -20,7 +20,7 @@
         'value_username' => '',
         'value_remember' => false
     );
-    echo "<div class='register-switch'><a id ='register-click' href='#'>Don't have an account?, Sign up!</a></div>";
+    echo "<div class='register-switch'><a id ='register-click' href='/register'>Don't have an account?, Sign up!</a></div>";
     wp_login_form( $args );
     echo '<a href="'.wp_lostpassword_url( $redirect ).'">Forgot Password?</a>';
     ?>
