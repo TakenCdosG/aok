@@ -12,7 +12,10 @@
 		<div class="row">
 			<div class="col-lg-12 nav-head">
 				<?php get_template_part('includes/nav'); ?>
-				<img src="<?php echo get_field('header_image', $wp_query->post->ID) ?>" alt="">
+				<div class="header-image">
+					<div class="image-one" style="background-image: url(<?php echo get_field('first_header_image', $wp_query->post->ID) ?>)"></div>
+					<div class="image-two" style="background-image: url(<?php echo get_field('second_header_image', $wp_query->post->ID) ?>)"></div>
+				</div>
 			</div>
 		</div>
 		<div class="row">
