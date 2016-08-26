@@ -29,6 +29,7 @@
         ?>
         <div class="row">
            <div class="col-lg-5" id="search-page-left">
+               <div id="map"></div>
             </div>
             <div class="col-lg-12" id="search-page-right">
                 <?php echo do_shortcode('[search_directory]'); ?>

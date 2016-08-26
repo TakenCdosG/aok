@@ -817,3 +817,7 @@ display:none;
 #search-child-care-form{
 	width: 670px;
 }
+
+#map {
+	height: 200px;
+}

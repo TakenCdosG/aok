@@ -6,6 +6,7 @@ function adding_search_resources() {
         wp_enqueue_style( 'multiples-selec-css', get_stylesheet_directory_uri() .'/includes/js/multiple-select/multiple-select.css');
         wp_enqueue_script( 'search-child-care', get_stylesheet_directory_uri() .'/includes/js/search-child-care.js',array(), false, true );
         wp_enqueue_script( 'pop-up-login', get_stylesheet_directory_uri() .'/includes/js/pop-up-login.js');
+        wp_enqueue_script( 'mapgooglema', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyD8gQGcG1dHoyC_99gy-Vvus4XAXHCN2oE&',array(),false,true);
 
         wp_localize_script( 'search-child-care', 'search_child_care', array(
             'ajax_url' => admin_url( 'admin-ajax.php' )
