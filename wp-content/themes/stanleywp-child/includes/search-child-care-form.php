@@ -9,7 +9,6 @@
 ?>
 
 <section class="search-child-care-wrapper">
-  <div class="container">
     <form id="search-child-care-form">
       <input type="hidden" id="current_lang" name="current_lang" value="<?php echo $current_lang; ?>">
       <div class="half field">
@@ -70,8 +69,6 @@
         <input id="submit" class="ajax-button" type="submit" value="Search">
       </div>
     </form>
-    <div class="search-child-care-results" id="search-child-care-results">
-      <!-- HERE DYNAMIC CONTENT FROM SEARCH RESULTS -->
-    </div>
-  </div>
+
 </section>
+

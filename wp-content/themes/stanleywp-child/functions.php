@@ -92,3 +92,13 @@ function go_home(){
 	wp_redirect( home_url() );
 	exit();
 }
+
+function my_acf_google_map_api( $api ){
+
+	$api['key'] = 'AIzaSyD8gQGcG1dHoyC_99gy-Vvus4XAXHCN2oE';
+
+	return $api;
+
+}
+
+add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');

@@ -28,14 +28,15 @@
         } else {
         ?>
         <div class="row">
-          <!--  <div class="col-lg-5">
-            </div>-->
-            <div class="col-lg-12">
+           <div class="col-lg-5" id="search-page-left">
+               <div id="map"></div>
+            </div>
+            <div class="col-lg-12" id="search-page-right">
                 <?php echo do_shortcode('[search_directory]'); ?>
             </div>
         </div>
-        <div class="count-results"></div>
-        <div id="results">
+        <div class="search-child-care-results" id="search-child-care-results">
+            <!-- HERE DYNAMIC CONTENT FROM SEARCH RESULTS -->
         </div>
     </div>
 </div>
