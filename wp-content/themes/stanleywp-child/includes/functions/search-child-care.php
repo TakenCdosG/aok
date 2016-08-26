@@ -24,7 +24,7 @@ function search_child_care_callback(){
 
 
     $args = array(
-        'post_type' => 'child_care',
+        'role' => 'Contributor',
         'meta_query' => array(
             'relation' => 'AND',
         )
@@ -119,10 +119,10 @@ function search_child_care_callback(){
     }
 
    //svar_dump($_POST['formChild']['fname']);
-    $query = new WP_Query($args);
+    $query = new WP_User_Query($args);
 
     // If we don't have posts matching this query return status as false
-    if (!$query->have_posts()) {
+    if ($query->get_total() == 0) {
         $response['status'] = false;
         // remember to send an information about why it failed, always.
         $response['message'] = esc_attr__('No posts were found');
@@ -149,22 +149,21 @@ function search_child_care_callback(){
  * @param $query_result WP_Query result to build the html response.
  * @return Html Output
  */
-function build_html_response($query_result) {
+function build_html_response($user_query) {
     $mockUp = '';
     $count_results = 0;
 
-    if( $query_result->have_posts() ) {
+    if( ! empty( $user_query->results ) ) {
         $mockUp .= '<div class="row">';
 
-        while ($query_result->have_posts()) {
-            $query_result->the_post();
+        foreach ($user_query->results as $user) {
 
             $mockUp .= '<div class="col-lg-4">';
             $mockUp .= '<div class="result-item">';
-            $mockUp .= '<a href="'.get_permalink().'">';
-            $mockUp .= '<div style="width:100%; height:250px; background-size:cover; background-position:center; background-image:url(' . get_the_post_thumbnail_url(get_the_ID(),"medium") . ')"></div>';
+            $mockUp .= '<a href="'.get_author_posts_url( $user->ID ).'">';
+            $mockUp .= '<div ></div>';
             $mockUp .= '<div class="result-title">';
-            $mockUp .= get_the_title();
+            $mockUp .= $user->display_name;
             $mockUp .= '</div>';
             $mockUp .= '</a>';
 
@@ -178,7 +177,7 @@ function build_html_response($query_result) {
 
 
         $mockUp .= '<div class="count-results">';
-        $mockUp .= $count_results.' results found';
+        $mockUp .= $user_query->get_total().' results found';
         $mockUp .= '</div>';
         $mockUp .= '</div>';
     }
