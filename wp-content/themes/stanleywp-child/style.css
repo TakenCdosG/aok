@@ -309,6 +309,9 @@ body{
 .sidebar .searchbox-container .searchbox .field{
 	max-width:100%;
 }
+#search-child-care-form .checkbox-right {
+	margin-left: 10px;
+}
 .count-results{
 	padding:20px 10px;
 	font-weight: bold;
