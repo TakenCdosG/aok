@@ -155,13 +155,16 @@ function build_html_response($user_query) {
 
     if( ! empty( $user_query->results ) ) {
         $mockUp .= '<div class="row">';
+        $mockUp .= '<div class="count-results col-xs-12">';
+        $mockUp .= $user_query->get_total().' results found';
+        $mockUp .= '</div>';
 
         foreach ($user_query->results as $user) {
 
             $mockUp .= '<div class="col-lg-4">';
             $mockUp .= '<div class="result-item">';
-            $mockUp .= '<a href="'.get_author_posts_url( $user->ID ).'">';
-            $mockUp .= '<div ></div>';
+            $mockUp .= '<a href="'.get_author_posts_url( $user->ID ).$user->user_login.'">';
+            $mockUp .= '<div style="width:100%; height:250px; background-size:cover; background-position:center; background-image:url(' . get_field("p_gallery","user_".$user->ID) . ')"></div>';
             $mockUp .= '<div class="result-title">';
             $mockUp .= $user->display_name;
             $mockUp .= '</div>';
@@ -176,9 +179,7 @@ function build_html_response($user_query) {
         }
 
 
-        $mockUp .= '<div class="count-results">';
-        $mockUp .= $user_query->get_total().' results found';
-        $mockUp .= '</div>';
+
         $mockUp .= '</div>';
     }
 
