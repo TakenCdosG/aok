@@ -131,7 +131,7 @@ function search_child_care_callback(){
         $response['status'] = true;
         // We will return the whole query to allow any customization on the front end
         $response['query'] = $query;
-        $response->mockup = build_html_response($query->get_posts());
+        $response['mockup'] = build_html_response($query);
         //$response->coordinates_array = build_coordinates_response($query);
     }
 
@@ -141,6 +141,81 @@ function search_child_care_callback(){
 }
 
 
+/**
+ * Build html response from the result query.
+ *
+ * @since 1.0.0
+ *
+ * @param $query_result WP_Query result to build the html response.
+ * @return Html Output
+ */
+function build_html_response($query_result) {
+    $mockUp = '';
+    $count_results = 0;
+
+    if( $query_result->have_posts() ) {
+        $mockUp .= '<div class="row">';
+
+        while ($query_result->have_posts()) {
+            $query_result->the_post();
+
+            $mockUp .= '<div class="col-lg-4">';
+            $mockUp .= '<div class="result-item">';
+            $mockUp .= '<a href="'.get_permalink().'">';
+            $mockUp .= '<div style="width:100%; height:250px; background-size:cover; background-position:center; background-image:url(' . get_the_post_thumbnail_url(get_the_ID(),"medium") . ')"></div>';
+            $mockUp .= '<div class="result-title">';
+            $mockUp .= get_the_title();
+            $mockUp .= '</div>';
+            $mockUp .= '</a>';
+
+
+
+            $mockUp .= '</div>';
+            $mockUp .= '</div>';
+
+            $count_results++;
+        }
+
+
+        $mockUp .= '<div class="count-results">';
+        $mockUp .= $count_results.' results found';
+        $mockUp .= '</div>';
+        $mockUp .= '</div>';
+    }
+
+    return $mockUp;
+}
+
+/**
+ * Build coordinates array response from the result query.
+ *
+ * @since 1.0.0
+ *
+ * @param $query_result WP_Query result to build the coordinates array.
+ * @return array
+ */
+function build_coordinates_response($query_result) {
+    $coordinates = array();
+    // Your code here to build coordinates array response..
+    return $coordinates;
+}
+
+/*
+* Shortcode
+*/
+function search_directory_shortcode($atts) {
+
+
+    $data = array('custom_query_search_callback' => get_site_url() . '/custom_query_search_callback');
+    wp_localize_script('search-directory', 'search_directory', $data);
+
+    $data_needed = array(); // Do Something for get infomation needed for the template.
+
+    // Return output
+    include(dirname(__FILE__) . '/../search-child-care-form.php');
+}
+
+add_shortcode('search_directory', 'search_directory_shortcode');
 
 
 
@@ -202,54 +277,10 @@ function custom_query_search_callback() {
         // We will return the whole query to allow any customization on the front end
         $response->query = $query;
         $response->mockup = build_html_response($query);
-        $response->coordinates_array = build_coordinates_response($query);
+        //$response->coordinates_array = build_coordinates_response($query);
     }
 
     // Never forget to exit or die on the end of a WordPress AJAX action!
     exit(json_encode($response));
 }
 
-/**
- * Build html response from the result query.
- *
- * @since 1.0.0
- *
- * @param $query_result WP_Query result to build the html response.
- * @return Html Output
- */
-function build_html_response($query_result) {
-    $mockup = "";
-    // Your code here to build html response..
-    return $mockup;
-}
-
-/**
- * Build coordinates array response from the result query.
- *
- * @since 1.0.0
- *
- * @param $query_result WP_Query result to build the coordinates array.
- * @return array
- */
-function build_coordinates_response($query_result) {
-    $coordinates = array();
-    // Your code here to build coordinates array response..
-    return $coordinates;
-}
-
-/*
-* Shortcode
-*/
-function search_directory_shortcode($atts) {
-
-
-    $data = array('custom_query_search_callback' => get_site_url() . '/custom_query_search_callback');
-    wp_localize_script('search-directory', 'search_directory', $data);
-
-    $data_needed = array(); // Do Something for get infomation needed for the template.
-
-    // Return output
-    include(dirname(__FILE__) . '/../search-child-care-form.php');
-}
-
-add_shortcode('search_directory', 'search_directory_shortcode');

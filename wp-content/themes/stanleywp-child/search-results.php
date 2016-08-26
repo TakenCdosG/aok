@@ -102,28 +102,30 @@ $count_results = 0;
 if( $the_query->have_posts() ): ?>
 <div class="row"> 
 	<?php
-	while ( $the_query->have_posts() ) : $the_query->the_post();
-	?>
-	<div class="col-lg-4">
-		<div class="result-item">
-			<a href="<?php the_permalink(); ?>">
-				<div style="width:100%; height:250px; background-size:cover; background-position:center; background-image:url(<?php the_post_thumbnail_url('medium'); ?>);"></div>
-				<div class="result-title">
-					<?php the_title(); 
-					?>
-				</div> 
-			</a>
-			<?php
-			$arg = array (
-				'echo' => true
-			);
-			do_action('gd_mylist_btn',$arg);
-			?>
+	while ( $the_query->have_posts() ) {
+		$the_query->the_post();
+		?>
+		<div class="col-lg-4">
+			<div class="result-item">
+				<a href="<?php the_permalink(); ?>">
+					<div
+						style="width:100%; height:250px; background-size:cover; background-position:center; background-image:url(<?php the_post_thumbnail_url('medium'); ?>);"></div>
+					<div class="result-title">
+						<?php the_title();
+						?>
+					</div>
+				</a>
+				<?php
+				$arg = array(
+					'echo' => true
+				);
+				do_action('gd_mylist_btn', $arg);
+				?>
+			</div>
 		</div>
-	</div>
-	<?php
-	$count_results++;
-	endwhile;
+		<?php
+		$count_results++;
+	}
 	?>
 	<div class="count_results" style="display:none;">
 		<?php echo $count_results; ?>
