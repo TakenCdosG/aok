@@ -26,7 +26,7 @@
 					if (have_posts()) :
 					while (have_posts()) :
 					the_post();
-					//the_author_posts_link();
+					the_author_posts_link();
 					the_content();
 					endwhile;
 					endif;

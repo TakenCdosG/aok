@@ -24,7 +24,7 @@ function search_child_care_callback(){
 
 
     $args = array(
-        'post_type' => 'child_care',
+        'role' => 'Contributor',
         'meta_query' => array(
             'relation' => 'AND',
         )
@@ -119,10 +119,10 @@ function search_child_care_callback(){
     }
 
    //svar_dump($_POST['formChild']['fname']);
-    $query = new WP_Query($args);
+    $query = new WP_User_Query($args);
 
     // If we don't have posts matching this query return status as false
-    if (!$query->have_posts()) {
+    if ($query->get_total() == 0) {
         $response['status'] = false;
         // remember to send an information about why it failed, always.
         $response['message'] = esc_attr__('No posts were found');
@@ -131,7 +131,7 @@ function search_child_care_callback(){
         $response['status'] = true;
         // We will return the whole query to allow any customization on the front end
         $response['query'] = $query;
-        $response->mockup = build_html_response($query->get_posts());
+        $response['mockup'] = build_html_response($query);
         //$response->coordinates_array = build_coordinates_response($query);
     }
 
@@ -141,6 +141,80 @@ function search_child_care_callback(){
 }
 
 
+/**
+ * Build html response from the result query.
+ *
+ * @since 1.0.0
+ *
+ * @param $query_result WP_Query result to build the html response.
+ * @return Html Output
+ */
+function build_html_response($user_query) {
+    $mockUp = '';
+    $count_results = 0;
+
+    if( ! empty( $user_query->results ) ) {
+        $mockUp .= '<div class="row">';
+
+        foreach ($user_query->results as $user) {
+
+            $mockUp .= '<div class="col-lg-4">';
+            $mockUp .= '<div class="result-item">';
+            $mockUp .= '<a href="'.get_author_posts_url( $user->ID ).'">';
+            $mockUp .= '<div ></div>';
+            $mockUp .= '<div class="result-title">';
+            $mockUp .= $user->display_name;
+            $mockUp .= '</div>';
+            $mockUp .= '</a>';
+
+
+
+            $mockUp .= '</div>';
+            $mockUp .= '</div>';
+
+            $count_results++;
+        }
+
+
+        $mockUp .= '<div class="count-results">';
+        $mockUp .= $user_query->get_total().' results found';
+        $mockUp .= '</div>';
+        $mockUp .= '</div>';
+    }
+
+    return $mockUp;
+}
+
+/**
+ * Build coordinates array response from the result query.
+ *
+ * @since 1.0.0
+ *
+ * @param $query_result WP_Query result to build the coordinates array.
+ * @return array
+ */
+function build_coordinates_response($query_result) {
+    $coordinates = array();
+    // Your code here to build coordinates array response..
+    return $coordinates;
+}
+
+/*
+* Shortcode
+*/
+function search_directory_shortcode($atts) {
+
+
+    $data = array('custom_query_search_callback' => get_site_url() . '/custom_query_search_callback');
+    wp_localize_script('search-directory', 'search_directory', $data);
+
+    $data_needed = array(); // Do Something for get infomation needed for the template.
+
+    // Return output
+    include(dirname(__FILE__) . '/../search-child-care-form.php');
+}
+
+add_shortcode('search_directory', 'search_directory_shortcode');
 
 
 
@@ -202,54 +276,10 @@ function custom_query_search_callback() {
         // We will return the whole query to allow any customization on the front end
         $response->query = $query;
         $response->mockup = build_html_response($query);
-        $response->coordinates_array = build_coordinates_response($query);
+        //$response->coordinates_array = build_coordinates_response($query);
     }
 
     // Never forget to exit or die on the end of a WordPress AJAX action!
     exit(json_encode($response));
 }
 
-/**
- * Build html response from the result query.
- *
- * @since 1.0.0
- *
- * @param $query_result WP_Query result to build the html response.
- * @return Html Output
- */
-function build_html_response($query_result) {
-    $mockup = "";
-    // Your code here to build html response..
-    return $mockup;
-}
-
-/**
- * Build coordinates array response from the result query.
- *
- * @since 1.0.0
- *
- * @param $query_result WP_Query result to build the coordinates array.
- * @return array
- */
-function build_coordinates_response($query_result) {
-    $coordinates = array();
-    // Your code here to build coordinates array response..
-    return $coordinates;
-}
-
-/*
-* Shortcode
-*/
-function search_directory_shortcode($atts) {
-
-
-    $data = array('custom_query_search_callback' => get_site_url() . '/custom_query_search_callback');
-    wp_localize_script('search-directory', 'search_directory', $data);
-
-    $data_needed = array(); // Do Something for get infomation needed for the template.
-
-    // Return output
-    include(dirname(__FILE__) . '/../search-child-care-form.php');
-}
-
-add_shortcode('search_directory', 'search_directory_shortcode');

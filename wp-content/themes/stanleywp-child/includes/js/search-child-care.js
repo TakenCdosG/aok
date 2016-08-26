@@ -5,7 +5,7 @@ jQuery( document ).on( 'click', '.ajax-button', function() {
 
     var formData = jQuery('#search-child-care-form').serialize();
     //console.log(formValue['fname']);
-
+    jQuery('#search-child-care-results').html("");
     jQuery.ajax({
         url : search_child_care.ajax_url,
         type : 'post',
@@ -14,7 +14,9 @@ jQuery( document ).on( 'click', '.ajax-button', function() {
             formData : formData
         },
         success : function( response ) {
-            jQuery('#search-child-care-results').html(response);
+            response = JSON.parse(response);
+            //alert(response.mockup);
+            jQuery('#search-child-care-results').html(response.mockup);
         }
     });
 
