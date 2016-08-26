@@ -9,7 +9,6 @@
 ?>
 
 <section class="search-child-care-wrapper">
-  <div class="container">
     <form id="search-child-care-form">
       <input type="hidden" id="current_lang" name="current_lang" value="<?php echo $current_lang; ?>">
       <div class="half field">
@@ -71,5 +70,4 @@
       </div>
     </form>
 
-  </div>
 </section>
