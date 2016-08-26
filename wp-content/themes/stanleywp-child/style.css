@@ -634,29 +634,36 @@ ol, ul {
 
 
 /*MEDIA QUERIES*/
-@media (max-width: 1200px){
-	.home-second-col .content{
+@media (max-width: 1200px) {
+	.home-second-col .content {
 		height: auto;
 	}
-	.home-first-col .caption{
+
+	.home-first-col .caption {
 		font-size: 18px;
 	}
-	.home-first-col .caption a{
+
+	.home-first-col .caption a {
 		font-size: 12px;
 	}
-	.navbar-nav>li>a{
+
+	.navbar-nav > li > a {
 		font-size: 12px;
 	}
-	.searchbox.no-padding h1{
+
+	.searchbox.no-padding h1 {
 		font-size: 24px;
 	}
-	.header-image{
+
+	.header-image {
 		height: 342px;
 	}
+
 	.header-image .image-one {
 		width: 62.3%;
 		margin-right: 0.7%;
 	}
+}
 @media (max-width: 992px){
 	.image-container{
 		display: none;
@@ -801,4 +808,12 @@ ol, ul {
 	.header-image{
 		height: 120px;
 	}
+}
+
+#search-page-left{
+display:none;
+}
+
+#search-child-care-form{
+	width: 670px;
 }

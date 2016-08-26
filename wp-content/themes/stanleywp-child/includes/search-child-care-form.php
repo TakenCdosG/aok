@@ -70,8 +70,6 @@
         <input id="submit" class="ajax-button" type="submit" value="Search">
       </div>
     </form>
-    <div class="search-child-care-results" id="search-child-care-results">
-      <!-- HERE DYNAMIC CONTENT FROM SEARCH RESULTS -->
-    </div>
+
   </div>
 </section>
