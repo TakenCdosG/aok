@@ -173,7 +173,7 @@ function build_html_response($user_query) {
             $mockUp .= '<a href="'.get_author_posts_url( $user->ID ).'">';
             $mockUp .= '<div style="width:100%; height:250px; background-size:cover; background-position:center; background-image:url(' . get_field("p_gallery","user_".$user->ID) . ')"></div>';
             $mockUp .= '<div class="result-title">';
-            $mockUp .= get_field('ccname','user_'.$user->ID)."  ".$user->ID;
+            $mockUp .= get_field('ccname','user_'.$user->ID);
             $mockUp .= '</div>';
             $mockUp .= '</a>';
 
