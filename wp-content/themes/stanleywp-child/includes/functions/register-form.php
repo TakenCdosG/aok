@@ -8,7 +8,7 @@
   Author URI: http://tech4sky.com
  */
 
-function registration_form( $username, $password, $first_name, $last_name, $email ) {
+function registration_form( $username, $password, $first_name, $last_name, $email, $agree ) {
     echo '
     <div class="register">
         <form action="' . $_SERVER['REQUEST_URI'] . '" method="post">
@@ -93,7 +93,7 @@ function registration_validation( $username, $password, $first_name, $last_name,
     }
 }
 function complete_registration() {
-    global $reg_errors, $username, $password, $first_name, $last_name, $email;
+    global $reg_errors, $username, $password, $first_name, $last_name, $email,$user;
     if ( count($reg_errors->get_error_messages()) < 1 ) {
         $user_data = array(
             'user_login'    =>  $username,
@@ -105,18 +105,24 @@ function complete_registration() {
         );
 
         $user = wp_insert_user( $user_data );
-        echo 'Registration complete. Goto <a href="' . get_site_url() . '/wp-login.php">login page</a>.';
-        /*if(!is_wp_error($user)){
+
+        if(!is_wp_error($user)){
             wp_set_current_user($user); // set the current wp user
             wp_set_auth_cookie($user); // start the cookie for the current registered user
         }
+
+        //echo 'Registration complete. Goto <a href="' . get_site_url() . '/wp-login.php">login page</a>.';
+
         //$redirect_to = $_GET['redirect_to'];
-        echo '<div class="register_message">Registration complete.</div>';*/
+        //echo '<div class="register_message">Registration complete.</div>';
     }
 }
 
 function custom_registration_function() {
+
+
     if (isset($_POST['submit'])) {
+
         registration_validation(
             $_POST['username'],
             $_POST['password'],
@@ -155,13 +161,14 @@ function custom_registration_function() {
         $email,
         $agree
     );
+
 }
 
-// Register a new shortcode: [cr_custom_registration]
-add_shortcode('cr_custom_registration', 'custom_registration_shortcode');
-// The callback function that will replace [book]
-function custom_registration_shortcode() {
-    ob_start();
-    custom_registration_function();
-    return ob_get_clean();
+
+function custom_registration_redirect() {
+    session_start();
+    set_transient( 'temporary_message',  '<h4>You have successfully signed</h4>' , 60*60*12 );
+    wp_redirect(home_url('/find-child-care'));
 }
+
+add_filter( 'user_register', 'custom_registration_redirect' );
