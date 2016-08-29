@@ -1,13 +1,10 @@
 <?php
+ob_start();
 /**
  * @package WordPress
  * @subpackage StanleyWP
  * Template Name: Register
  */
-?>
-
-<?php
-ob_start();
 get_header();
 ?>
 <div class="container">
