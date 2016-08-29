@@ -166,7 +166,7 @@ function custom_registration_function() {
 
 
 function custom_registration_redirect() {
-    session_start();
+    //session_start();
     set_transient( 'temporary_message',  '<h4>You have successfully signed</h4>' , 60*60*12 );
     wp_redirect(home_url('/find-child-care'));
 }
