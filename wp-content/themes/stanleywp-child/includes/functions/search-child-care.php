@@ -33,17 +33,17 @@ function search_child_care_callback(){
 
     if(!empty($form_data['f-name'])){
         $args['meta_query'][] = array(
-            'key'   => 'fname',
+            'key'   => 'first_name',
             'value'   => $form_data['f-name'],
-            'compare' => '='
+            'compare' => 'LIKE'
         );
     }
 
     if(!empty($form_data['l-name'])){
         $args['meta_query'][] = array(
-            'key'   => 'lname',
+            'key'   => 'last_name',
             'value'   => $form_data['l-name'],
-            'compare' => '='
+            'compare' => 'LIKE'
         );
     }
 
@@ -51,7 +51,7 @@ function search_child_care_callback(){
         $args['meta_query'][] = array(
             'key'   => 'ccname',
             'value'   => $form_data['cc-name'],
-            'compare' => '='
+            'compare' => 'LIKE'
         );
     }
 
@@ -71,13 +71,18 @@ function search_child_care_callback(){
         );
     }
 
-/*    if(!empty($form_data['lang'])){
-        $args['meta_query'][] = array(
-            'key'   => 'lang',
-            'value'   => $form_data['lang'],
-            'compare' => '='
-        );
-    }*/
+
+    $args['meta_query'][100] = array(
+        'relation' => 'OR',
+
+    );
+        foreach ($form_data['lang'] as $key => $value){
+            $args['meta_query'][100][] = array(
+                'key'   => 'lang',
+                'value'   => $value,
+                'compare' => 'LIKE'
+            );
+        }
 
     if(!empty($form_data['cop'])){
         $args['meta_query'][] = array(
@@ -119,26 +124,27 @@ function search_child_care_callback(){
         );
     }
 
-   //svar_dump($_POST['formChild']['fname']);
-    $query = new WP_User_Query($args);
+
+    $user_query = new WP_User_Query($args);
 
     // If we don't have posts matching this query return status as false
-    if ($query->get_total() == 0) {
+    if ($user_query->get_total() == 0) {
         $response['status'] = false;
         // remember to send an information about why it failed, always.
-        $response['message'] = esc_attr__('No posts were found');
+        $response['mockup'] = esc_attr__('No posts were found');
 
     } else {
         $response['status'] = true;
         // We will return the whole query to allow any customization on the front end
-        $response['query'] = $query;
-        $response['mockup'] = build_html_response($query);
-        //$response->coordinates_array = build_coordinates_response($query);
+        $response['query'] = $user_query;
+        $response['mockup'] = build_html_response($user_query);
+        $response['map_marker_information'] = build_map_marker_information($user_query);
     }
 
     // Never forget to exit or die on the end of a WordPress AJAX action!
-    exit(json_encode($response));
-   // exit(json_encode($form_data));
+   exit(json_encode($response));
+   //exit(json_encode($form_data));
+    //print_r($args);
 }
 
 
@@ -167,7 +173,7 @@ function build_html_response($user_query) {
             $mockUp .= '<a href="'.get_author_posts_url( $user->ID ).'">';
             $mockUp .= '<div style="width:100%; height:250px; background-size:cover; background-position:center; background-image:url(' . get_field("p_gallery","user_".$user->ID) . ')"></div>';
             $mockUp .= '<div class="result-title">';
-            $mockUp .= $user->display_name;
+            $mockUp .= get_field('ccname','user_'.$user->ID)."  ".$user->ID;
             $mockUp .= '</div>';
             $mockUp .= '</a>';
 
@@ -195,10 +201,23 @@ function build_html_response($user_query) {
  * @param $query_result WP_Query result to build the coordinates array.
  * @return array
  */
-function build_coordinates_response($query_result) {
-    $coordinates = array();
-    // Your code here to build coordinates array response..
-    return $coordinates;
+function build_map_marker_information($user_query) {
+    $map_marker_information = array();
+
+    if( ! empty( $user_query->results ) ) {
+
+
+        foreach ($user_query->results as $user) {
+            $map_marker_information[$user->ID]['latLng'] = get_field('location','user_'.$user->ID);
+            $map_marker_information[$user->ID]['markerInformation'] = "<div class='content-information'><h3>".get_field('ccname','user_'.$user->ID)."</h3>";
+            $map_marker_information[$user->ID]['markerInformation'] .= "<p><b>Direction: </b>". $map_marker_information[$user->ID]['latLng']['address']."</p>";
+            $map_marker_information[$user->ID]['markerInformation'] .= "</div>";
+
+        }
+
+
+    }
+    return $map_marker_information;
 }
 
 /*

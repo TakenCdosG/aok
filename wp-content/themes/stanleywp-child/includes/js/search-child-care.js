@@ -13,11 +13,13 @@ jQuery( document ).on( 'click', '.ajax-button', function() {
             action : 'search_child_care',
             formData : formData
         },
-        success : function( response ) {
-            response = JSON.parse(response);
+        done : function( response ) {
+            response = jQuery.parseJSON(response);
             //alert(response.mockup);
             jQuery('#search-child-care-results').html(response.mockup);
             render_google_maps();
+            initMap(response.map_marker_information);
+           // console.log(response.map_marker_information);
         }
     });
 
@@ -26,11 +28,33 @@ jQuery( document ).on( 'click', '.ajax-button', function() {
 });
 
 var map;
-function initMap() {
+function initMap(map_marker_information) {
+    var myLatLng = {lat: 41.2983782, lng: -72.9376795};
     map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: -34.397, lng: 150.644},
-        zoom: 8
+        center: myLatLng,
+        zoom: 12
     });
+
+    jQuery.each(map_marker_information,function(key,value){
+        //console.log(value);
+        var markerLatLng = {lat: Number(value.latLng.lat), lng: Number(value.latLng.lng)};
+
+        var marker = new google.maps.Marker({
+            position: markerLatLng,
+            map: map,
+            title: 'Search Child Care - All Our Kin'
+        });
+
+
+        var infowindow = new google.maps.InfoWindow({
+            content: value.markerInformation,
+        });
+
+        marker.addListener('click', function() {
+            infowindow.open(map, marker);
+        });
+    });
+
 }
 
 
@@ -38,16 +62,13 @@ function render_google_maps(){
     jQuery('#search-page-left').css("display", "block");
     jQuery('#search-page-right').removeClass('col-lg-12');
     jQuery('#search-page-right').addClass('col-lg-7');
-
-    initMap();
-
 }
 
 jQuery(document).ready(function($) {
     /*Multiple select*/
     $(function () {
         $('#lang').change(function () {
-            console.log($(this).val());
+           // console.log($(this).val());
         }).multipleSelect({
             width: '100%'
         });
