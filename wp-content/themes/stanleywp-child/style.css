@@ -127,6 +127,7 @@ body{
 }
 .header-image{
 	height:416px;
+    background-size: cover;
 }
 .header-image .image-one, .header-image .image-two{
 	height: inherit;

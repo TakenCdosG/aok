@@ -12,13 +12,17 @@
 		<div class="row">
 			<div class="col-lg-12 nav-head">
 				<?php get_template_part('includes/nav'); ?>
-				<?php $header = get_field('first_header_image', $wp_query->post->ID);
-				if(!empty($header)){ ?>
+				<?php $header = array(get_field('first_header_image', $wp_query->post->ID), get_field('second_header_image', $wp_query->post->ID));
+				if(!empty($header[0]) and !empty($header[1])){ ?>
 				<div class="header-image">
-					<div class="image-one" style="background-image: url(<?php echo get_field('first_header_image', $wp_query->post->ID) ?>)"></div>
-					<div class="image-two" style="background-image: url(<?php echo get_field('second_header_image', $wp_query->post->ID) ?>)"></div>
+					<div class="image-one" style="background-image: url(<?php echo $header[0] ?>)"></div>
+					<div class="image-two" style="background-image: url(<?php echo $header[1] ?>)"></div>
 				</div>
-				<?php } ?>
+				<?php } elseif(!empty($header[0])){ ?>
+				<div class="header-image" style="background-image: url(<?php echo $header[0] ?>)"></div>
+				<?php }elseif(!empty($header[1])){ ?>
+				<div class="header-image" style="background-image: url(<?php echo $header[1] ?>)"></div>
+				<?php }?>
 			</div>
 		</div>
 		<div class="row">
