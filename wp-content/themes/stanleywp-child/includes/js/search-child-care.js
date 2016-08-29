@@ -13,7 +13,7 @@ jQuery( document ).on( 'click', '.ajax-button', function() {
             action : 'search_child_care',
             formData : formData
         },
-        done : function( response ) {
+        success : function( response ) {
             response = jQuery.parseJSON(response);
             //alert(response.mockup);
             jQuery('#search-child-care-results').html(response.mockup);
