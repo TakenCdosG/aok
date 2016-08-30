@@ -4,7 +4,7 @@
 $curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author));
 //Variables
 $ide = $curauth->ID;
-$p_child_care_name = get_field('p_child_care_name', 'user_'.$ide);
+$p_child_care_name = get_field('ccname', 'user_'.$ide);
 $p_contact_information = get_field('p_contact_information', 'user_'.$ide);
 $p_ages_served = get_field('p_ages_served', 'user_'.$ide);
 $p_about_me = get_field('p_about_me', 'user_'.$ide);
