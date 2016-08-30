@@ -25,7 +25,7 @@ function search_child_care_callback(){
 
 
     $args = array(
-        'role' => 'Contributor',
+        'role' => 'Provider',
         'meta_query' => array(
             'relation' => 'AND',
         )
