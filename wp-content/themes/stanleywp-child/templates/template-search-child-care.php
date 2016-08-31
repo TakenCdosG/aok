@@ -42,7 +42,7 @@
                <div id="map"></div>
             </div>
             <div class="col-lg-12" id="search-page-right">
-                <?php echo do_shortcode('[search_directory]'); ?>
+                <?php echo do_shortcode('[search_child_care]'); ?>
             </div>
         </div>
         <div class="search-child-care-results" id="search-child-care-results">

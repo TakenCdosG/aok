@@ -55,10 +55,10 @@ function search_child_care_callback(){
         );
     }
 
-    if(!empty($form_data['age'])){
+    if(!empty($form_data['p_ages_served'])){
         $args['meta_query'][] = array(
             'key'   => 'age',
-            'value'   => $form_data['age'],
+            'value'   => $form_data['p_ages_served'],
             'compare' => '='
         );
     }
@@ -173,7 +173,7 @@ function build_html_response($user_query) {
             $mockUp .= '<a href="'.get_author_posts_url( $user->ID ).'">';
             $mockUp .= '<div style="width:100%; height:250px; background-size:cover; background-position:center; background-image:url(' . get_field("p_gallery","user_".$user->ID) . ')"></div>';
             $mockUp .= '<div class="result-title">';
-            $mockUp .= get_field('ccname','user_'.$user->ID);
+            $mockUp .= get_field('ccname','user_'.$user->ID).$user->ID;
             $mockUp .= '</div>';
             $mockUp .= '</a>';
 
@@ -223,7 +223,7 @@ function build_map_marker_information($user_query) {
 /*
 * Shortcode
 */
-function search_directory_shortcode($atts) {
+function search_child_care_shortcode($atts) {
 
 
     $data = array('custom_query_search_callback' => get_site_url() . '/custom_query_search_callback');
@@ -235,7 +235,7 @@ function search_directory_shortcode($atts) {
     include(dirname(__FILE__) . '/../search-child-care-form.php');
 }
 
-add_shortcode('search_directory', 'search_directory_shortcode');
+add_shortcode('search_child_care', 'search_child_care_shortcode');
 
 
 

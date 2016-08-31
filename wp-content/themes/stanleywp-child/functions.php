@@ -35,6 +35,7 @@ function remove_editor_profile() {
 	remove_post_type_support( 'profile', 'editor' );
 }
 add_action( 'init', 'remove_editor_profile' );
+
 /*limit profile creation*/
 add_action( 'admin_head-post-new.php', 'check_post_limit' );
 function check_post_limit() {
@@ -48,6 +49,7 @@ function check_post_limit() {
 	return;
 }
 add_action( 'init', 'check_post_limit' );
+
 /*favorites page*/
 if (is_admin())
 {
