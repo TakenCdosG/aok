@@ -72,8 +72,10 @@ function adding_custom_resources() {
 		wp_enqueue_script( 'pop-up-login', get_stylesheet_directory_uri() .'/includes/js/pop-up-login.js');
 	}
 	
-	if(is_page_template( 'author.php' ) ){
+	if(is_author() ){
 		wp_enqueue_script( 'author-js', get_stylesheet_directory_uri() .'/includes/js/profile-read-more.js');
+		wp_enqueue_script( 'fotorama-js', 'http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js');
+		wp_enqueue_style( 'fotorama-css', 'http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css');
 	}
 
 	if(is_page( 'register' ) ){

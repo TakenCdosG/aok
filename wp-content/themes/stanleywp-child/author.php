@@ -40,7 +40,17 @@ $p_expiration_date = get_field('p_expiration_date', 'user_'.$ide);
 		</div>
 		<div class="row">
 			<div class="col-lg-5 col-md-5">
-				<?php echo get_field('p_gallery', 'user_'.$ide); ?>
+				<div class="fotorama" data-nav="thumbs" data-width="100%"
+					 data-height="350">
+				<?php
+				$images = get_field('p_gallery');
+				if( $images ){ ?>
+						<?php foreach( $images as $image ){ ?>
+								<a href="<?php echo $image['url']; ?>">
+									<img src="<?php echo $image['sizes']['thumbnail']; ?>" alt="<?php echo $image['alt']; ?>" />
+								</a>
+				<?php }} ?>
+				</div>
 			</div>
 			<div class="col-lg-7 col-md-7">
 				<div class="basic-information">
