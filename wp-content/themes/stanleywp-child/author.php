@@ -51,16 +51,19 @@ $p_expiration_date = get_field('p_expiration_date', 'user_'.$ide);
 				</div>
 			</div>
 			<div class="col-lg-7 col-md-7">
-				<div class="basic-information">
+				<div class="basic-information profile">
 					<h3><?php echo $p_child_care_name; ?></h3>
 					<div class="col-lg-6"><?php echo $p_contact_information; ?></div>
 					<div class="col-lg-6">
-						<p><strong>Ages Served</strong></p>
-						<p><?php echo $p_ages_served; ?></p>
-						<p><br><strong>Current Openings</strong></p>
-						<p>Infant/Toddler: <?php echo $p_infant_toddler; ?></p>
-						<p>Pre-school: <?php echo $p_pre_school; ?></p>
-						<p>Before & After School: <?php echo $p_before_after_school; ?></p>
+						<h5>Ages Served</h5>
+						<ul><li><?php echo $p_ages_served; ?></li></ul>
+						<h5>Current Openings</h5>
+						<ul>
+							<li>Infant/Toddler: <?php echo $p_infant_toddler; ?></li>
+							<li>Pre-school: <?php echo $p_pre_school; ?></li>
+							<li>Before & After School: <?php echo $p_before_after_school; ?></li>
+						</ul>
+
 					</div>
 				</div>
 			</div>
@@ -95,7 +98,7 @@ $p_expiration_date = get_field('p_expiration_date', 'user_'.$ide);
 					</ul>
 					<div class="clearfix"></div>
 				</div>
-				<div class="profile">
+				<div>
 					<p class="small">For up to date licensing information, please visit the <a href="#">Connecticut Office of Early Childhood website.</a></p>
 				</div>
 			</div>
@@ -115,7 +118,7 @@ $p_expiration_date = get_field('p_expiration_date', 'user_'.$ide);
 					</ul>
 					<div class="clearfix"></div>
 				</div>
-				<div class="profile">
+				<div>
 					<p class="small"><a href="#">Click here</a> to learn more about accreditation information</p>
 				</div>
 			</div>
