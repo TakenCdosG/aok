@@ -1,7 +1,13 @@
 (function ($) {
   "use strict";
   $(document).ready(function() {
-      $(".p_col").height($(".p_col").parent().height());
+      var max = 0;
+      $(".profile.p_col").each(function(){
+          if(jQuery(this).height() > max)
+            max = jQuery(this).height();
+      });
+
+      $(".profile.p_col").height(max);
 
 
       // Configure/customize these variables.
