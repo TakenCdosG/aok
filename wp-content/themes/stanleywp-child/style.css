@@ -409,7 +409,10 @@ input[type="checkbox"]{
 /*** AUTHOR.PHP - profile page **/
 
 .profile{
-	padding:8px 15px;
+	padding:8px 8px 15px;
+}
+.profile p.small{
+	margin-bottom: 0;
 }
 .profile.about_me h5{
 	color:#5d8827;
@@ -480,6 +483,9 @@ input[type="checkbox"]{
 	color: #5d8827;
 }
 
+.profile.list h5{
+	margin: 0 0 -10px 0;
+}
 .about-childcare .second ul{
 	list-style-position: inside;
 	list-style: disc;
