@@ -455,11 +455,17 @@ input[type="checkbox"]{
 	height: 100%;
 
 }
+
 .about-childcare .second ul{
 	list-style-position: inside;
 	list-style: disc;
 	padding-left:15px;
 }
+
+.about-childcare .second ul li{
+	margin-bottom: 15px;
+}
+
 .about-childcare .profile{
 	height: 100%;
 }
