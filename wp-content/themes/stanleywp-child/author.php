@@ -138,9 +138,14 @@ $p_expiration_date = get_field('p_expiration_date', 'user_'.$ide);
 								</ul>
 							<h5>Languages Spoken</h5>
 							<ul>
-								<?php foreach (get_field('p_language_spoken', 'user_'.$ide) as $key => $value) {
-									echo "<li>" . $value . "</li>";
-								}?>
+								<?php
+								$languae = get_field('p_language_spoken', 'user_'.$ide);
+								if(!empty($languae)){
+									foreach ($languae as $key => $value) {
+										echo "<li>" . $value . "</li>";
+									}
+								}
+									?>
 							</ul>
 							<h5>Assistant Name</h5>
 							<ul>
