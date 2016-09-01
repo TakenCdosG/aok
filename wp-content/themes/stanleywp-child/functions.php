@@ -106,3 +106,14 @@ function my_acf_google_map_api( $api ){
 }
 
 add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
+
+/******* Adding a View profile link in the users list*********/
+
+function view_profile_link($actions, $user_object) {
+
+	$actions['view_profile'] = "<a class='view_profile' href='" . site_url('author/'.$user_object->data->user_login) . "'>" . __( 'View Profile', 'cgc_ub' ) . "</a>";
+	return $actions;
+// admin_url( "users.php?user=$user_object->ID") where this will generate admin users view url you can put site_url() for example
+
+}
+add_filter('user_row_actions', 'view_profile_link', 10, 2);
