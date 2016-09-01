@@ -411,7 +411,7 @@ input[type="checkbox"]{
 .profile{
 	padding:8px 15px;
 }
-.profile h5{
+.profile.about_me h5{
 	color:#5d8827;
 	font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 	font-weight: bold;
@@ -440,6 +440,7 @@ input[type="checkbox"]{
 	float: left;
 	display: table !important;
 }
+
 .about-childcare .first{
 	float:left;
 	width: 38%;
@@ -447,6 +448,19 @@ input[type="checkbox"]{
 	height: 100%;
 
 }
+
+.profile ul{
+	list-style-type: none;
+	padding-left: 0px;
+	margin-top: 0px;
+	margin-bottom: 0;
+}
+
+
+.about-childcare .first ul li{
+	margin-bottom: 2px;
+}
+
 .about-childcare .second{
 	float:left;
 	margin-left: 0.5%;
@@ -454,6 +468,16 @@ input[type="checkbox"]{
 	width: 61.5%;
 	height: 100%;
 
+}
+.profile h5{
+	color: #000;
+	font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+.profile.green h5{
+	color: #5d8827;
 }
 
 .about-childcare .second ul{

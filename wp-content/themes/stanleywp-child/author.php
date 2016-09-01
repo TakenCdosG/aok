@@ -24,8 +24,6 @@ $p_hours_of_operation = get_field('p_hours_of_operation', 'user_'.$ide);
 $p_infant_toddler = get_field('p_infant_toddler', 'user_'.$ide);
 $p_preschool = get_field('p_preschool', 'user_'.$ide);
 $p_school_age = get_field('p_school_age', 'user_'.$ide);
-$p_language_spoken = get_field('p_language_spoken', 'user_'.$ide);
-$p_assistant_name = get_field('p_assistant_name', 'user_'.$ide);
 $p_extra_details = get_field('p_extra_details', 'user_'.$ide);
 $p_training_and_experience = get_field('p_training_and_experience', 'user_'.$ide);
 $p_date_issued = get_field('p_date_issued', 'user_'.$ide);
@@ -69,7 +67,7 @@ $p_expiration_date = get_field('p_expiration_date', 'user_'.$ide);
 		</div>
 		<div class="row">
 			<div class="col-lg-12">
-				<div class="profile">
+				<div class="profile about_me">
 					<h5>ABOUT ME</h5>
 				</div>
 			</div>
@@ -81,19 +79,19 @@ $p_expiration_date = get_field('p_expiration_date', 'user_'.$ide);
 		</div>  
 		<div class="row">
 			<div class="col-lg-12">
-				<div class="profile">
+				<div class="profile green">
 					<h5>LICENSING INFORMATION</h5>
 				</div>
 			</div>
 			<div class="col-lg-12">
 				<div class="profile grey list">
 					<ul>
-						<li><strong>License number</strong><br><?php echo $p_license_number; ?></li>
-						<li><strong>Issue date</strong><br><?php echo $p_issue_date; ?></li>
-						<li><strong>Expiration date</strong><br><?php echo $p_expiration_date; ?></li>
-						<li><strong>Length of time as provider</strong><br><?php echo $p_length_of_time_as_provider; ?></li>
-						<li><strong>Regular capacity</strong><br><?php echo $regular_capacity ?></li>
-						<li><strong>School age capacity</strong><br><?php echo $p_school_age_capacity; ?></li>
+						<li><h5>License number</h5><br><?php echo $p_license_number; ?></li>
+						<li><h5>Issue date</h5><br><?php echo $p_issue_date; ?></li>
+						<li><h5>Expiration date</h5><br><?php echo $p_expiration_date; ?></li>
+						<li><h5>Length of time as provider</h5><br><?php echo $p_length_of_time_as_provider; ?></li>
+						<li><h5>Regular capacity</h5><br><?php echo $regular_capacity ?></li>
+						<li><h5>School age capacity</h5><br><?php echo $p_school_age_capacity; ?></li>
 					</ul>
 					<div class="clearfix"></div>
 				</div>
@@ -104,16 +102,16 @@ $p_expiration_date = get_field('p_expiration_date', 'user_'.$ide);
 		</div>
 		<div class="row">
 			<div class="col-lg-12">
-				<div class="profile">
+				<div class="profile green">
 					<h5>ACCREDITATION INFORMATION</h5>
 				</div>
 			</div>
 			<div class="col-lg-12">
 				<div class="profile grey list">
 					<ul>
-						<li><strong>QSP Level</strong><br><?php echo $p_qsp_level; ?></li>
-						<li><strong>Date Issued</strong><br><?php echo $p_date_issued; ?></li>
-						<li><strong>Expiration date</strong><br><?php echo $p_expiration_date_qsp; ?></li>
+						<li><h5>QSP Level</h5><br><?php echo $p_qsp_level; ?></li>
+						<li><h5>Date Issued</h5><br><?php echo $p_date_issued; ?></li>
+						<li><h5>Expiration date</h5><br><?php echo $p_expiration_date_qsp; ?></li>
 					</ul>
 					<div class="clearfix"></div>
 				</div>
@@ -124,18 +122,30 @@ $p_expiration_date = get_field('p_expiration_date', 'user_'.$ide);
 		</div>  
 		<div class="row">
 			<div class="col-lg-7">
-				<div class="profile">
+				<div class="profile green">
 					<h5>ABOUT MY CHILD CARE</h5>
 				</div>
 				<div class="about-childcare">
 					<div class="first">
 						<div class="profile grey p_col">
-							<p><strong>Hours of Operation</strong></p>
-							<p><?php echo $p_hours_of_operation; ?></p>
-							<p><strong>Fees by Age Group</strong></p>
-							<p>Infant/Toddler: <?php echo $p_infant_toddler; ?></p>
-							<p>Preschool: <?php echo $p_preschool; ?></p>
-							<p>School Age: <?php echo $p_school_age; ?></p>
+							<h5>Hours of Operation</h5>
+								<ul><li><?php echo $p_hours_of_operation; ?></li></ul>
+							<h5>Fees by Age Group</h5>
+								<ul>
+									<li>Infant/Toddler: <?php echo $p_infant_toddler; ?></li>
+									<li>Preschool: <?php echo $p_preschool; ?></li>
+									<li>School Age: <?php echo $p_school_age; ?></li>
+								</ul>
+							<h5>Languages Spoken</h5>
+							<ul>
+								<?php foreach (get_field('p_language_spoken', 'user_'.$ide) as $key => $value) {
+									echo "<li>" . $value . "</li>";
+								}?>
+							</ul>
+							<h5>Assistant Name</h5>
+							<ul>
+								<li><?php echo get_field('p_assistant_name', 'user_'.$ide); ?></li>
+							</ul>
 						</div>
 					</div>
 					<div class="second">
@@ -148,7 +158,7 @@ $p_expiration_date = get_field('p_expiration_date', 'user_'.$ide);
 				<div class="clearfix"></div>
 			</div>
 			<div class="col-lg-5">
-				<div class="profile">
+				<div class="profile green">
 					<h5>ABOUT MY TRAINING AND EXPERIENCE</h5>
 				</div>
 				<div class="profile grey p_col">
