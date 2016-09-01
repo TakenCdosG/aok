@@ -17,6 +17,7 @@ jQuery( document ).on( 'click', '.ajax-button', function() {
             response = jQuery.parseJSON(response);
             //alert(response.mockup);
             jQuery('#search-child-care-results').html(response.mockup);
+            jQuery('#count-results .col-lg-12').html(response.message);
             render_google_maps();
             initMap(response.map_marker_information);
            // console.log(response.map_marker_information);
@@ -45,7 +46,6 @@ function initMap(map_marker_information) {
             title: 'Search Child Care - All Our Kin'
         });
 
-
         var infowindow = new google.maps.InfoWindow({
             content: value.markerInformation,
         });
@@ -60,11 +60,15 @@ function initMap(map_marker_information) {
 
 function render_google_maps(){
     jQuery('#search-page-left').css("display", "block");
-    jQuery('#search-page-right').removeClass('col-lg-12');
-    jQuery('#search-page-right').addClass('col-lg-7');
+    jQuery('#search-page-right').removeClass('col-lg-12').addClass('col-lg-7');
 }
 
 jQuery(document).ready(function($) {
+
+    if($_POST["from_home"] == "from_home"){
+        jQuery('.ajax-button').trigger('click');
+    }
+
     /*Multiple select*/
     $(function () {
         $('#lang').change(function () {

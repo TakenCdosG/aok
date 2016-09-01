@@ -42,10 +42,14 @@
                <div id="map"></div>
             </div>
             <div class="col-lg-12" id="search-page-right">
+               <script>var $_POST = <?php echo json_encode($_POST); ?>;</script>
                 <?php echo do_shortcode('[search_child_care]'); ?>
             </div>
         </div>
-        <div class="search-child-care-results" id="search-child-care-results">
+        <div class="row" id="count-results">
+            <div class="col-lg-12"></div>
+        </div>
+        <div class="search-child-care-results row" id="search-child-care-results">
             <!-- HERE DYNAMIC CONTENT FROM SEARCH RESULTS -->
         </div>
     </div>

@@ -52,14 +52,15 @@
 							?>
 							<?php
 								if($current_lang == 'en'){
-									echo '<form action="find-child-care/" method="GET">';
+									echo '<form action="find-child-care/" method="POST">';
 								}elseif ($current_lang == 'es') {
-									echo '<form action="encontrar-cuidado-infantil/" method="GET">';
+									echo '<form action="encontrar-cuidado-infantil/" method="POST">';
 								}
 							?>
 								<?php
 									echo
-									'<input name="zip" class="field zip" type="text" value="'.get_field("homepage_zipcode_text", $wp_query->post->ID).'">
+									'<input name="zip_code" class="field zip" type="text" value="'.get_field("homepage_zipcode_text", $wp_query->post->ID).'">
+									<input name="from_home" value="from_home" hidden>
 									<input class="submit" type="submit" value="'.get_field("homepage_search_button", $wp_query->post->ID).'">'
 								?>
 							</form>

@@ -71,7 +71,6 @@ function search_child_care_callback(){
         );
     }
 
-
     $args['meta_query'][100] = array(
         'relation' => 'OR',
 
@@ -124,27 +123,25 @@ function search_child_care_callback(){
         );
     }
 
-
     $user_query = new WP_User_Query($args);
 
     // If we don't have posts matching this query return status as false
     if ($user_query->get_total() == 0) {
         $response['status'] = false;
         // remember to send an information about why it failed, always.
-        $response['mockup'] = esc_attr__('No posts were found');
+        $response['message'] = esc_attr__('No posts were found');
 
     } else {
         $response['status'] = true;
         // We will return the whole query to allow any customization on the front end
-        $response['query'] = $user_query;
+        //$response['query'] = $user_query;
         $response['mockup'] = build_html_response($user_query);
         $response['map_marker_information'] = build_map_marker_information($user_query);
+        $response['message'] = $user_query->get_total().' results found';
     }
 
     // Never forget to exit or die on the end of a WordPress AJAX action!
    exit(json_encode($response));
-   //exit(json_encode($form_data));
-    //print_r($args);
 }
 
 
@@ -157,37 +154,26 @@ function search_child_care_callback(){
  * @return Html Output
  */
 function build_html_response($user_query) {
+
     $mockUp = '';
-    $count_results = 0;
 
     if( ! empty( $user_query->results ) ) {
-        $mockUp .= '<div class="row">';
-        $mockUp .= '<div class="count-results col-xs-12">';
-        $mockUp .= $user_query->get_total().' results found';
-        $mockUp .= '</div>';
 
         foreach ($user_query->results as $user) {
 
             $mockUp .= '<div class="col-lg-4">';
             $mockUp .= '<div class="result-item">';
             $mockUp .= '<a href="'.get_author_posts_url( $user->ID ).'">';
-            $mockUp .= '<div style="width:100%; height:250px; background-size:cover; background-position:center; background-image:url(' . get_field("p_gallery","user_".$user->ID) . ')"></div>';
+            $mockUp .= '<div style="width:100%; height:250px; background-size:cover; background-position:center; background-image:url(' . get_field("p_gallery","user_".$user->ID)[0]['url'] . ')"></div>';
             $mockUp .= '<div class="result-title">';
             $mockUp .= get_field('child_care_name','user_'.$user->ID).$user->ID;
             $mockUp .= '</div>';
             $mockUp .= '</a>';
-
-
-
             $mockUp .= '</div>';
             $mockUp .= '</div>';
 
-            $count_results++;
         }
 
-
-
-        $mockUp .= '</div>';
     }
 
     return $mockUp;
@@ -202,20 +188,17 @@ function build_html_response($user_query) {
  * @return array
  */
 function build_map_marker_information($user_query) {
+
     $map_marker_information = array();
 
     if( ! empty( $user_query->results ) ) {
-
 
         foreach ($user_query->results as $user) {
             $map_marker_information[$user->ID]['latLng'] = get_field('location','user_'.$user->ID);
             $map_marker_information[$user->ID]['markerInformation'] = "<div class='content-information'><h3>".get_field('child_care_name','user_'.$user->ID)."</h3>";
             $map_marker_information[$user->ID]['markerInformation'] .= "<p><b>Direction: </b>". $map_marker_information[$user->ID]['latLng']['address']."</p>";
             $map_marker_information[$user->ID]['markerInformation'] .= "</div>";
-
         }
-
-
     }
     return $map_marker_information;
 }
@@ -225,13 +208,6 @@ function build_map_marker_information($user_query) {
 */
 function search_child_care_shortcode($atts) {
 
-
-    $data = array('custom_query_search_callback' => get_site_url() . '/custom_query_search_callback');
-    wp_localize_script('search-directory', 'search_directory', $data);
-
-    $data_needed = array(); // Do Something for get infomation needed for the template.
-
-    // Return output
     include(dirname(__FILE__) . '/../search-child-care-form.php');
 }
 
@@ -239,68 +215,4 @@ add_shortcode('search_child_care', 'search_child_care_shortcode');
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/***************/
-
-
-
-// Actions
-
-add_action('wp_ajax_bordoni_query_posts', 'custom_query_search_callback');
-add_action('wp_ajax_nopriv_bordoni_query_posts', 'custom_query_search_callback');
-
-/**
- * Load needed js and Css scripts.
- *
- * @since 1.0.0
- *
- */
-
-
-/**
- * Custom Ajax CallBack.
- *
- * @since 1.0.0
- *
- * @return Json Response
- */
-function custom_query_search_callback() {
-    $response = array();
-    // Never Use $_POST or $_GET variables without proper care Sanatization
-    $query = new WP_Query(array(
-        'posts_per_page' => absint($_POST['param1']),
-        'post_type' => wp_kses($_POST['param2'], array()),
-        'OTHER QUERY VAR HERE' => wp_kses($_POST['param3'], array()),
-    ));
-
-    // If we don't have posts matching this query return status as false
-    if (!$query->have_posts()) {
-        $response->status = false;
-        // remember to send an information about why it failed, always.
-        $response->message = esc_attr__('No posts were found');
-
-    } else {
-        $response->status = true;
-        // We will return the whole query to allow any customization on the front end
-        $response->query = $query;
-        $response->mockup = build_html_response($query);
-        //$response->coordinates_array = build_coordinates_response($query);
-    }
-
-    // Never forget to exit or die on the end of a WordPress AJAX action!
-    exit(json_encode($response));
-}
 
