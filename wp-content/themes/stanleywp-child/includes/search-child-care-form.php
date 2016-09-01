@@ -13,16 +13,16 @@
       <input type="hidden" id="current_lang" name="current_lang" value="<?php echo $current_lang; ?>">
       <div class="half field">
         <label for="f-name">First Name: </label>
-        <input type="text" name="f-name" label="First Name" >
+        <input type="text" name="first_name" label="First Name" >
       </div>
       <div class="half field" style="margin-left:3%;">
         <label for="l-name">Last Name: </label>
-        <input type="text" name="l-name" label="Last Name" >
+        <input type="text" name="last_name" label="Last Name" >
       </div>
       <div class="clearfix"></div>
       <div class="full field">
         <label for="cc-name">Child Care Name: </label>
-        <input type="text" name="cc-name" label="Child Care Name" >
+        <input type="text" name="child_care_name" label="Child Care Name" >
       </div>
       <div class="clearfix"></div>
       <div class="half field">
@@ -44,27 +44,27 @@
       </div>
       <div class="one field">
         <label for="zip">ZIP Code: </label>
-        <input type="text" name="zip" label="ZIP Code" >
+        <input type="text" name="zip_code" label="ZIP Code" >
       </div>
       <div class="one field">
         <label for="lang">Language Spoken: </label>
-        <select id="lang" name="lang[]" multiple>
+        <select id="lang" name="p_language_spoken[]" multiple>
           <option value="english">English</option>
-          <option value="spanish">Spanish</option>
+            <option value="spanish">Spanish</option>
         </select>
       </div>
       <div class="one field">
         <label for="cops">Current Openings: </label>
-        <input type="checkbox" name="cop" value="yes" >YES</input>
-        <input type="checkbox" name="cop" value="no" class="checkbox-right" >NO</input>
+        <input type="checkbox" name="current_openings" value="yes" >YES</input>
+        <input type="checkbox" name="current_openings" value="no" class="checkbox-right" >NO</input>
       </div>
       <div class="one field">
         <label for="check-option">Check the following that apply: </label>
-        <input name="op-eve"type="checkbox" value="yes">Open on evenings/overnight </input>
-        <input name="op-week" type="checkbox" class="checkbox-right" value="yes">Open on weekends </input>
+        <input name="open_on_evenings"type="checkbox" value="yes">Open on evenings/overnight </input>
+        <input name="open_on_weekends" type="checkbox" class="checkbox-right" value="yes">Open on weekends </input>
         <br>
-        <input name="c-fork" type="checkbox" value="yes">Accept Care4Kids </input>
-        <input name="cam" type="checkbox" class="checkbox-right" value="yes">Certified to Administer Medication </input>
+        <input name="accept_care4kids" type="checkbox" value="yes">Accept Care4Kids </input>
+        <input name="certified_to_administer_medication" type="checkbox" class="checkbox-right" value="yes">Certified to Administer Medication </input>
         <p></p>
         <input id="submit" class="ajax-button" type="submit" value="Search">
       </div>

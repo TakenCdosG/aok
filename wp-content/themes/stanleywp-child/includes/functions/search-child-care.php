@@ -31,42 +31,42 @@ function search_child_care_callback(){
         )
     );
 
-    if(!empty($form_data['f-name'])){
+    if(!empty($form_data['first_name'])){
         $args['meta_query'][] = array(
             'key'   => 'first_name',
-            'value'   => $form_data['f-name'],
+            'value'   => $form_data['first_name'],
             'compare' => 'LIKE'
         );
     }
 
-    if(!empty($form_data['l-name'])){
+    if(!empty($form_data['last_name'])){
         $args['meta_query'][] = array(
             'key'   => 'last_name',
-            'value'   => $form_data['l-name'],
+            'value'   => $form_data['last_name'],
             'compare' => 'LIKE'
         );
     }
 
-    if(!empty($form_data['cc-name'])){
+    if(!empty($form_data['child_care_name'])){
         $args['meta_query'][] = array(
-            'key'   => 'ccname',
-            'value'   => $form_data['cc-name'],
+            'key'   => 'child_care_name',
+            'value'   => $form_data['child_care_name'],
             'compare' => 'LIKE'
         );
     }
 
     if(!empty($form_data['p_ages_served'])){
         $args['meta_query'][] = array(
-            'key'   => 'age',
+            'key'   => 'p_ages_served',
             'value'   => $form_data['p_ages_served'],
             'compare' => '='
         );
     }
 
-    if(!empty($form_data['zip'])){
+    if(!empty($form_data['zip_code'])){
         $args['meta_query'][] = array(
-            'key'   => 'zip',
-            'value'   => $form_data['zip'],
+            'key'   => 'zip_code',
+            'value'   => $form_data['zip_code'],
             'compare' => '='
         );
     }
@@ -76,50 +76,50 @@ function search_child_care_callback(){
         'relation' => 'OR',
 
     );
-        foreach ($form_data['lang'] as $key => $value){
+        foreach ($form_data['p_language_spoken'] as $key => $value){
             $args['meta_query'][100][] = array(
-                'key'   => 'lang',
+                'key'   => 'p_language_spoken',
                 'value'   => $value,
                 'compare' => 'LIKE'
             );
         }
 
-    if(!empty($form_data['cop'])){
+    if(!empty($form_data['current_openings'])){
         $args['meta_query'][] = array(
-            'key'   => 'cop',
-            'value'   => $form_data['cop'],
+            'key'   => 'current_openings',
+            'value'   => $form_data['current_openings'],
             'compare' => '='
         );
     }
 
-    if(!empty($form_data['op-eve'])){
+    if(!empty($form_data['open_on_evenings'])){
         $args['meta_query'][] = array(
-            'key'   => 'opeve',
-            'value'   => $form_data['op-eve'],
+            'key'   => 'open_on_evenings',
+            'value'   => $form_data['open_on_evenings'],
             'compare' => '='
         );
     }
 
-    if(!empty($form_data['op-week'])){
+    if(!empty($form_data['open_on_weekends'])){
         $args['meta_query'][] = array(
-            'key'   => 'opweek',
-            'value'   => $form_data['op-week'],
+            'key'   => 'open_on_weekends',
+            'value'   => $form_data['open_on_weekends'],
             'compare' => '='
         );
     }
 
-    if(!empty($form_data['c-fork'])){
+    if(!empty($form_data['accept_care4kids'])){
         $args['meta_query'][] = array(
-            'key'   => 'cfork',
-            'value'   => $form_data['c-fork'],
+            'key'   => 'accept_care4kids',
+            'value'   => $form_data['accept_care4kids'],
             'compare' => '='
         );
     }
 
-    if(!empty($form_data['cam'])){
+    if(!empty($form_data['certified_to_administer_medication'])){
         $args['meta_query'][] = array(
-            'key'   => 'cam',
-            'value'   => $form_data['cam'],
+            'key'   => 'certified_to_administer_medication',
+            'value'   => $form_data['certified_to_administer_medication'],
             'compare' => '='
         );
     }
@@ -173,7 +173,7 @@ function build_html_response($user_query) {
             $mockUp .= '<a href="'.get_author_posts_url( $user->ID ).'">';
             $mockUp .= '<div style="width:100%; height:250px; background-size:cover; background-position:center; background-image:url(' . get_field("p_gallery","user_".$user->ID) . ')"></div>';
             $mockUp .= '<div class="result-title">';
-            $mockUp .= get_field('ccname','user_'.$user->ID).$user->ID;
+            $mockUp .= get_field('child_care_name','user_'.$user->ID).$user->ID;
             $mockUp .= '</div>';
             $mockUp .= '</a>';
 
@@ -209,7 +209,7 @@ function build_map_marker_information($user_query) {
 
         foreach ($user_query->results as $user) {
             $map_marker_information[$user->ID]['latLng'] = get_field('location','user_'.$user->ID);
-            $map_marker_information[$user->ID]['markerInformation'] = "<div class='content-information'><h3>".get_field('ccname','user_'.$user->ID)."</h3>";
+            $map_marker_information[$user->ID]['markerInformation'] = "<div class='content-information'><h3>".get_field('child_care_name','user_'.$user->ID)."</h3>";
             $map_marker_information[$user->ID]['markerInformation'] .= "<p><b>Direction: </b>". $map_marker_information[$user->ID]['latLng']['address']."</p>";
             $map_marker_information[$user->ID]['markerInformation'] .= "</div>";
 
