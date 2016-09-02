@@ -99,7 +99,7 @@ $p_expiration_date = get_field('p_expiration_date', 'user_'.$ide);
 					<div class="clearfix"></div>
 				</div>
 				<div>
-					<p class="small">For up to date licensing information, please visit the <a href="#">Connecticut Office of Early Childhood website.</a></p>
+					<p class="small">For up to date licensing information, please visit the <a href="http://www.ct.gov/oec/site/default.asp" target="_blank">Connecticut Office of Early Childhood website.</a></p>
 				</div>
 			</div>
 		</div>
