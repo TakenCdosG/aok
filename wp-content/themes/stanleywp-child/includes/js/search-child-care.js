@@ -1,10 +1,27 @@
+var myLatLng = {};
+
 jQuery( document ).on( 'click', '.ajax-button', function() {
 
 //alert(search_child_care.ajax_url);
     // var post_id = jQuery(this).data('id');
 
+
+
+
     var formData = jQuery('#search-child-care-form').serialize();
-    //console.log(formValue['fname']);
+    var zip_code = jQuery('#zip_code').val();
+
+    if(zip_code == ''){
+        zip_code = '06510';
+    }
+
+
+    jQuery.get( "https://maps.googleapis.com/maps/api/geocode/json", { address : zip_code, key : 'AIzaSyD8gQGcG1dHoyC_99gy-Vvus4XAXHCN2oE'} )
+        .done(function( data ) {
+//console.log(data);
+             myLatLng = {lat: data.results[0].geometry.location.lat, lng: data.results[0].geometry.location.lng};
+        });
+
     jQuery('#search-child-care-results').html("");
     jQuery.ajax({
         url : search_child_care.ajax_url,
@@ -29,11 +46,12 @@ jQuery( document ).on( 'click', '.ajax-button', function() {
 });
 
 var map;
+console.log(myLatLng);
 function initMap(map_marker_information) {
-    var myLatLng = {lat: 41.2983782, lng: -72.9376795};
+
     map = new google.maps.Map(document.getElementById('map'), {
         center: myLatLng,
-        zoom: 12
+        zoom: 14
     });
 
     jQuery.each(map_marker_information,function(key,value){

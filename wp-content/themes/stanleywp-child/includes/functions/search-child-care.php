@@ -63,13 +63,13 @@ function search_child_care_callback(){
         );
     }
 
-    if(!empty($form_data['zip_code'])){
+/*    if(!empty($form_data['zip_code'])){
         $args['meta_query'][] = array(
             'key'   => 'zip_code',
             'value'   => $form_data['zip_code'],
             'compare' => '='
         );
-    }
+    }*/
 
     $args['meta_query'][100] = array(
         'relation' => 'OR',

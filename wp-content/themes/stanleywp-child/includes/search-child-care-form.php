@@ -44,7 +44,7 @@
       </div>
       <div class="one field">
         <label for="zip">ZIP Code: </label>
-        <input type="text" name="zip_code" label="ZIP Code" value="<?php echo $_POST['zip_code'];  ?>" >
+        <input type="text" id="zip_code" name="zip_code" label="ZIP Code" value="<?php echo $_POST['zip_code'];  ?>" >
       </div>
       <div class="one field">
         <label for="lang">Language Spoken: </label>
