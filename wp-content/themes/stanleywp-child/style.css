@@ -897,3 +897,8 @@ ol, ul {
 #map {
 	height: 398px;
 }
+
+
+body.error404 .container img{
+	display: none;
+}
