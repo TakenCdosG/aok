@@ -45,7 +45,7 @@ body{
 	font-style: normal;
 }
 
-a {
+a, a:hover {
 	color: #5d8827;
 }
 
