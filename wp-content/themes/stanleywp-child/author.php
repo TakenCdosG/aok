@@ -6,7 +6,7 @@ $curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : g
 $ide = $curauth->ID;
 $p_child_care_name = get_field('ccname', 'user_'.$ide);
 $p_contact_information = get_field('p_contact_information', 'user_'.$ide);
-$p_ages_served = get_field('p_ages_served', 'user_'.$ide);
+
 $p_about_me = get_field('p_about_me', 'user_'.$ide);
 $p_pre_school = get_field('p_pre_school', 'user_'.$ide);
 $p_before_after_school = get_field('p_before_after_school', 'user_'.$ide);
@@ -29,6 +29,9 @@ $p_expiration_date = get_field('p_expiration_date', 'user_'.$ide);
 
 
 $infant_toddler = get_field('infant_toddler', 'user_'.$ide);
+$ages_served = get_field_object('p_ages_served', 'user_'.$ide);
+$value_ages_served = $ages_served['value'];
+$label_ages_served = $ages_served['choices'][ $value_ages_served ];
 
 ?>
 <div class="container">
@@ -58,7 +61,7 @@ $infant_toddler = get_field('infant_toddler', 'user_'.$ide);
 					<div class="col-lg-6"><?php echo $p_contact_information; ?></div>
 					<div class="col-lg-6">
 						<h5>Ages Served</h5>
-						<ul><li><?php echo $p_ages_served; ?></li></ul>
+						<ul><li><?php echo $label_ages_served; ?></li></ul>
 						<h5>Current Openings</h5>
 						<ul>
 							<li>Infant/Toddler: <?php echo $infant_toddler; ?></li>
