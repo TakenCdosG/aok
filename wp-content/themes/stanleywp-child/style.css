@@ -45,6 +45,10 @@ body{
 	font-style: normal;
 }
 
+a {
+	color: #5d8827;
+}
+
 .small{
 	font-size: 0.85em;
 }
