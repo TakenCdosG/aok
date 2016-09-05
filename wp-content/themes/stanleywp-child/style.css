@@ -802,6 +802,7 @@ ol, ul {
 	}
 }
 @media (max-width: 768px){
+
 	.navbar-collapse{
 		background-color: #ffffff;
 	}
@@ -824,6 +825,11 @@ ol, ul {
 	}
 	.header-image{
 		height: 220px;
+	}
+	.nav-search {
+		margin-top: -20px;
+		float: right;
+		text-align: right;
 	}
 }
 @media (max-width: 520px){
