@@ -8,7 +8,6 @@ $p_child_care_name = get_field('ccname', 'user_'.$ide);
 $p_contact_information = get_field('p_contact_information', 'user_'.$ide);
 $p_ages_served = get_field('p_ages_served', 'user_'.$ide);
 $p_about_me = get_field('p_about_me', 'user_'.$ide);
-$p_infant_toddler = get_field('p_infant_toddler', 'user_'.$ide);
 $p_pre_school = get_field('p_pre_school', 'user_'.$ide);
 $p_before_after_school = get_field('p_before_after_school', 'user_'.$ide);
 $p_license_number = get_field('p_license_number', 'user_'.$ide);
@@ -21,7 +20,6 @@ $p_qsp_level = get_field('p_qsp_level', 'user_'.$ide);
 $p_date_issued = get_field('p_date_issued', 'user_'.$ide);
 $p_expiration_date_qsp = get_field('p_expiration_date_qsp', 'user_'.$ide);
 $p_hours_of_operation = get_field('p_hours_of_operation', 'user_'.$ide);
-$p_infant_toddler = get_field('p_infant_toddler', 'user_'.$ide);
 $p_preschool = get_field('p_preschool', 'user_'.$ide);
 $p_school_age = get_field('p_school_age', 'user_'.$ide);
 $p_extra_details = get_field('p_extra_details', 'user_'.$ide);
@@ -59,7 +57,7 @@ $p_expiration_date = get_field('p_expiration_date', 'user_'.$ide);
 						<ul><li><?php echo $p_ages_served; ?></li></ul>
 						<h5>Current Openings</h5>
 						<ul>
-							<li>Infant/Toddler: <?php echo $p_infant_toddler; ?></li>
+							<li>Infant/Toddler: <?php echo get_field('infant_toddler', 'user_'.$ide); ?></li>
 							<li>Pre-school: <?php echo $p_pre_school; ?></li>
 							<li>Before & After School: <?php echo $p_before_after_school; ?></li>
 						</ul>
@@ -135,7 +133,7 @@ $p_expiration_date = get_field('p_expiration_date', 'user_'.$ide);
 								<ul><li><?php echo $p_hours_of_operation; ?></li></ul>
 							<h5>Fees by Age Group</h5>
 								<ul>
-									<li>Infant/Toddler: <?php echo $p_infant_toddler; ?></li>
+									<li>Infant/Toddler: <?php get_field('infant_toddler', 'user_'.$ide); ?></li>
 									<li>Preschool: <?php echo $p_preschool; ?></li>
 									<li>School Age: <?php echo $p_school_age; ?></li>
 								</ul>
