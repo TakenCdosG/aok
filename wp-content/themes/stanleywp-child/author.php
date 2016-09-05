@@ -137,7 +137,7 @@ $infant_toddler = get_field('infant_toddler', 'user_'.$ide);
 								<ul><li><?php echo $p_hours_of_operation; ?></li></ul>
 							<h5>Fees by Age Group</h5>
 								<ul>
-									<li>Infant/Toddler: <?php $infant_toddler; ?></li>
+									<li>Infant/Toddler: <?php echo $infant_toddler; ?></li>
 									<li>Preschool: <?php echo $p_preschool; ?></li>
 									<li>School Age: <?php echo $p_school_age; ?></li>
 								</ul>
