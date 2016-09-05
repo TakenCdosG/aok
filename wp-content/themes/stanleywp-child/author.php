@@ -26,6 +26,10 @@ $p_extra_details = get_field('p_extra_details', 'user_'.$ide);
 $p_training_and_experience = get_field('p_training_and_experience', 'user_'.$ide);
 $p_date_issued = get_field('p_date_issued', 'user_'.$ide);
 $p_expiration_date = get_field('p_expiration_date', 'user_'.$ide);
+
+
+$infant_toddler = get_field('infant_toddler', 'user_'.$ide);
+
 ?>
 <div class="container">
 	<div class="border">
@@ -57,7 +61,7 @@ $p_expiration_date = get_field('p_expiration_date', 'user_'.$ide);
 						<ul><li><?php echo $p_ages_served; ?></li></ul>
 						<h5>Current Openings</h5>
 						<ul>
-							<li>Infant/Toddler: <?php echo get_field('infant_toddler', 'user_'.$ide); ?></li>
+							<li>Infant/Toddler: <?php echo $infant_toddler; ?></li>
 							<li>Pre-school: <?php echo $p_pre_school; ?></li>
 							<li>Before & After School: <?php echo $p_before_after_school; ?></li>
 						</ul>
@@ -133,7 +137,7 @@ $p_expiration_date = get_field('p_expiration_date', 'user_'.$ide);
 								<ul><li><?php echo $p_hours_of_operation; ?></li></ul>
 							<h5>Fees by Age Group</h5>
 								<ul>
-									<li>Infant/Toddler: <?php get_field('infant_toddler', 'user_'.$ide); ?></li>
+									<li>Infant/Toddler: <?php $infant_toddler; ?></li>
 									<li>Preschool: <?php echo $p_preschool; ?></li>
 									<li>School Age: <?php echo $p_school_age; ?></li>
 								</ul>
