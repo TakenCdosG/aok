@@ -41,7 +41,7 @@ $pre_school = get_field_object('pre_school', 'user_'.$ide);
 $value_pre_school = $pre_school['value'];
 $label_pre_school = $pre_school['choices'][ $value_pre_school ];
 
-$before_after_school = get_field_object('p_ages_served', 'user_'.$ide);
+$before_after_school = get_field_object('before_after_school', 'user_'.$ide);
 $value_before_after_school = $before_after_school['value'];
 $label_before_after_school = $before_after_school['choices'][ $value_before_after_school ];
 
