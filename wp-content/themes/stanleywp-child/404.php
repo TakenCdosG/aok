@@ -1,16 +1,8 @@
 <?php
 /**
  * Error 404 Template
- *
- *
- * @file           404.php
- * @package        StanleyWP 
- * @author         Brad Williams & Carlos Alvarez 
- * @copyright      2011 - 2014 Gents Themes
- * @license        license.txt
- * @version        Release: 3.0.3
- * @link           http://codex.wordpress.org/Creating_an_Error_404_Page
- * @since          available since Release 1.0
+ * @package WordPress
+ * @subpackage StanleyWP
  */
 ?>
 <?php get_header(); ?>
