@@ -28,10 +28,22 @@ $p_date_issued = get_field('p_date_issued', 'user_'.$ide);
 $p_expiration_date = get_field('p_expiration_date', 'user_'.$ide);
 
 
-$infant_toddler = get_field('infant_toddler', 'user_'.$ide);
+
 $ages_served = get_field_object('p_ages_served', 'user_'.$ide);
 $value_ages_served = $ages_served['value'];
 $label_ages_served = $ages_served['choices'][ $value_ages_served ];
+
+$infant_toddler = get_field_object('infant_toddler', 'user_'.$ide);
+$value_infant_toddler = $infant_toddler['value'];
+$label_infant_toddler = $infant_toddler['choices'][ $value_infant_toddler ];
+
+$pre_school = get_field_object('pre_school', 'user_'.$ide);
+$value_pre_school = $pre_school['value'];
+$label_pre_school = $pre_school['choices'][ $value_pre_school ];
+
+$before_after_school = get_field_object('p_ages_served', 'user_'.$ide);
+$value_before_after_school = $before_after_school['value'];
+$label_before_after_school = $before_after_school['choices'][ $value_before_after_school ];
 
 ?>
 <div class="container">
@@ -64,9 +76,9 @@ $label_ages_served = $ages_served['choices'][ $value_ages_served ];
 						<ul><li><?php echo $label_ages_served; ?></li></ul>
 						<h5>Current Openings</h5>
 						<ul>
-							<li>Infant/Toddler: <?php echo $infant_toddler; ?></li>
-							<li>Pre-school: <?php echo $p_pre_school; ?></li>
-							<li>Before & After School: <?php echo $p_before_after_school; ?></li>
+							<li>Infant/Toddler: <?php echo $label_infant_toddler; ?></li>
+							<li>Pre-school: <?php echo $label_pre_school; ?></li>
+							<li>Before & After School: <?php echo $label_before_after_school; ?></li>
 						</ul>
 
 					</div>
