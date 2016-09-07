@@ -3,7 +3,9 @@
 require_once('includes/functions/wp_bootstrap_navwalker.php');
 require_once('includes/functions/register-form.php');
 require_once('includes/functions/my_mce.php');
+//require_once('includes/functions/acf-zip-code-search.php');
 require_once('includes/functions/search-child-care.php');
+
 
 add_theme_support('post-thumbnails');
 add_post_type_support( 'child_care', 'thumbnail' );
@@ -68,16 +70,18 @@ function my_function()
 
 
 function adding_custom_resources() {
+	wp_register_script('pop-up-login', get_stylesheet_directory_uri() .'/includes/js/pop-up-login.js');
 
 	if(is_page_template( 'templates/template-homepage.php' ) or is_page(array('for-family-child-care-providers', 'proveedores-familiares')) ){
 		wp_enqueue_script( 'home-js', get_stylesheet_directory_uri() .'/includes/js/home-functions.js');
-		wp_enqueue_script( 'pop-up-login', get_stylesheet_directory_uri() .'/includes/js/pop-up-login.js');
+		wp_enqueue_script( 'pop-up-login');
 	}
 	
 	if(is_author() ){
 		wp_enqueue_script( 'author-js', get_stylesheet_directory_uri() .'/includes/js/profile-read-more.js');
 		wp_enqueue_script( 'fotorama-js', 'http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js');
 		wp_enqueue_style( 'fotorama-css', 'http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css');
+		wp_enqueue_script( 'pop-up-login');
 	}
 
 	if(is_page( 'register' ) ){

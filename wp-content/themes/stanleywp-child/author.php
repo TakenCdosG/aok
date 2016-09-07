@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 
 <?php
+
 $curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author));
 //Variables
 $ide = $curauth->ID;
@@ -47,7 +48,15 @@ $label_before_after_school = $before_after_school['choices'][ $value_before_afte
 
 ?>
 <div class="container">
+	<?php get_template_part('includes/pop-up-login'); ?>
 	<div class="border">
+		<?php
+if (!is_user_logged_in()) {
+	$redirect = home_url() . '/wp-login.php?redirect_to=' . urlencode( $_SERVER['REQUEST_URI'] );
+	$register =  home_url() . '/register?redirect_to=' . urlencode( $_SERVER['REQUEST_URI'] );
+	echo('<div class="row log-reg"><div class="col-lg-12 reg">Are you looking for child care? If so, <a href="/register">Register here </a> </div>
+				<div class="col-lg-12 log">Already registered?  <a href="#">Log in here</a> </div></div>');
+} else { ?>
 		<div class="row">
 			<div class="col-lg-12">
 				<?php get_template_part('includes/nav'); ?>
@@ -193,7 +202,7 @@ $label_before_after_school = $before_after_school['choices'][ $value_before_afte
 				<div class="clearfix"></div>
 			</div>
 		</div>
-
+<?php }?>
 	</div>
 </div>
 <?php get_footer(); ?>
