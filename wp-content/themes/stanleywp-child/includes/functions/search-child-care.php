@@ -39,11 +39,22 @@ function search_child_care_callback(){
      * Query will return all posts sorted by post title
      */
     $sql_query  = "SELECT u.ID, u.user_login, g.lat, g.lng FROM";
-    $sql_join   = " wp_users u INNER JOIN wp_usermeta m ON m.user_id = u.ID INNER JOIN ".$table_name." g ON u.ID = g.user_id INNER JOIN wp_usermeta AS m1 ON m1.user_id = u.ID";
+    $sql_join   = " wp_users u INNER JOIN wp_usermeta m ON m.user_id = u.ID INNER JOIN ".$table_name." g ON u.ID = g.user_id INNER JOIN wp_usermeta AS m1 ON m1.user_id = u.ID INNER 
+    JOIN wp_usermeta AS m2 ON m2.user_id = u.ID INNER JOIN wp_usermeta AS m3 ON m3.user_id = u.ID INNER JOIN wp_usermeta AS m4 ON m4.user_id = u.ID";
+
     $sql_where  = " WHERE 1=1 AND (m.meta_key = 'wp_capabilities' AND m.meta_value LIKE '%Contributor%')";
     $first_name_where = " AND (m1.meta_key = 'first_name' AND m1.meta_value LIKE '%".$form_data['first_name']."%')";
-
-    /*
+    $last_name_where = " AND (m2.meta_key = 'last_name' AND m2.meta_value LIKE '%".$form_data['last_name']."%')";
+    $child_care_name_where = " AND (m3.meta_key = 'child_care_name' AND m3.meta_value LIKE '%".$form_data['child_care_name']."%')";
+    $p_ages_served_where = " AND (m4.meta_key = 'p_ages_served' AND m4.meta_value LIKE '%".$form_data['p_ages_served']."%')";
+    //$lang_where = " AND (m5.meta_key = 'p_language_spoken[]' AND m5.meta_value LIKE '%".$form_data['p_language_spoken[]']."%')";
+    /*$current_openings_where = " AND (m6.meta_key = 'current_openings' AND m7.meta_value LIKE '%".$form_data['current_openings']."%')";*/
+    //$open_on_evenings_where = " AND (m7.meta_key = 'open_on_evenings' AND m7.meta_value = '".$form_data['open_on_evenings']."')";
+    /*$open_on_weekends_where = " AND (m8.meta_key = 'open_on_weekends' AND m8.meta_value LIKE '%".$form_data['open_on_weekends']."%')";
+    $accept_care4kids_where = " AND (m9.meta_key = 'accept_care4kids' AND m9.meta_value LIKE '%".$form_data['accept_care4kids']."%')";
+    $certified_to_administer_medication_where = " AND (m10.meta_key = 'certified_to_administer_medication' AND m10.meta_value LIKE '%".$form_data['certified_to_administer_medication']."%')";
+    */
+     /*
      * If latitude and longitude are defined expand the SQL query
      */
     if( $search_lat && $search_lng ) {
@@ -62,7 +73,7 @@ function search_child_care_callback(){
     /*
      * Construct SQL query and get results
      */
-    $sql   = $sql_query . $sql_join . $sql_where . $first_name_where;
+    $sql   = $sql_query . $sql_join . $sql_where . $first_name_where . $last_name_where . $child_care_name_where . $p_ages_served_where . $lang_where . $current_openings_where . $open_on_evenings_where . $open_on_weekends_where . $accept_care4kids_where . $certified_to_administer_medication_where;
 
     $user_query = $wpdb->get_results($sql, OBJECT);
    // var_dump($sql );
