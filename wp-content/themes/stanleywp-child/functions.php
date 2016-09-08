@@ -3,7 +3,7 @@
 require_once('includes/functions/wp_bootstrap_navwalker.php');
 require_once('includes/functions/register-form.php');
 require_once('includes/functions/my_mce.php');
-//require_once('includes/functions/acf-zip-code-search.php');
+require_once('includes/functions/acf-zip-code-search.php');
 require_once('includes/functions/search-child-care.php');
 
 
