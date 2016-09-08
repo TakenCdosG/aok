@@ -2,12 +2,14 @@ var zipCodeLatLng = {};
 
 jQuery( document ).on( 'click', '.ajax-button', function() {
 
+
     var formData = jQuery('#search-child-care-form').serialize();
     var zip_code = jQuery('#zip_code').val();
 
     if(zip_code == ''){
         zip_code = '06510';
     }
+    jQuery('#search-child-care-results').html("");
 
     jQuery.get( "https://maps.googleapis.com/maps/api/geocode/json", { address : zip_code, key : 'AIzaSyD8gQGcG1dHoyC_99gy-Vvus4XAXHCN2oE'} )
         .done(function( data ) {
