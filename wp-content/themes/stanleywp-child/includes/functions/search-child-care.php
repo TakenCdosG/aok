@@ -29,7 +29,7 @@ function search_child_care_callback(){
      * Define variables
      */
 
-    $range       = 1; // Range within x miles, default is 10
+    $range       = 5; // Range within x miles, default is 10
     $search_lat  = $_POST['zipCodeLatLng']['lat']; // Latitude
     $search_lng  = $_POST['zipCodeLatLng']['lng']; // Longitude
     $table_name = $wpdb->prefix . 'my_geodata';
@@ -38,10 +38,10 @@ function search_child_care_callback(){
      * Construct basic SQL query
      * Query will return all posts sorted by post title
      */
-    $sql_query  = "SELECT u.ID, u.user_login, g.lat, g.lng FROM wp_usermeta m";
-    $sql_join   = " INNER JOIN wp_users u ON m.user_id = u.ID INNER JOIN ".$table_name." g ON u.ID = g.user_id";
-    $sql_where  = " WHERE m.meta_key = 'wp_capabilities' AND m.meta_value LIKE '%Contributor%'";
-    $first_name_where = " AND m.meta_key = 'first_name' AND m.meta_value LIKE '%".$form_data['first_name']."%'";
+    $sql_query  = "SELECT u.ID, u.user_login, g.lat, g.lng FROM";
+    $sql_join   = " wp_users u INNER JOIN wp_usermeta m ON m.user_id = u.ID INNER JOIN ".$table_name." g ON u.ID = g.user_id INNER JOIN wp_usermeta AS m1 ON m1.user_id = u.ID";
+    $sql_where  = " WHERE 1=1 AND (m.meta_key = 'wp_capabilities' AND m.meta_value LIKE '%Contributor%')";
+    $first_name_where = " AND (m1.meta_key = 'first_name' AND m1.meta_value LIKE '%".$form_data['first_name']."%')";
 
     /*
      * If latitude and longitude are defined expand the SQL query
@@ -85,7 +85,7 @@ function search_child_care_callback(){
     }
 
     // Never forget to exit or die on the end of a WordPress AJAX action!
-   exit(json_encode($sql));
+   exit(json_encode($response));
 }
 
 
