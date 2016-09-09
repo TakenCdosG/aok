@@ -21,7 +21,7 @@
 						<div class="caption">
 							<?php
 							echo '<p>'.get_field("homepage_caption_text", $wp_query->post->ID).'</p>';
-							echo '<a href="">'.get_field("homepage_caption_button", $wp_query->post->ID).'</a>';
+							echo '<a href="'.get_field("homepage_caption_button_link", $wp_query->post->ID).'">'.get_field("homepage_caption_button", $wp_query->post->ID).'</a>';
 							?>
 						</div>
 					</div>
