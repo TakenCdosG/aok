@@ -170,7 +170,7 @@ function custom_login_message() {
     wp_redirect(home_url('/find-child-care'));
 }
 
-add_filter( 'login_redirect', 'custom_login_message' );
+add_filter( 'wp_authenticate', 'custom_login_message' );
 
 function custom_registration_redirect() {
     //session_start();

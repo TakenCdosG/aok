@@ -7,7 +7,7 @@
     $args = array(
         'echo'           => true,
         'remember'       => false,
-        'redirect'       => ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'],
+        'redirect'       => site_url( '/find-child-care' ),
         'form_id'        => 'loginform',
         'id_username'    => 'user_login',
         'id_password'    => 'user_pass',
