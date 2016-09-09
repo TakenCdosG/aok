@@ -1,11 +1,6 @@
-var myLatLng = {};
+var zipCodeLatLng = {};
 
 jQuery( document ).on( 'click', '.ajax-button', function() {
-
-//alert(search_child_care.ajax_url);
-    // var post_id = jQuery(this).data('id');
-
-
 
 
     var formData = jQuery('#search-child-care-form').serialize();
@@ -14,44 +9,45 @@ jQuery( document ).on( 'click', '.ajax-button', function() {
     if(zip_code == ''){
         zip_code = '06510';
     }
-
+    jQuery('#search-child-care-results').html("");
 
     jQuery.get( "https://maps.googleapis.com/maps/api/geocode/json", { address : zip_code, key : 'AIzaSyD8gQGcG1dHoyC_99gy-Vvus4XAXHCN2oE'} )
         .done(function( data ) {
-//console.log(data);
-             myLatLng = {lat: data.results[0].geometry.location.lat, lng: data.results[0].geometry.location.lng};
+             zipCodeLatLng = {lat: data.results[0].geometry.location.lat, lng: data.results[0].geometry.location.lng};
+           // console.log(zipCodeLatLng);
+            jQuery.ajax({
+                url : search_child_care.ajax_url,
+                type : 'post',
+                data : {
+                    action : 'search_child_care',
+                    formData : formData,
+                    zipCodeLatLng : zipCodeLatLng
+                },
+                success : function( response ) {
+                    response = jQuery.parseJSON(response);
+                    //alert(response.mockup);
+                    jQuery('#search-child-care-results').html(response.mockup);
+                    jQuery('#count-results .col-lg-12').html(response.message);
+                    render_google_maps();
+                    initMap(response.map_marker_information);
+                }
+            });
         });
 
-    jQuery('#search-child-care-results').html("");
-    jQuery.ajax({
-        url : search_child_care.ajax_url,
-        type : 'post',
-        data : {
-            action : 'search_child_care',
-            formData : formData
-        },
-        success : function( response ) {
-            response = jQuery.parseJSON(response);
-            //alert(response.mockup);
-            jQuery('#search-child-care-results').html(response.mockup);
-            jQuery('#count-results .col-lg-12').html(response.message);
-            render_google_maps();
-            initMap(response.map_marker_information);
-           // console.log(response.map_marker_information);
-        }
-    });
+
+
 
     return false;
 
 });
 
 var map;
-console.log(myLatLng);
+
 function initMap(map_marker_information) {
 
     map = new google.maps.Map(document.getElementById('map'), {
-        center: myLatLng,
-        zoom: 14
+        center: zipCodeLatLng,
+        zoom: 12
     });
 
     jQuery.each(map_marker_information,function(key,value){

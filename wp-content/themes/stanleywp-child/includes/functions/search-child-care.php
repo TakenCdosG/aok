@@ -23,121 +23,125 @@ function search_child_care_callback(){
     parse_str($_POST['formData'],$form_data);
     $response = array();
 
+    global $wpdb;
 
-    $args = array(
-        'role' => 'Contributor',
-        'meta_query' => array(
-            'relation' => 'AND',
-        )
-    );
+    /*
+     * Define variables
+     */
+
+    $range       = 5; // Range within x miles, default is 10
+    $search_lat  = $_POST['zipCodeLatLng']['lat']; // Latitude
+    $search_lng  = $_POST['zipCodeLatLng']['lng']; // Longitude
+    $table_name = $wpdb->prefix . 'my_geodata';
+
+    /*
+     * Construct basic SQL query
+     * Query will return all posts sorted by post title
+     */
+    $sql_query  = "SELECT u.ID, u.user_login, g.lat, g.lng FROM";
+    $sql_join   = " wp_users u INNER JOIN wp_usermeta m ON m.user_id = u.ID INNER JOIN ".$table_name." g ON u.ID = g.user_id";
+    $sql_where  = " WHERE 1=1 AND (m.meta_key = 'wp_capabilities' AND m.meta_value LIKE '%Contributor%')";
 
     if(!empty($form_data['first_name'])){
-        $args['meta_query'][] = array(
-            'key'   => 'first_name',
-            'value'   => $form_data['first_name'],
-            'compare' => 'LIKE'
-        );
+        $sql_join .= " INNER JOIN wp_usermeta AS m1 ON m1.user_id = u.ID";
+        $sql_where .= " AND (m1.meta_key = 'first_name' AND m1.meta_value LIKE '%".$form_data['first_name']."%')";
     }
 
     if(!empty($form_data['last_name'])){
-        $args['meta_query'][] = array(
-            'key'   => 'last_name',
-            'value'   => $form_data['last_name'],
-            'compare' => 'LIKE'
-        );
+        $sql_join .= " INNER JOIN wp_usermeta AS m2 ON m2.user_id = u.ID";
+        $sql_where .= " AND (m2.meta_key = 'last_name' AND m2.meta_value LIKE '%".$form_data['last_name']."%')";
     }
 
-    if(!empty($form_data['child_care_name'])){
-        $args['meta_query'][] = array(
-            'key'   => 'child_care_name',
-            'value'   => $form_data['child_care_name'],
-            'compare' => 'LIKE'
-        );
+        if(!empty($form_data['child_care_name'])){
+        $sql_join .= " INNER JOIN wp_usermeta AS m3 ON m3.user_id = u.ID";
+        $sql_where .= " AND (m3.meta_key = 'child_care_name' AND m3.meta_value LIKE '%".$form_data['child_care_name']."%')";
     }
 
     if(!empty($form_data['p_ages_served'])){
-        $args['meta_query'][] = array(
-            'key'   => 'p_ages_served',
-            'value'   => $form_data['p_ages_served'],
-            'compare' => '='
-        );
+        $sql_join .= " INNER JOIN wp_usermeta AS m4 ON m4.user_id = u.ID";
+        $sql_where .= " AND (m4.meta_key = 'p_ages_served' AND m4.meta_value = '".$form_data['p_ages_served']."')";
     }
 
-/*    if(!empty($form_data['zip_code'])){
-        $args['meta_query'][] = array(
-            'key'   => 'zip_code',
-            'value'   => $form_data['zip_code'],
-            'compare' => '='
-        );
-    }*/
+    if(!empty($form_data['p_language_spoken'])){
+        $sql_join .= " INNER JOIN wp_usermeta AS m5 ON m5.user_id = u.ID";
+        $sql_where .= " AND (m5.meta_key = 'p_language_spoken' AND";
 
-    $args['meta_query'][100] = array(
-        'relation' => 'OR',
-
-    );
+        $sql_where .= " (";
         foreach ($form_data['p_language_spoken'] as $key => $value){
-            $args['meta_query'][100][] = array(
-                'key'   => 'p_language_spoken',
-                'value'   => $value,
-                'compare' => 'LIKE'
-            );
+            $sql_where .= "m5.meta_value LIKE '%".$value."%'";
+            if(count($form_data['p_language_spoken']) >$key+1){
+                $sql_where .= " OR ";
+            }
         }
+        $sql_where .= "))";
+
+        //$sql_where .= " AND (m5.meta_key = 'p_language_spoken' AND m5.meta_value = '".$form_data['p_language_spoken']."')";
+    }
 
     if(!empty($form_data['current_openings'])){
-        $args['meta_query'][] = array(
-            'key'   => 'current_openings',
-            'value'   => $form_data['current_openings'],
-            'compare' => '='
-        );
+        $sql_join .= " INNER JOIN wp_usermeta AS m6 ON m6.user_id = u.ID";
+        $sql_where .= " AND (m6.meta_key = 'current_openings' AND m6.meta_value = '".$form_data['current_openings']."')";
     }
 
     if(!empty($form_data['open_on_evenings'])){
-        $args['meta_query'][] = array(
-            'key'   => 'open_on_evenings',
-            'value'   => $form_data['open_on_evenings'],
-            'compare' => '='
-        );
+        $sql_join .= " INNER JOIN wp_usermeta AS m7 ON m7.user_id = u.ID";
+        $sql_where .= " AND (m7.meta_key = 'open_on_evenings' AND m7.meta_value = '".$form_data['open_on_evenings']."')";
     }
 
     if(!empty($form_data['open_on_weekends'])){
-        $args['meta_query'][] = array(
-            'key'   => 'open_on_weekends',
-            'value'   => $form_data['open_on_weekends'],
-            'compare' => '='
-        );
+        $sql_join .= " INNER JOIN wp_usermeta AS m8 ON m8.user_id = u.ID";
+        $sql_where .= " AND (m8.meta_key = 'open_on_weekends' AND m8.meta_value = '".$form_data['open_on_weekends']."')";
     }
 
     if(!empty($form_data['accept_care4kids'])){
-        $args['meta_query'][] = array(
-            'key'   => 'accept_care4kids',
-            'value'   => $form_data['accept_care4kids'],
-            'compare' => '='
-        );
+        $sql_join .= " INNER JOIN wp_usermeta AS m9 ON m9.user_id = u.ID";
+        $sql_where .= " AND (m9.meta_key = 'accept_care4kids' AND m9.meta_value = '".$form_data['accept_care4kids']."')";
     }
 
     if(!empty($form_data['certified_to_administer_medication'])){
-        $args['meta_query'][] = array(
-            'key'   => 'certified_to_administer_medication',
-            'value'   => $form_data['certified_to_administer_medication'],
-            'compare' => '='
-        );
+        $sql_join .= " INNER JOIN wp_usermeta AS m10 ON m10.user_id = u.ID";
+        $sql_where .= " AND (m10.meta_key = 'certified_to_administer_medication' AND m10.meta_value = '".$form_data['certified_to_administer_medication']."')";
     }
 
-    $user_query = new WP_User_Query($args);
+     /*
+     * If latitude and longitude are defined expand the SQL query
+     */
+    if( $search_lat && $search_lng ) {
+        /*
+         * Calculate range
+             * Function will return minimum and maximum latitude and longitude
+         */
+        $minmax = bar_get_nearby( $search_lat, $search_lng, 0, $range );
+
+        /*
+         * Update SQL query
+         */
+        $sql_where .= " AND ( (g.lat BETWEEN '$minmax[min_latitude]' AND '$minmax[max_latitude]') AND (g.lng BETWEEN '$minmax[min_longitude]' AND '$minmax[max_longitude]') ) ";
+    }
+
+    /*
+     * Construct SQL query and get results
+     */
+    $sql   = $sql_query . $sql_join . $sql_where;
+
+    $user_query = $wpdb->get_results($sql, OBJECT);
+   //var_dump($sql );
+$response['sql'] = $sql;
 
     // If we don't have posts matching this query return status as false
-    if ($user_query->get_total() == 0) {
-        $response['status'] = false;
-        // remember to send an information about why it failed, always.
-        $response['message'] = esc_attr__('No posts were found');
-
-    } else {
+    if ($user_query) {
         $response['status'] = true;
         // We will return the whole query to allow any customization on the front end
         //$response['query'] = $user_query;
         $response['mockup'] = build_html_response($user_query);
         $response['map_marker_information'] = build_map_marker_information($user_query);
-        $response['message'] = $user_query->get_total().' results found';
+        $response['message'] = count($user_query).' results found';
+
+    } else {
+
+        $response['status'] = false;
+        // remember to send an information about why it failed, always.
+        $response['message'] = esc_attr__('No posts were found');
     }
 
     // Never forget to exit or die on the end of a WordPress AJAX action!
@@ -157,9 +161,9 @@ function build_html_response($user_query) {
 
     $mockUp = '';
 
-    if( ! empty( $user_query->results ) ) {
+    if( ! empty( $user_query ) ) {
 
-        foreach ($user_query->results as $user) {
+        foreach ($user_query as $user) {
 
             $mockUp .= '<div class="col-lg-4">';
             $mockUp .= '<div class="result-item">';
@@ -191,9 +195,9 @@ function build_map_marker_information($user_query) {
 
     $map_marker_information = array();
 
-    if( ! empty( $user_query->results ) ) {
+    if( ! empty( $user_query ) ) {
 
-        foreach ($user_query->results as $user) {
+        foreach ($user_query as $user) {
             $map_marker_information[$user->ID]['latLng'] = get_field('location','user_'.$user->ID);
             $map_marker_information[$user->ID]['markerInformation'] = "<div class='content-information'><h3>".get_field('child_care_name','user_'.$user->ID)."</h3>";
             $map_marker_information[$user->ID]['markerInformation'] .= "<p><b>Direction: </b>". $map_marker_information[$user->ID]['latLng']['address']."</p>";
