@@ -52,6 +52,16 @@ function search_child_care_callback(){
         $sql_where .= " AND (m2.meta_key = 'last_name' AND m2.meta_value LIKE '%".$form_data['last_name']."%')";
     }
 
+        if(!empty($form_data['child_care_name'])){
+        $sql_join .= " INNER JOIN wp_usermeta AS m3 ON m3.user_id = u.ID";
+        $sql_where .= " AND (m3.meta_key = 'child_care_name' AND m3.meta_value = '".$form_data['child_care_name']."')";
+    }
+
+    if(!empty($form_data['p_ages_served'])){
+        $sql_join .= " INNER JOIN wp_usermeta AS m4 ON m4.user_id = u.ID";
+        $sql_where .= " AND (m4.meta_key = 'p_ages_served' AND m4.meta_value = '".$form_data['p_ages_served']."')";
+    }
+
     if(!empty($form_data['p_language_spoken'])){
         $sql_join .= " INNER JOIN wp_usermeta AS m5 ON m5.user_id = u.ID";
         $sql_where .= " AND (m5.meta_key = 'p_language_spoken' AND";
@@ -68,24 +78,31 @@ function search_child_care_callback(){
         //$sql_where .= " AND (m5.meta_key = 'p_language_spoken' AND m5.meta_value = '".$form_data['p_language_spoken']."')";
     }
 
-    if(!empty($form_data['open_on_evenings'])){
+    /*if(!empty($form_data['current_evenings'])){
         $sql_join .= " INNER JOIN wp_usermeta AS m6 ON m6.user_id = u.ID";
-        $sql_where .= " AND (m6.meta_key = 'open_on_evenings' AND m6.meta_value = '".$form_data['open_on_evenings']."')";
+        $sql_where .= " AND (m6.meta_key = 'current_openings' AND m6.meta_value = '".$form_data['current_openings']."')";
+    }*/
+
+    if(!empty($form_data['open_on_evenings'])){
+        $sql_join .= " INNER JOIN wp_usermeta AS m7 ON m7.user_id = u.ID";
+        $sql_where .= " AND (m7.meta_key = 'open_on_evenings' AND m7.meta_value = '".$form_data['open_on_evenings']."')";
     }
 
+    if(!empty($form_data['open_on_weekends'])){
+        $sql_join .= " INNER JOIN wp_usermeta AS m8 ON m8.user_id = u.ID";
+        $sql_where .= " AND (m8.meta_key = 'open_on_weekends' AND m8.meta_value = '".$form_data['open_on_weekends']."')";
+    }
 
+    if(!empty($form_data['accept_care4kids'])){
+        $sql_join .= " INNER JOIN wp_usermeta AS m9 ON m9.user_id = u.ID";
+        $sql_where .= " AND (m9.meta_key = 'accept_care4kids' AND m9.meta_value = '".$form_data['accept_care4kids']."')";
+    }
 
+    if(!empty($form_data['certified_to_administer_medication'])){
+        $sql_join .= " INNER JOIN wp_usermeta AS m10 ON m10.user_id = u.ID";
+        $sql_where .= " AND (m10.meta_key = 'certified_to_administer_medication' AND m10.meta_value = '".$form_data['certified_to_administer_medication']."')";
+    }
 
-    /*$last_name_where = " AND (m2.meta_key = 'last_name' AND m2.meta_value LIKE '%".$form_data['last_name']."%')";
-    $child_care_name_where = " AND (m3.meta_key = 'child_care_name' AND m3.meta_value LIKE '%".$form_data['child_care_name']."%')";
-    $p_ages_served_where = " AND (m4.meta_key = 'p_ages_served' AND m4.meta_value LIKE '%".$form_data['p_ages_served']."%')";*/
-    //$lang_where = " AND (m5.meta_key = 'p_language_spoken[]' AND m5.meta_value LIKE '%".$form_data['p_language_spoken[]']."%')";
-    /*$current_openings_where = " AND (m6.meta_key = 'current_openings' AND m7.meta_value LIKE '%".$form_data['current_openings']."%')";*/
-    //$open_on_evenings_where = " AND (m7.meta_key = 'open_on_evenings' AND m7.meta_value = '".$form_data['open_on_evenings']."')";
-    /*$open_on_weekends_where = " AND (m8.meta_key = 'open_on_weekends' AND m8.meta_value LIKE '%".$form_data['open_on_weekends']."%')";
-    $accept_care4kids_where = " AND (m9.meta_key = 'accept_care4kids' AND m9.meta_value LIKE '%".$form_data['accept_care4kids']."%')";
-    $certified_to_administer_medication_where = " AND (m10.meta_key = 'certified_to_administer_medication' AND m10.meta_value LIKE '%".$form_data['certified_to_administer_medication']."%')";
-    */
      /*
      * If latitude and longitude are defined expand the SQL query
      */
