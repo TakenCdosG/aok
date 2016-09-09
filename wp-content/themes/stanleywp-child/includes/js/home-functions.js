@@ -13,6 +13,9 @@
   }
   $(window).load(function() {
     content_height();
+     $('#google_translate_element').bind("DOMSubtreeModified",function(){
+      content_height();
+    }); 
   });
   $(document).ready(function() {
     content_height();
@@ -20,7 +23,6 @@
       if ( $( ".zip" ).val().indexOf("e") <= 0 ) {
         return;
       }
-     
       $( ".zip" ).val("");
       return;
       event.preventDefault();

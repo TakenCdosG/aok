@@ -897,3 +897,13 @@ ol, ul {
 #map {
 	height: 398px;
 }
+
+.goog-te-gadget {
+	height: 27px;
+	width: 75px;
+	overflow: hidden;
+}
+
+.goog-te-gadget span{
+	display: none;
+}
