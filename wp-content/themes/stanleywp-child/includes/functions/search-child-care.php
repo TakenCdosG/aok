@@ -54,7 +54,7 @@ function search_child_care_callback(){
 
         if(!empty($form_data['child_care_name'])){
         $sql_join .= " INNER JOIN wp_usermeta AS m3 ON m3.user_id = u.ID";
-        $sql_where .= " AND (m3.meta_key = 'child_care_name' AND m3.meta_value = '".$form_data['child_care_name']."')";
+        $sql_where .= " AND (m3.meta_key = 'child_care_name' AND m3.meta_value LIKE '%".$form_data['child_care_name']."%')";
     }
 
     if(!empty($form_data['p_ages_served'])){
