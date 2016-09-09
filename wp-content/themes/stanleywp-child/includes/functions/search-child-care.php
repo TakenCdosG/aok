@@ -78,10 +78,10 @@ function search_child_care_callback(){
         //$sql_where .= " AND (m5.meta_key = 'p_language_spoken' AND m5.meta_value = '".$form_data['p_language_spoken']."')";
     }
 
-    /*if(!empty($form_data['current_evenings'])){
+    if(!empty($form_data['current_openings'])){
         $sql_join .= " INNER JOIN wp_usermeta AS m6 ON m6.user_id = u.ID";
         $sql_where .= " AND (m6.meta_key = 'current_openings' AND m6.meta_value = '".$form_data['current_openings']."')";
-    }*/
+    }
 
     if(!empty($form_data['open_on_evenings'])){
         $sql_join .= " INNER JOIN wp_usermeta AS m7 ON m7.user_id = u.ID";
