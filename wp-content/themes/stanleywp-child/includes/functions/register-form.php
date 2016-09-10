@@ -167,7 +167,6 @@ function custom_registration_function() {
 function custom_login_message() {
     //login message;
     set_transient( 'temporary_message',  '<h4>You have successfully signed in.</h4>' , 60*60*12 );
-    wp_redirect(home_url('/find-child-care'));
 }
 
 add_filter( 'wp_authenticate', 'custom_login_message' );
