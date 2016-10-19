@@ -791,7 +791,7 @@ ol, ul {
 	.home-first-col .caption, .home-second-col .caption{
 		height: auto;
 		min-height: inherit;
-		padding-bottom: 20px;
+		padding: 36px;
 	}
 	.searchbox .half {
 		width: 100%;
