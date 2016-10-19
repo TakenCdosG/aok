@@ -166,7 +166,7 @@ a, a:hover {
 	background-position: center;
 	background-size: cover;
 }
-.home-first-col .caption{
+.home-first-col .caption, .home-second-col .caption{
 	font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 	height:auto;
 	min-height:175px;  
@@ -689,7 +689,7 @@ ol, ul {
 		height: auto;
 	}
 
-	.home-first-col .caption {
+	.home-first-col .caption, .home-second-col .caption {
 		font-size: 18px;
 	}
 
@@ -715,15 +715,20 @@ ol, ul {
 	}
 }
 @media (max-width: 992px){
-	.image-container{
+	/*.image-container{
 		display: none;
 	}
+	.home-first-col .caption{
+		font-size: 14px;
+	}*/
 	.home-second-col .searchbox-container {
 		width: 100%;
 		height: auto;
 	}
-	.home-first-col .caption{
-		font-size: 14px;
+	.home-second-col .image-container {
+		width: 100%;
+		height: auto;
+                padding:0;
 	}
 	.sidebar{
 		margin-top: 20px;
@@ -778,21 +783,26 @@ ol, ul {
 		height: 260px;
 	}
 }
-@media (min-width: 768px) and (max-width: 992px){
-	.home-first-col .caption a{
-		visibility: hidden;
-		font-size: 12px;
+@media (max-width: 992px){
+	.home-first-col, .home-second-col{
+		width:100%;
+		padding:0;
 	}
-	.home-first-col .caption a:after {
-		content:'CLICK'; 
-		visibility: visible;
-		display: inline-block;
-		background-color: #5d8827;
-		border-radius: 4px;
-		padding: 4px 6px;
-		position: absolute;
-		top:0;
-		left: 0;
+	.home-first-col .caption, .home-second-col .caption{
+		height: auto;
+		min-height: inherit;
+		padding-bottom: 20px;
+	}
+	.searchbox .half {
+		width: 100%;
+		float: none;
+		height: auto;
+	}
+	.home-second-col .searchbox-container .searchbox{
+		height: auto;
+	}
+	.header-image{
+		height: 220px;
 	}
 }
 @media (min-width: 768px){
@@ -810,26 +820,7 @@ ol, ul {
 	.navbar-collapse{
 		background-color: #ffffff;
 	}
-	.home-first-col, .home-second-col{
-		width:100%;
-		padding:0;
-	}
-	.home-first-col .caption{
-		height: auto;
-		min-height: inherit;
-		padding-bottom: 20px;
-	}
-	.searchbox .half {
-		width: 100%;
-		float: none;
-		height: auto;
-	}
-	.home-second-col .searchbox-container .searchbox{
-		height: auto;
-	}
-	.header-image{
-		height: 220px;
-	}
+	
 	.nav-search {
 		margin-top: -20px;
 		float: right;

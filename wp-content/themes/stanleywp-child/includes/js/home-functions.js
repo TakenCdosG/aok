@@ -1,6 +1,6 @@
 (function ($) {
   "use strict";
-
+  // Height Calculator
   function content_height(){
     if($(window).width() > 600){
       var total = $(".caption").height() - 145; 
@@ -11,14 +11,25 @@
       $(".home-first-col .img").height( 414 );
     } 
   }
+  //Responsive Re-Order divs
+  function reorder_divs(){
+    if($(window).width() < 992){
+      $(".home-first-col .caption").insertAfter(".home-second-col .content");
+    }else{
+      $(".home-second-col .caption").insertAfter(".home-first-col .img");  
+    } 
+  }  
+  
   $(window).load(function() {
     content_height();
+    reorder_divs();
      $('#google_translate_element').bind("DOMSubtreeModified",function(){
       content_height();
     }); 
   });
   $(document).ready(function() {
     content_height();
+    reorder_divs();
     $( "form" ).submit(function( event ) {
       if ( $( ".zip" ).val().indexOf("e") <= 0 ) {
         return;
@@ -31,6 +42,7 @@
 
   $(window).resize(function(){
     content_height();
+    reorder_divs();
   });
 
   $(function(){
@@ -49,5 +61,7 @@
           });
       });
   });
+  
+  
   
 })(jQuery);
