@@ -187,9 +187,10 @@ function update_user_geodata() {
              * Update Lat/Lng for every clinic
              */
             $id  = (int) $item->ID;
-            $lat = (float) $address['lat'];
-            $lng = (float) $address['lng'];
-
+            if(!empty($address)){
+                $lat = (float) $address['lat'];
+                $lng = (float) $address['lng'];
+            }
             if( $address ):
                 $data = array(
                     'user_id' => $id,
