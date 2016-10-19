@@ -29,12 +29,21 @@ $p_training_and_experience = get_field('p_training_and_experience', 'user_'.$ide
 $p_date_issued = get_field('p_date_issued', 'user_'.$ide);
 $p_expiration_date = get_field('p_expiration_date', 'user_'.$ide);
 $p_accreditation_information_link = get_field('p_accreditation_information_link', 'user_'.$ide);
+$extra_details = array(
+    p_extra_details_1 => get_field_object('extra_details_1', 'user_'.$ide),
+    p_extra_details_2 => get_field_object('extra_details_2', 'user_'.$ide),
+    p_extra_details_3 => get_field_object('extra_details_3', 'user_'.$ide),
+    p_extra_details_4 => get_field_object('extra_details_4', 'user_'.$ide),
+    p_extra_details_5 => get_field_object('extra_details_5', 'user_'.$ide),
+    p_extra_details_6 => get_field_object('extra_details_6', 'user_'.$ide),
+    p_extra_details_7 => get_field_object('extra_details_7', 'user_'.$ide),
+    p_extra_details_8 => get_field_object('extra_details_8', 'user_'.$ide)
+);
 
 
 
 $ages_served = get_field_object('p_ages_served', 'user_'.$ide);
 $value_ages_served = $ages_served['value'];
-$label_ages_served = $ages_served['choices'][ $value_ages_served ];
 
 $infant_toddler = get_field_object('infant_toddler', 'user_'.$ide);
 $value_infant_toddler = $infant_toddler['value'];
@@ -87,7 +96,15 @@ if (!is_user_logged_in()) {
                                         </div>
 					<div class="col-lg-6">
 						<h5>Ages Served</h5>
-						<ul><li><?php echo $label_ages_served; ?></li></ul>
+						<ul>
+                                                    <?php                                                        
+                                                        if(!empty($value_ages_served)){
+                                                            foreach ($value_ages_served as $key => $value) {                                                                
+                                                                    echo "<li>" . $ages_served['choices'][ $value ]. "</li>";
+                                                            }
+                                                        }
+                                                    ?>
+                                                </ul>
 						<h5>Current Openings</h5>
 						<ul>
 							<li>Infant/Toddler: <?php echo $label_infant_toddler; ?></li>
@@ -189,7 +206,22 @@ if (!is_user_logged_in()) {
 					</div>
 					<div class="second">
 						<div class="profile grey p_col">
-							<p><?php echo $p_extra_details; ?></p>
+                                                    <ul>
+							<?php
+                                                            if(!empty($extra_details)){
+                                                                foreach ($extra_details as $key => $value) {  
+                                                                    if($extra_details[$key]['value'] != 0){
+                                                                        if($extra_details[$key]['name'] == 'extra_details_8'){
+                                                                            echo "<li>" . $extra_details[$key]['label']." (Expires: ".$extra_details[$key]['value']. ") </li>";
+                                                                        }else{
+                                                                            echo "<li>" . $extra_details[$key]['label']. "</li>";
+                                                                        }
+                                                                        
+                                                                    }
+                                                                }
+                                                            }
+                                                        ?>
+                                                    </ul>
 						</div>
 					</div>
 					<div class="clearfix"></div>
