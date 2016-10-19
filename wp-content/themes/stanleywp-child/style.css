@@ -182,6 +182,7 @@ a, a:hover {
 	background: -webkit-linear-gradient(top,  #f9f9f9 1%,#cdd9bf 82%); /* Chrome10-25,Safari5.1-6 */
 	background: linear-gradient(to bottom,  #f9f9f9 1%,#cdd9bf 82%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f9f9', endColorstr='#cdd9bf',GradientType=0 ); /* IE6-9 */
+        text-align: center;
 }
 .caption a{
 	color:#ffffff;
@@ -301,6 +302,7 @@ a, a:hover {
 }
 #footer{
 	margin:25px 0 50px 0;
+        font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 }
 
 .general .content{
@@ -481,6 +483,7 @@ p.small{
 	font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 	font-weight: bold;
 	margin-bottom: 5px;
+        text-transform:capitalize;
 }
 
 .profile.green h5{

@@ -5,7 +5,7 @@
 $curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author));
 //Variables
 $ide = $curauth->ID;
-$p_child_care_name = get_field('ccname', 'user_'.$ide);
+$p_child_care_name = get_field('child_care_name', 'user_'.$ide);
 $p_contact_information = get_field('p_contact_information', 'user_'.$ide);
 
 $p_about_me = get_field('p_about_me', 'user_'.$ide);
@@ -27,6 +27,7 @@ $p_extra_details = get_field('p_extra_details', 'user_'.$ide);
 $p_training_and_experience = get_field('p_training_and_experience', 'user_'.$ide);
 $p_date_issued = get_field('p_date_issued', 'user_'.$ide);
 $p_expiration_date = get_field('p_expiration_date', 'user_'.$ide);
+$p_accreditation_information_link = get_field('p_accreditation_information_link', 'user_'.$ide);
 
 
 
@@ -138,14 +139,14 @@ if (!is_user_logged_in()) {
 			<div class="col-lg-12">
 				<div class="profile grey list">
 					<ul>
-						<li><h5>QSP Level</h5><br><?php echo $p_qsp_level; ?></li>
+						<li><h5>PSP Level</h5><br><?php echo $p_qsp_level; ?></li>
 						<li><h5>Date Issued</h5><br><?php echo $p_date_issued; ?></li>
 						<li><h5>Expiration date</h5><br><?php echo $p_expiration_date_qsp; ?></li>
 					</ul>
 					<div class="clearfix"></div>
 				</div>
 				<div>
-					<p class="small"><a href="#">Click here</a> to learn more about accreditation information</p>
+					<p class="small"><a href="<?php echo $p_accreditation_information_link ; ?>">Click here</a> to learn more about accreditation information</p>
 				</div>
 			</div>
 		</div>  
