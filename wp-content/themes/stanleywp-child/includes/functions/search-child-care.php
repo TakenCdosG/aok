@@ -58,8 +58,18 @@ function search_child_care_callback(){
     }
 
     if(!empty($form_data['p_ages_served'])){
+        
         $sql_join .= " INNER JOIN wp_usermeta AS m4 ON m4.user_id = u.ID";
-        $sql_where .= " AND (m4.meta_key = 'p_ages_served' AND m4.meta_value = '".$form_data['p_ages_served']."')";
+        $sql_where .= " AND (m4.meta_key = 'p_ages_served' AND";
+
+        $sql_where .= " (";
+        foreach ($form_data['p_ages_served'] as $key => $value){
+            $sql_where .= "m4.meta_value LIKE '%".$value."%'";
+            if(count($form_data['p_ages_served']) >$key+1){
+                $sql_where .= " OR ";
+            }
+        }
+        $sql_where .= "))";
     }
 
     if(!empty($form_data['p_language_spoken'])){
