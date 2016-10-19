@@ -45,8 +45,8 @@
 				<div class="sidebar">
 					<div class="searchbox-container">
 						<div class="searchbox">
-							<h2><?php get_field('sidebar_text_block', $wp_query->post->ID) ?></h2>
-                                                        <a href="<?php get_field('sidebar_text_block_button_url', $wp_query->post->ID) ?>"><?php get_field('sidebar_text_block_button_text', $wp_query->post->ID) ?></a>
+							<h2><?php echo get_field('sidebar_text_block', $wp_query->post->ID) ?></h2>
+                                                        <a href="<?php echo get_field('sidebar_text_block_button_url', $wp_query->post->ID) ?>"><?php echo get_field('sidebar_text_block_button_text', $wp_query->post->ID) ?></a>
 							<div class="clearfix"></div>
 						</div>
 					</div>
