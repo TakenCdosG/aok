@@ -2,7 +2,7 @@
 /**
  * @package WordPress
  * @subpackage StanleyWP
- * Template Name: General with Sidebar
+ * Template Name: General with Custom Sidebar
  */
 ?>
 <?php get_header(); ?>
@@ -45,11 +45,8 @@
 				<div class="sidebar">
 					<div class="searchbox-container">
 						<div class="searchbox">
-							<h2>Where are you looking for child care?</h2>
-							<form action="find-child-care/" method="GET">
-								<input name="zip" class="field" type="text" onfocus="if(this.value == 'Enter Zip Code') { this.value = ''; }" value="Enter Zip Code" >
-								<input class="submit" type="submit" value="SEARCH">
-							</form>
+							<h2><?php get_field('sidebar_text_block', $wp_query->post->ID) ?></h2>
+                                                        <a href="<?php get_field('sidebar_text_block_button_url', $wp_query->post->ID) ?>"><?php get_field('sidebar_text_block_button_text', $wp_query->post->ID) ?></>
 							<div class="clearfix"></div>
 						</div>
 					</div>
