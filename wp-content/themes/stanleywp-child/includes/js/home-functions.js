@@ -3,9 +3,14 @@
   // Height Calculator
   function content_height(){
     if($(window).width() > 600){
-      var total = $(".caption").height() - 145; 
+      var total = $(".caption").height() - 145;
       
-      var content_height = ($(".home-second-col .content").height() + 224)-total;
+      if($(window).width() < 992 & $(window).width() > 967 ){
+          var content_height = ($(".home-second-col").height()); // + 224)-total;
+      }else{
+          var content_height = ($(".home-second-col .content").height() + 224)-total;
+      }
+      
     $(".home-first-col .img").height( content_height );
     }else{
       $(".home-first-col .img").height( 414 );
