@@ -323,11 +323,34 @@ a, a:hover {
 .sidebar{
 	margin-top: 85px;
 }
+.sidebar aside{
+    margin: 20px 0;
+}
 .sidebar .searchbox-container .searchbox{
 	background-color:#5d8827; 
 	height:289px;
 	padding:25px;
 	height: auto;
+}
+.sidebar a.button{
+    font-size: 14px;
+    border-radius: 4px;
+    color: #ffffff;
+    background-color: #000;
+    font-weight: bold;
+    border:0;
+    display: inline-block;
+    clear: both;
+    padding: 5px 10px;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    text-decoration: none;
+}
+.sidebar a.button:hover{
+    color:#000000;
+    background-color: #ffffff;
 }
 .sidebar .searchbox-container .searchbox .field{
 	max-width:100%;
