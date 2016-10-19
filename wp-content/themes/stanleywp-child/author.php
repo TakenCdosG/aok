@@ -6,6 +6,7 @@ $curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : g
 //Variables
 $ide = $curauth->ID;
 $p_child_care_name = get_field('child_care_name', 'user_'.$ide);
+$p_owner_name = get_field('owner_name', 'user_'.$ide);
 $p_contact_information = get_field('p_contact_information', 'user_'.$ide);
 
 $p_about_me = get_field('p_about_me', 'user_'.$ide);
@@ -80,6 +81,7 @@ if (!is_user_logged_in()) {
 			<div class="col-lg-7 col-md-7">
 				<div class="basic-information profile">
 					<h3><?php echo $p_child_care_name; ?></h3>
+                                        <h5><?php echo $p_owner_name; ?></h5>
 					<div class="col-lg-6"><?php echo $p_contact_information; ?></div>
 					<div class="col-lg-6">
 						<h5>Ages Served</h5>
