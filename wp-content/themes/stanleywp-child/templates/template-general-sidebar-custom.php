@@ -43,6 +43,7 @@
 			</div>
 			<div class="col-lg-3 col-md-3">
 				<div class="sidebar">
+                                    <?php if(!empty(get_field('sidebar_text_block', $wp_query->post->ID))){?>
 					<div class="searchbox-container">
 						<div class="searchbox">
 							<h2><?php echo get_field('sidebar_text_block', $wp_query->post->ID) ?></h2>
@@ -50,6 +51,7 @@
 							<div class="clearfix"></div>
 						</div>
 					</div>
+                                    <?php } ?>
 				</div>
 			</div>
 		</div>
