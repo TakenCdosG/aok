@@ -28,6 +28,9 @@
             <div class="col-lg-12">
                 <h2>Search </h2>
             </div>
+            <?php if(!empty(get_field('note', $wp_query->post->ID))){
+                echo(get_field('note', $wp_query->post->ID));
+            } ?>
         </div>
         <?php
         if (!is_user_logged_in()) {
