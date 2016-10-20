@@ -7,7 +7,7 @@
     $args = array(
         'echo'           => true,
         'remember'       => false,
-        'redirect'       => site_url( '/find-child-care' ),
+        /*'redirect'       => site_url( '/find-child-care' ),*/
         'form_id'        => 'loginform',
         'id_username'    => 'user_login',
         'id_password'    => 'user_pass',
