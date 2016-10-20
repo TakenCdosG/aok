@@ -21,7 +21,7 @@
       </div>
       <div class="clearfix"></div>
       <div class="full field">
-        <label for="cc-name">Child Care Name: </label>
+        <label for="cc-name">Provider: </label>
         <input type="text" name="child_care_name" label="Child Care Name" >
       </div>
       <div class="clearfix"></div>
