@@ -5,7 +5,9 @@
   $(function() {
 
     function explodeLogin(){
-      $('.log a').trigger("click");
+      if( $('.log a').hasClass('')){
+          $('.log a').trigger("click");
+      }      
     }
       if($(".log-reg").length){
 
