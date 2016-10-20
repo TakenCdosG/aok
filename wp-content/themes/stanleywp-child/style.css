@@ -911,6 +911,10 @@ ol, ul {
 #search-child-care-form{
 	width: 670px;
 }
+.note{
+    margin:0 0 20px 20px;
+    font-size:12px;
+}
 
 #map {
 	height: 398px;
