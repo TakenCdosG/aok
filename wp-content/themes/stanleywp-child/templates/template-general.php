@@ -52,8 +52,8 @@
                         <?php if(!empty(get_field('sidebar_text_block', $wp_query->post->ID)) or !empty(get_field('sidebar_text_block_button_text', $wp_query->post->ID))){?>
                             <div class="col-lg-3 col-md-3">
                                     <div class="sidebar">
-                                            <div class="searchbox-container log-reg">
-                                                    <div class="searchbox log">
+                                            <div class="searchbox-container">
+                                                    <div class="searchbox <?php if(!is_user_logged_in()){ echo("log"); } ?>">
                                                             <h2><?php echo get_field('sidebar_text_block', $wp_query->post->ID) ?></h2>
                                                             <a class="button" href="<?php echo get_field('sidebar_text_block_button_url', $wp_query->post->ID) ?>"><?php echo get_field('sidebar_text_block_button_text', $wp_query->post->ID) ?></a>
                                                             <div class="clearfix"></div>
