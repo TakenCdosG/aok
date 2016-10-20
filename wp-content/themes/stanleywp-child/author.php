@@ -37,7 +37,8 @@ $extra_details = array(
     p_extra_details_5 => get_field_object('extra_details_5', 'user_'.$ide),
     p_extra_details_6 => get_field_object('extra_details_6', 'user_'.$ide),
     p_extra_details_7 => get_field_object('extra_details_7', 'user_'.$ide),
-    p_extra_details_8 => get_field_object('extra_details_8', 'user_'.$ide)
+    p_extra_details_8 => get_field_object('extra_details_8', 'user_'.$ide),
+    p_extra_details_9 => get_field_object('extra_details_9', 'user_'.$ide)
 );
 
 
@@ -211,10 +212,17 @@ if (!is_user_logged_in()) {
                                                             if(!empty($extra_details)){
                                                                 foreach ($extra_details as $key => $value) {  
                                                                     if($extra_details[$key]['value'] != 0){
+                                                                        $expire_date = $extra_details['p_extra_details_9']['value'];
                                                                         if($extra_details[$key]['name'] == 'extra_details_8'){
-                                                                            echo "<li>" . $extra_details[$key]['label']." (Expires: ".$extra_details[$key]['value']. ") </li>";
+                                                                            if(!empty($expire_date)){
+                                                                              echo "<li>" . $extra_details[$key]['label']." (Expires: ".$expire_date. ") </li>";  
+                                                                            }else{
+                                                                              echo "<li>" . $extra_details[$key]['label']." </li>";   
+                                                                            }
                                                                         }else{
-                                                                            echo "<li>" . $extra_details[$key]['label']. "</li>";
+                                                                            if($extra_details[$key]['name'] != 'extra_details_9'){
+                                                                                echo "<li>" . $extra_details[$key]['label']. "</li>";
+                                                                            }
                                                                         }
                                                                         
                                                                     }
