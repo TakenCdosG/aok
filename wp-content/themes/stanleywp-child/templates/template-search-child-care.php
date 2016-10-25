@@ -41,7 +41,8 @@
         if (!is_user_logged_in()) {
             $redirect = home_url() . '/wp-login.php?redirect_to=' . urlencode( $_SERVER['REQUEST_URI'] );
             $register =  home_url() . '/register?redirect_to=' . urlencode( $_SERVER['REQUEST_URI'] );
-            echo('<div class="col-lg-12 log">Already registered?  <a href="#">Log in here</a> </div></div>');
+            echo('<div class="row log-reg">
+				<div class="col-lg-12 log">Already registered?  <a href="#">Log in here</a> </div></div>');
         } else {
         ?>
         <div class="row">
