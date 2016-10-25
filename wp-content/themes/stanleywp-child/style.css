@@ -166,7 +166,7 @@ a, a:hover {
 	background-position: center;
 	background-size: cover;
 }
-.home-first-col .caption{
+.home-first-col .caption, .home-second-col .caption{
 	font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 	height:auto;
 	min-height:175px;  
@@ -182,6 +182,7 @@ a, a:hover {
 	background: -webkit-linear-gradient(top,  #f9f9f9 1%,#cdd9bf 82%); /* Chrome10-25,Safari5.1-6 */
 	background: linear-gradient(to bottom,  #f9f9f9 1%,#cdd9bf 82%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f9f9', endColorstr='#cdd9bf',GradientType=0 ); /* IE6-9 */
+        text-align: center;
 }
 .caption a{
 	color:#ffffff;
@@ -301,10 +302,12 @@ a, a:hover {
 }
 #footer{
 	margin:25px 0 50px 0;
+        font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 }
 
 .general .content{
 	padding: 15px;
+        font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 }
 .general .content h3{
 	font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
@@ -320,11 +323,34 @@ a, a:hover {
 .sidebar{
 	margin-top: 85px;
 }
+.sidebar aside{
+    margin: 20px 0;
+}
 .sidebar .searchbox-container .searchbox{
 	background-color:#5d8827; 
 	height:289px;
 	padding:25px;
 	height: auto;
+}
+.sidebar a.button{
+    font-size: 14px;
+    border-radius: 4px;
+    color: #ffffff;
+    background-color: #000;
+    font-weight: bold;
+    border:0;
+    display: inline-block;
+    clear: both;
+    padding: 5px 10px;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    text-decoration: none;
+}
+.sidebar a.button:hover{
+    color:#000000;
+    background-color: #ffffff;
 }
 .sidebar .searchbox-container .searchbox .field{
 	max-width:100%;
@@ -481,6 +507,7 @@ p.small{
 	font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 	font-weight: bold;
 	margin-bottom: 5px;
+        text-transform:capitalize;
 }
 
 .profile.green h5{
@@ -568,21 +595,21 @@ a#register-click{
 .register{
 	max-width: 450px;
 }
-.register, #emailLoginForm{
+.register, #emailLoginForm, #loginform{
 
 	padding-top: 15px;
 }
 .register_message{
 	margin: 10px 0; 
 }
-.register input, #emailLoginForm input{
+.register input, #emailLoginForm input, #loginform input{
 	width: 100%;
 	height: 45px;
 	padding: 0 10px;
 	border: 1px solid #999999;
 	border-radius: 0;
 }
-.register input[type="submit"], #emailLoginForm input[type="submit"]{
+.register input[type="submit"], #emailLoginForm input[type="submit"], #loginform input[type="submit"]{
 	padding:8px 10px;
 	font-size: 18px; 
 	height: auto;
@@ -590,7 +617,7 @@ a#register-click{
 	font-weight: bold;
 	font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 }
-.register label, #emailLoginForm label{
+.register label, #emailLoginForm label, #loginform label{
 	color:#757575;
 	font-weight: 100;
 }
@@ -683,7 +710,7 @@ ol, ul {
 		height: auto;
 	}
 
-	.home-first-col .caption {
+	.home-first-col .caption, .home-second-col .caption {
 		font-size: 18px;
 	}
 
@@ -709,15 +736,20 @@ ol, ul {
 	}
 }
 @media (max-width: 992px){
-	.image-container{
+	/*.image-container{
 		display: none;
 	}
+	.home-first-col .caption{
+		font-size: 14px;
+	}*/
 	.home-second-col .searchbox-container {
 		width: 100%;
 		height: auto;
 	}
-	.home-first-col .caption{
-		font-size: 14px;
+	.home-second-col .image-container {
+		width: 100%;
+		height: auto;
+                padding:0;
 	}
 	.sidebar{
 		margin-top: 20px;
@@ -772,21 +804,26 @@ ol, ul {
 		height: 260px;
 	}
 }
-@media (min-width: 768px) and (max-width: 992px){
-	.home-first-col .caption a{
-		visibility: hidden;
-		font-size: 12px;
+@media (max-width: 992px){
+	.home-first-col, .home-second-col{
+		width:100%;
+		padding:0;
 	}
-	.home-first-col .caption a:after {
-		content:'CLICK'; 
-		visibility: visible;
-		display: inline-block;
-		background-color: #5d8827;
-		border-radius: 4px;
-		padding: 4px 6px;
-		position: absolute;
-		top:0;
-		left: 0;
+	.home-first-col .caption, .home-second-col .caption{
+		height: auto;
+		min-height: inherit;
+		padding: 36px;
+	}
+	.searchbox .half {
+		width: 100%;
+		float: none;
+		height: auto;
+	}
+	.home-second-col .searchbox-container .searchbox{
+		height: auto;
+	}
+	.header-image{
+		height: 220px;
 	}
 }
 @media (min-width: 768px){
@@ -804,26 +841,7 @@ ol, ul {
 	.navbar-collapse{
 		background-color: #ffffff;
 	}
-	.home-first-col, .home-second-col{
-		width:100%;
-		padding:0;
-	}
-	.home-first-col .caption{
-		height: auto;
-		min-height: inherit;
-		padding-bottom: 20px;
-	}
-	.searchbox .half {
-		width: 100%;
-		float: none;
-		height: auto;
-	}
-	.home-second-col .searchbox-container .searchbox{
-		height: auto;
-	}
-	.header-image{
-		height: 220px;
-	}
+	
 	.nav-search {
 		margin-top: -20px;
 		float: right;
@@ -891,7 +909,20 @@ ol, ul {
 #search-child-care-form{
 	width: 670px;
 }
+.note{
+    margin:0 0 20px 20px;
+    font-size:12px;
+}
 
 #map {
 	height: 398px;
+}
+
+.goog-te-gadget {
+	height: 27px;
+	overflow: hidden;
+}
+
+.goog-te-gadget span{
+	display: none;
 }

@@ -71,9 +71,10 @@ function my_function()
 
 
 function adding_custom_resources() {
+
 	wp_register_script('pop-up-login', get_stylesheet_directory_uri() .'/includes/js/pop-up-login.js');
 
-	if(is_page_template( 'templates/template-homepage.php' ) or is_page(array('for-family-child-care-providers', 'proveedores-familiares')) ){
+	if(is_page_template( 'templates/template-homepage.php' ) or is_page('for-family-child-care-providers') ){
 		wp_enqueue_script( 'home-js', get_stylesheet_directory_uri() .'/includes/js/home-functions.js');
 		wp_enqueue_script( 'pop-up-login');
 	}

@@ -18,7 +18,7 @@
 		<?php endif; ?>
 		<link rel="profile" href="http://gmpg.org/xfn/11" />
 		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
-		<?php global $current_lang; $current_lang = pll_current_language();?>
+		<!-- <?php //global $current_lang; $current_lang = pll_current_language();?> -->
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
 		<script src="<?php get_template_directory_uri();?>/js/html5shiv.js"></script>
@@ -34,7 +34,7 @@
 						<a href="<?php echo site_url(); ?>">
 							<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/main-logo.png" alt="">
 						</a> 
-						<h2>PROVIDER SHOWCASE PROGRAM</h2>
+						<h2>PROVIDER SHOWCASE</h2>
 					</div>
 					<div class="col-lg-3 col-md-3 col-sm-3">
 						<div class="nav-search">
@@ -44,7 +44,7 @@
 							}
 							?>
 						</div>
-						<a href="<?php echo site_url(); ?>"><div class="nav-logo"></div></a>
+						<a href="<?php echo get_field("homepage_navigation_logo_link", $wp_query->post->ID)?>"><div class="nav-logo"></div></a>
 					</div>
 				</div>
 			</div>

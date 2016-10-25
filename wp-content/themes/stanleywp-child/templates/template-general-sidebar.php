@@ -43,11 +43,6 @@
 			</div>
 			<div class="col-lg-3 col-md-3">
 				<div class="sidebar">
-					<?php
-					if(is_active_sidebar('right_sidebar')){
-						dynamic_sidebar('right_sidebar');
-					}
-					?>
 					<div class="searchbox-container">
 						<div class="searchbox">
 							<h2>Where are you looking for child care?</h2>
@@ -58,6 +53,11 @@
 							<div class="clearfix"></div>
 						</div>
 					</div>
+					<?php
+					if(is_active_sidebar('right_sidebar')){
+						dynamic_sidebar('right_sidebar');
+					}
+					?>
 				</div>
 			</div>
 		</div>

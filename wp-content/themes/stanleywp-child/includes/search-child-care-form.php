@@ -21,13 +21,13 @@
       </div>
       <div class="clearfix"></div>
       <div class="full field">
-        <label for="cc-name">Child Care Name: </label>
+        <label for="cc-name">Provider: </label>
         <input type="text" name="child_care_name" label="Child Care Name" >
       </div>
       <div class="clearfix"></div>
       <div class="half field">
         <label for="age">Ages Served: </label>
-        <select id="age" name="p_ages_served">
+        <select id="age" name="p_ages_served[]">
           <option value="">- Select Age Group -</option>
           <?php
           $field_key = "field_579622ab4a37c";

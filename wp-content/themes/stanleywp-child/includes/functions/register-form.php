@@ -133,6 +133,12 @@ function custom_registration_function() {
 
 }
 
+function custom_login_message() {
+    //login message;
+    set_transient( 'temporary_message',  '<h4>You have successfully signed in.</h4>' , 60*60*12 );
+}
+
+add_filter( 'wp_authenticate', 'custom_login_message' );
 
 function custom_registration_redirect() {
     //session_start();
