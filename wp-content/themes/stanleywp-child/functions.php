@@ -5,6 +5,7 @@ require_once('includes/functions/register-form.php');
 require_once('includes/functions/my_mce.php');
 require_once('includes/functions/acf-zip-code-search.php');
 require_once('includes/functions/search-child-care.php');
+require_once ('includes/functions/email-login-form.php');
 
 
 add_theme_support('post-thumbnails');

@@ -32,6 +32,7 @@ $p_expiration_date = get_field('p_expiration_date', 'user_'.$ide);
 
 $ages_served = get_field_object('p_ages_served', 'user_'.$ide);
 $value_ages_served = $ages_served['value'];
+//var_dump($value_ages_served);
 $label_ages_served = $ages_served['choices'][ $value_ages_served ];
 
 $infant_toddler = get_field_object('infant_toddler', 'user_'.$ide);

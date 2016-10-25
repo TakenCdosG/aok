@@ -1,28 +1,10 @@
 <?php
-/*
-  Plugin Name: Custom Registration
-  Plugin URI: http://code.tutsplus.com
-  Description: Updates user rating based on number of posts.
-  Version: 1.0
-  Author: Agbonghama Collins
-  Author URI: http://tech4sky.com
- */
 
-function registration_form( $username, $password, $first_name, $last_name, $email, $agree ) {
+function registration_form($first_name, $last_name, $email, $agree ) {
     echo '
     <div class="register">
         <form action="' . $_SERVER['REQUEST_URI'] . '" method="post">
-        
-        <div>
-        <label for="username">Username</label>
-        <input type="text" name="username" value="' . (isset($_POST['username']) ? $username : null) . '" required>
-        </div>
-        
-        <div>
-        <label for="password">Password</label>
-        <input type="password" name="password" value="' . (isset($_POST['password']) ? $password : null) . '" required>
-        </div>
-        
+
         <div>
         <label for="firstname">First Name</label>
         <input type="text" name="fname" value="' . ( isset( $_POST['fname']) ? $first_name : null ) . '" required>
@@ -55,23 +37,11 @@ function registration_form( $username, $password, $first_name, $last_name, $emai
     </div>
     ';
 }
-function registration_validation( $username, $password, $first_name, $last_name, $email, $agree )  {
+
+function registration_validation($first_name, $last_name, $email, $agree )  {
     global $reg_errors;
     $reg_errors = new WP_Error;
-    if ( empty( $username ) || empty( $password ) || empty( $first_name ) || empty( $last_name ) || empty( $email ) ) {
-        $reg_errors->add('field', 'Required form field is missing');
-    }
-    if ( strlen( $username ) < 4 ) {
-        $reg_errors->add('username_length', 'Username too short. At least 4 characters is required');
-    }
-    if ( username_exists( $username ) )
-        $reg_errors->add('user_name', 'Sorry, that username already exists!');
-    if ( !validate_username( $username ) ) {
-        $reg_errors->add('username_invalid', 'Sorry, the username you entered is not valid');
-    }
-    if ( strlen( $password ) < 5 ) {
-        $reg_errors->add('password', 'Password length must be greater than 5');
-    }
+
     if ( !is_email( $email ) ) {
         $reg_errors->add('email_invalid', 'Email is not valid');
     }
@@ -92,13 +62,18 @@ function registration_validation( $username, $password, $first_name, $last_name,
         }
     }
 }
+
 function complete_registration() {
-    global $reg_errors, $username, $password, $first_name, $last_name, $email,$user;
+
+    global $reg_errors,$first_name, $last_name, $email,$user;
+
     if ( count($reg_errors->get_error_messages()) < 1 ) {
+        $date = new DateTime();
+
         $user_data = array(
-            'user_login'    =>  $username,
+            'user_login'    =>  $email,
             'user_email'    =>  $email,
-            'user_pass'     =>  $password,
+            'user_pass'     =>  $date->getTimestamp(),
             'first_name'    =>  $first_name,
             'last_name'     =>  $last_name,
             'role'      =>  "subscriber",
@@ -120,12 +95,11 @@ function complete_registration() {
 
 function custom_registration_function() {
 
+    //var_dump($_POST['submit']);
+    if (true) {
 
-    if (isset($_POST['submit'])) {
 
         registration_validation(
-            $_POST['username'],
-            $_POST['password'],
             $_POST['fname'],
             $_POST['lname'],
             $_POST['email'],
@@ -133,9 +107,7 @@ function custom_registration_function() {
         );
 
         // sanitize user form input
-        global $username, $password, $first_name, $last_name, $email;
-        $username   =   sanitize_user($_POST['username']);
-        $password   =   esc_attr($_POST['password']);
+        global $first_name, $last_name, $email;
         $first_name =   sanitize_text_field( $_POST['fname'] );
         $last_name  =   sanitize_text_field( $_POST['lname'] );
         $email      =   sanitize_email($_POST['email']);
@@ -145,17 +117,14 @@ function custom_registration_function() {
         // call @function complete_registration to create the user
         // only when no WP_error is found
         complete_registration(
-            $username,
-            $password,
             $first_name,
             $last_name,
             $email,
             $agree
         );
     }
+
     registration_form(
-        $username,
-        $password,
         $first_name,
         $last_name,
         $email,
