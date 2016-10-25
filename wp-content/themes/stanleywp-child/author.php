@@ -51,7 +51,7 @@ $value_before_after_school = $before_after_school['value'];
 $label_before_after_school = $before_after_school['choices'][ $value_before_after_school ];
 ?>
 	<div class="container">
-		<?php get_template_part('includes/pop-up-login'); ?>
+		<?php get_template_part('includes/email-pop-up-login'); ?>
 		<div class="border">
 			<?php
 			if (!is_user_logged_in()) {

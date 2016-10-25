@@ -7,7 +7,7 @@
 
 
 <div class="container search">
-    <?php get_template_part('includes/pop-up-login'); ?>
+    <?php get_template_part('includes/email-pop-up-login'); ?>
     <div class="border">
         <div class="row">
             <div class="col-lg-12 nav-head">
