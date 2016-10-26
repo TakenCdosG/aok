@@ -592,7 +592,12 @@ a.morelink {
     color:#757575;
     padding: 8px;
 }
-
+.register .ms-parent{
+    width:100% !important;
+}
+.register select{
+    width:100%;
+}
 .register p.form-note{
 	padding: 10px 0;
 	font-size: 10px;
@@ -607,7 +612,7 @@ a#register-click{
 	color:#757575;
 }
 .register{
-	max-width: 650px;
+	max-width: 590px;
 }
 .register, #emailLoginForm, #loginform{
 
@@ -641,7 +646,9 @@ a#register-click{
 	display: inline-block;
 	
 }
-
+.register input, .register span, .register select{
+    color:#353535;
+}
 .agree{
 	display: inline-block;
         position: relative;
