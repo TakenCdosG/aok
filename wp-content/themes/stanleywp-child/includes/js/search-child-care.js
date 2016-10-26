@@ -90,6 +90,11 @@ jQuery(document).ready(function($) {
         }).multipleSelect({
             width: '100%'
         });
+        $('#age').change(function () {
+           // console.log($(this).val());
+        }).multipleSelect({
+           width: '100%'
+        });
     });
 
 });

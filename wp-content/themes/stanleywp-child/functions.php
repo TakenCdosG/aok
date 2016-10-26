@@ -100,6 +100,9 @@ function adding_custom_resources() {
 		wp_enqueue_script( 'fancybox-js', get_stylesheet_directory_uri() .'/includes/js/libraries/fancybox/jquery.fancybox.js');
 		wp_enqueue_style( 'fancybox-css', get_stylesheet_directory_uri() .'/includes/js/libraries/fancybox/jquery.fancybox.css');
 		wp_enqueue_script( 'fancybox-register', get_stylesheet_directory_uri() .'/includes/js/fancybox-register.js');
+                wp_enqueue_script( 'multiples-selec-js', get_stylesheet_directory_uri() .'/includes/js/multiple-select/multiple-select.js');
+		wp_enqueue_style( 'multiples-selec-css', get_stylesheet_directory_uri() .'/includes/js/multiple-select/multiple-select.css');
+                wp_enqueue_script( 'register', get_stylesheet_directory_uri() .'/includes/js/register.js');
 	}
 
 	if(is_page_template( 'templates/template-search-child-care.php' ) ){
@@ -112,7 +115,6 @@ function adding_custom_resources() {
 		wp_enqueue_script( 'pop-up-login');
 		wp_enqueue_script( 'email-login-form');
 
-
 	}
 
 	wp_localize_script( 'email-login-form', 'email_login_form', array(
@@ -124,6 +126,15 @@ function adding_custom_resources() {
 	));
 }
 add_action( 'wp_enqueue_scripts', 'adding_custom_resources' );
+
+//Read only fields
+function my_acf_load_field( $field ) {
+    echo '<style>textarea{resize:none; border: 0px  !important; background-color: transparent  !important; box-shadow: none  !important; font-weight: bold !important;}</style>';
+    echo '<script>document.getElementById("acf-field-referrer").readOnly = true; document.getElementById("acf-field-subscriber-description").readOnly = true; </script>';
+    return $field;  
+}
+add_filter('acf/load_field/name=referrer', 'my_acf_load_field', 1, 1);
+add_filter('acf/load_field/name=subscriber-description', 'my_acf_load_field', 1, 1);
 
 
 //redirect after logout

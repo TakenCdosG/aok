@@ -407,6 +407,12 @@ a, a:hover {
 .half.field{
 	width:40%;
 }
+.ages.field{
+    width: 40%;
+}
+.ages.field .ms-parent{
+    width:100% !important;
+}
 .half.field input, .half.field select{
 	height: 26px;
 	width:100%;
@@ -575,8 +581,16 @@ p.small{
 a.morelink {
 	color: #5d8827;
 }
-.register div{
+.register .block{
 	padding: 8px 0;
+}
+.register-content-block{
+    margin-top: 50px;
+}
+.register select option{
+    font-size: 13px;
+    color:#757575;
+    padding: 8px;
 }
 
 .register p.form-note{
@@ -593,7 +607,7 @@ a#register-click{
 	color:#757575;
 }
 .register{
-	max-width: 450px;
+	max-width: 650px;
 }
 .register, #emailLoginForm, #loginform{
 
@@ -623,14 +637,15 @@ a#register-click{
 }
 .register input[type="checkbox"] {
 	width: auto;
-	height: 31px;
+	height: 13px;
 	display: inline-block;
-	position: relative;
-	top: 12px;
+	
 }
 
 .agree{
 	display: inline-block;
+        position: relative;
+        top:-3px;
 }
 /*login popup*/
 .overlay{
