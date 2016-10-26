@@ -32,6 +32,13 @@ register_sidebar( array(
 	'after_title' => '</h3>',
 ) );
 
+/*Remove admin bar for suscribers*/
+add_action('set_current_user', 'cc_hide_admin_bar');
+function cc_hide_admin_bar() {
+  if (!current_user_can('edit_posts')) {
+    show_admin_bar(false);
+  }
+}
 
 /*Remove editor for profile*/
 function remove_editor_profile() {
