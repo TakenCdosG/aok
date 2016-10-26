@@ -85,6 +85,7 @@ function adding_custom_resources() {
 	if(is_page_template( 'templates/template-homepage.php' ) or is_page('for-family-child-care-providers') ){
 		wp_enqueue_script( 'home-js', get_stylesheet_directory_uri() .'/includes/js/home-functions.js');
 		wp_enqueue_script( 'pop-up-login');
+		wp_enqueue_script( 'email-login-form');
 	}
 	
 	if(is_author() ){
