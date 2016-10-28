@@ -129,7 +129,7 @@ add_action( 'wp_enqueue_scripts', 'adding_custom_resources' );
 
 //Read only fields
 function my_acf_load_field( $field ) {
-    echo '<style>textarea{resize:none; border: 0px  !important; background-color: transparent  !important; box-shadow: none  !important; font-weight: bold !important;}</style>';
+    echo '<style>#acf-field-referrer, #acf-field-subscriber-description{resize:none; border: 0px  !important; background-color: transparent  !important; box-shadow: none  !important; font-weight: bold !important;}</style>';
     echo '<script>document.getElementById("acf-field-referrer").readOnly = true; document.getElementById("acf-field-subscriber-description").readOnly = true; </script>';
     return $field;  
 }

@@ -1,5 +1,4 @@
 <?php
-
 function registration_form($first_name, $last_name, $email, $agree ) {
     echo '<div class="register-content-block">';
     if (have_posts()) :
@@ -11,8 +10,7 @@ function registration_form($first_name, $last_name, $email, $agree ) {
     echo '</div>';
     echo '
     <div class="register">
-        <form action="' . $_SERVER['REQUEST_URI'] . '" method="post">
-
+        <form action="' . $_SERVER['REQUEST_URI'] . '" method="post"> 
         <input type="text" name="email" value="' . (isset($_POST['email']) ? $email : null) . '" required hidden> 
         <div class="block">
             <div class="block">
@@ -74,6 +72,7 @@ function registration_form($first_name, $last_name, $email, $agree ) {
 }
 
 function registration_validation($first_name, $last_name, $email, $agree )  {
+    
     global $reg_errors;
     $reg_errors = new WP_Error;
 
@@ -100,7 +99,7 @@ function registration_validation($first_name, $last_name, $email, $agree )  {
 
 function complete_registration() {
 
-    global $reg_errors,$first_name, $last_name, $email,$user;
+    global $reg_errors, $first_name, $last_name, $email, $user;
 
     if ( count($reg_errors->get_error_messages()) < 1 ) {
         $date = new DateTime();
@@ -145,32 +144,32 @@ function complete_registration() {
 function custom_registration_function() {
 
     //var_dump($_POST['submit']);
-    if (true) {
-
-
+    $submit = $_POST['submit'];
+    
+    // sanitize user form input
+    global $first_name, $last_name, $email;
+    $first_name =   sanitize_text_field( $_POST['fname'] );
+    $last_name  =   sanitize_text_field( $_POST['lname'] );
+    $email      =   sanitize_email($_POST['email']);
+    $agree      =   $_POST['agree'];
+        
+    if (!is_null($submit)) {
         registration_validation(
             $_POST['fname'],
             $_POST['lname'],
             $_POST['email'],
             $_POST['agree']
         );
-
-        // sanitize user form input
-        global $first_name, $last_name, $email;
-        $first_name =   sanitize_text_field( $_POST['fname'] );
-        $last_name  =   sanitize_text_field( $_POST['lname'] );
-        $email      =   sanitize_email($_POST['email']);
-        $agree      =   $_POST['agree'];
         
-
         // call @function complete_registration to create the user
         // only when no WP_error is found
+        
         complete_registration(
             $first_name,
             $last_name,
             $email,
             $agree
-        );
+        );  
     }
 
     registration_form(

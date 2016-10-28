@@ -16,16 +16,6 @@
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <?php
-                if ( false !== ( $temp_message = get_transient( 'temporary_message' ) ) ){
-                    echo $temp_message;
-                    delete_transient('temporary_message');
-                }
-                ?>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
                 <h2>Search </h2>
             </div>
             
