@@ -12,16 +12,16 @@
     <form id="search-child-care-form">
       <input type="hidden" id="current_lang" name="current_lang" value="<?php echo $current_lang; ?>">
       <div class="half field">
-        <label for="f-name">First Name: </label>
+        <label for="f-name">Provider First Name: </label>
         <input type="text" name="first_name" label="First Name" >
       </div>
       <div class="half field" style="margin-left:3%;">
-        <label for="l-name">Last Name: </label>
+        <label for="l-name">Provider Last Name: </label>
         <input type="text" name="last_name" label="Last Name" >
       </div>
       <div class="clearfix"></div>
       <div class="full field">
-        <label for="cc-name">Provider: </label>
+        <label for="cc-name">Child Care Name: </label>
         <input type="text" name="child_care_name" label="Child Care Name" >
       </div>
       <div class="clearfix"></div>
