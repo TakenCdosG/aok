@@ -7,7 +7,7 @@
             <label for="email">Email *</label>
             <input name="email" id="email" type="email" class="form-control" placeholder="What is your email?" required>
         </div>
-        <input type="submit" name="wp-submit" id="wp-submit" class="button-primary ajax-button-email-login-form" value="Subscribe">
+        <input type="submit" name="wp-submit" id="wp-submit" class="button-primary ajax-button-email-login-form" value="Submit">
     </form>
 
 </div>
