@@ -79,9 +79,9 @@ function render_google_maps(){
 
 jQuery(document).ready(function($) {
 
-    /*if($_POST["from_home"] == "from_home"){
+    if($_POST["from_home"] == "from_home"){
         jQuery('.ajax-button').trigger('click');
-    }*/
+    }
 
     /*Multiple select*/
     $(function () {

@@ -245,7 +245,7 @@ a, a:hover {
 	background-color: #3e6716;
 	height: 113px;
 }
-.searchbox h1{
+.home.page .searchbox h1{
 	font-size: 34px;
 }
 .searchbox.no-padding h1{
@@ -260,7 +260,7 @@ a, a:hover {
 	color: #ffffff;
 	font-size: 24px;
 }
-.searchbox h2{
+.searchbox h2, .searchbox h1{
 	font-size: 26px;
 }
 .searchbox h1, .searchbox h2{

@@ -82,7 +82,7 @@ function adding_custom_resources() {
 	wp_register_script('pop-up-login', get_stylesheet_directory_uri() .'/includes/js/pop-up-login.js');
 	wp_register_script( 'email-login-form', get_stylesheet_directory_uri() .'/includes/js/email-login-form.js');
 
-	if(is_page_template( 'templates/template-homepage.php' ) or is_page('for-family-child-care-providers') ){
+	if(is_page_template( 'templates/template-homepage.php' ) or is_page('for-family-child-care-providers') or is_page('families') ){
 		wp_enqueue_script( 'home-js', get_stylesheet_directory_uri() .'/includes/js/home-functions.js');
 		wp_enqueue_script( 'pop-up-login');
 		wp_enqueue_script( 'email-login-form');

@@ -37,26 +37,8 @@
 							endif;
 							?>
 						</div>
-						<div class="searchbox-container">
-                                                    <?php if (!is_user_logged_in()) { $logged = "log"; } ?>
-                                                        <div class="searchbox <?php echo $logged; ?>">
+						<?php get_template_part('includes/search-zip-code-widget'); ?>
 
-                                                                <h1> <?php echo get_field("homepage_search_heading", $wp_query->post->ID); ?></h1>
-
-                                                                <form action="find-child-care/" method="POST">
-                                                                                                                                
-                                                                    <a href="#"><input name="zip_code" class="field zip" type="text" value="<?php echo get_field("homepage_zipcode_text", $wp_query->post->ID); ?>"></a>
-                                                                    <div class="clearfix"></div>
-                                                                    <div style="color:#fff">*Email Address Required</div>
-                                                                <input name="from_home" value="from_home" hidden>
-
-                                                                <a href="#"><input class="submit" type="submit" value="<?php echo get_field("homepage_search_button", $wp_query->post->ID); ?>"></a>
-
-                                                                </form>
-                                                                
-                                                                <div class="clearfix"></div>
-                                                        </div>
-						</div>
 						<div class="image-container">
 							<div class="img" style="background-image:url('<?php echo get_field('homepage_right_image', $wp_query->post->ID) ?>')"></div>
 						</div>

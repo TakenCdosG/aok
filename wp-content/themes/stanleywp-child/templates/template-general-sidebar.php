@@ -8,6 +8,7 @@
 <?php get_header(); ?>
 
 <div class="container">
+	<?php get_template_part('includes/email-pop-up-login'); ?>
 	<div class="border">
 		<div class="row">
 			<div class="col-lg-12 nav-head">
@@ -43,16 +44,7 @@
 			</div>
 			<div class="col-lg-3 col-md-3">
 				<div class="sidebar">
-					<div class="searchbox-container">
-						<div class="searchbox">
-							<h2>Where are you looking for child care?</h2>
-							<form action="find-child-care/" method="GET">
-								<input name="zip" class="field" type="text" onfocus="if(this.value == 'Enter Zip Code') { this.value = ''; }" value="Enter Zip Code" >
-								<input class="submit" type="submit" value="SEARCH">
-							</form>
-							<div class="clearfix"></div>
-						</div>
-					</div>
+					<?php get_template_part('includes/search-zip-code-widget'); ?>
 					<?php
 					if(is_active_sidebar('right_sidebar')){
 						dynamic_sidebar('right_sidebar');

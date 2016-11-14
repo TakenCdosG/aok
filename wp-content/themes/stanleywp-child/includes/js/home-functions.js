@@ -51,7 +51,7 @@
   });
 
   $(function(){
-      /* Hide form input values on focus*/ 
+      /* Hide form input values on focus*/
       $('.field.zip').each(function(){
           var txtval = $(this).val();
           $(this).focus(function(){
@@ -66,7 +66,7 @@
           });
       });
   });
-  
+
   
   
 })(jQuery);
