@@ -949,7 +949,7 @@ ol, ul {
 	display: none;
 }
 
-body.page .container {
+body.page .container,body.page .container label {
 	font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 	font-size: 17px;
 	letter-spacing: 0.5px;
