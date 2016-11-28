@@ -948,3 +948,9 @@ ol, ul {
 .goog-te-gadget span{
 	display: none;
 }
+
+body.page .container {
+	font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+	font-size: 17px;
+	letter-spacing: 0.5px;
+}
