@@ -195,3 +195,11 @@ function custom_registration_redirect() {
 }
 
 add_filter( 'user_register', 'custom_registration_redirect' );
+
+/*Email alert for new register*/
+
+function registration_email_alert($user_id) {
+    $message = strip_tags($_POST['email']) . ' Has Registered Successfully';
+    wp_mail( 'melanie@thinkcreativegroup.com', 'New User Has Registered', $message );
+}
+add_action('user_register', 'registration_email_alert');
