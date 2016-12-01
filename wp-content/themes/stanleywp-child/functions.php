@@ -103,6 +103,8 @@ function adding_custom_resources() {
                 wp_enqueue_script( 'multiples-selec-js', get_stylesheet_directory_uri() .'/includes/js/multiple-select/multiple-select.js');
 		wp_enqueue_style( 'multiples-selec-css', get_stylesheet_directory_uri() .'/includes/js/multiple-select/multiple-select.css');
                 wp_enqueue_script( 'register', get_stylesheet_directory_uri() .'/includes/js/register.js');
+                wp_enqueue_script( 'pop-up-login');
+                wp_enqueue_script( 'email-login-form');
 	}
 
 	if(is_page_template( 'templates/template-search-child-care.php' ) ){

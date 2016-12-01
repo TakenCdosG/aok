@@ -61,8 +61,9 @@ function registration_form($first_name, $last_name, $email, $agree ) {
         <h2>Terms & Conditions</h2>
         By clicking the acceptance button below, you acknowledge that you understand that this site provides child care resource information only. The information contained on this site has been provided by the listed providers and is not independently verified by All Our Kin.  The information is submitted and reviewed by All Our Kin periodically.  Accordingly, information contained on this site may not be current.  All Our Kin or its subcontractors do not warrant any information concerning any child care provider, nor do they inspect, investigate, endorse, or recommend, any particular provider. The inclusion of any care provider’s name does not constitute endorsement or certification by All Our Kin as to their qualifications to provide child care, the rates charged for services, or any other aspect of individual program’s quality of care. You are solely responsible for reviewing and selecting a provider that is right for your family.  Any complaints or problems regarding a provider should be directed to the caregiver and/or the State of Connecticut Office of Early Childhood.
         </div>
-        
-        <input type="submit" class="ajax" name="submit" value="Submit"/>
+        <div class="'. (isset($_POST['email']) ? $csslass:"log" ) .'">
+            <a><input type="submit" class="ajax" name="submit" value="Submit"/></a>
+        </div>        
         <div>
         <p class="form-note">By registering, you represent that you have read, understood and agree to these terms.</p>
         </div>
