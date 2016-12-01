@@ -87,6 +87,8 @@ a, a:hover {
 	color:#598325 !important;
 	text-transform: uppercase;
 	background-color: transparent !important;
+        font-size:15px;
+        padding:15px 8px !important;
 }
 .nav-head{
 	/*margin-top: -8px;
@@ -741,7 +743,7 @@ ol, ul {
 	}
 
 	.navbar-nav > li > a {
-		font-size: 12px;
+		font-size: 11px;
 	}
 
 	.searchbox.no-padding h1 {
