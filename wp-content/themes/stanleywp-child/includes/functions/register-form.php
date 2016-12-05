@@ -134,6 +134,13 @@ function complete_registration() {
        
         update_user_meta($user, 'referrer', $referrer);
         update_user_meta($user, 'subscriber-description', $description);
+        
+        /*Email alert for new register*/
+        
+        $message = strip_tags($_POST['email']) .  " Has Registered Successfully! \n \n".
+        "How did you hear about the Provider Showcase?: \n".$referrer."\n \n".
+        "Please check the description that most accurately represents you: \n".$description;
+        wp_mail( 'melanie@thinkcreativegroupoo.com', 'New User Has Registered', $message );
 
         //echo 'Registration complete. Goto <a href="' . get_site_url() . '/wp-login.php">login page</a>.';
 
@@ -196,11 +203,3 @@ function custom_registration_redirect() {
 }
 
 add_filter( 'user_register', 'custom_registration_redirect' );
-
-/*Email alert for new register*/
-
-function registration_email_alert($user_id) {
-    $message = strip_tags($_POST['email']) . ' Has Registered Successfully';
-    wp_mail( 'melanie@thinkcreativegroup.com', 'New User Has Registered', $message );
-}
-add_action('user_register', 'registration_email_alert');
