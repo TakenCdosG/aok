@@ -159,7 +159,7 @@ $label_before_after_school = $before_after_school['choices'][ $value_before_afte
 							<div class="clearfix"></div>
 						</div>
 						<div>
-							<p class="small"><a href="<?php echo $p_accreditation_information_link ; ?>">Click here</a> to learn more about accreditation information</p>
+							<p class="small"><a href="<?php echo $p_accreditation_information_link ; ?>">Click here</a> to learn more about the Provider Showcase levels.</p>
 						</div>
 					</div>
 				</div>
