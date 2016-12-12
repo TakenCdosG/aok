@@ -152,9 +152,9 @@ $label_before_after_school = $before_after_school['choices'][ $value_before_afte
 					<div class="col-lg-12">
 						<div class="profile grey list">
 							<ul>
-								<li><h5>Provider Showcase Level</h5><br><?php echo $p_qsp_level; ?></li>
+								<li><h5>Provider Showcase Level</h5><br><?php echo $p_showcase_level; ?></li>
 								<li><h5>Date Issued</h5><br><?php echo $p_date_issued; ?></li>
-								<li><h5>Expiration date</h5><br><?php echo $p_expiration_date_qsp; ?></li>
+								<li><h5>Expiration date</h5><br><?php echo $p_accreditation_expiration_date; ?></li>
 							</ul>
 							<div class="clearfix"></div>
 						</div>
