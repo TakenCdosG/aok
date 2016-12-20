@@ -140,7 +140,7 @@ function complete_registration() {
         $message = strip_tags($_POST['email']) .  " Has Registered Successfully! \n \n".
         "How did you hear about the Provider Showcase?: \n".$referrer."\n \n".
         "Please check the description that most accurately represents you: \n".$description;
-        wp_mail( 'melanie@thinkcreativegroup.com', 'New User Has Registered', $message );
+        wp_mail( 'providershowcase@allourkin.org', 'New User Has Registered', $message );
 
         //echo 'Registration complete. Goto <a href="' . get_site_url() . '/wp-login.php">login page</a>.';
 
